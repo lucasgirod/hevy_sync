@@ -25,16 +25,6 @@ optional arguments:
                         username to log in to Garmin Connect.
   --garmin-password GARMIN_PASSWORD, --gp GARMIN_PASSWORD
                         password to log in to Garmin Connect.
-  --fromdate DATE, -f DATE
-  --todate DATE, -t DATE
-  --to-fit, -F          Write output file in FIT format.
-  --to-json, -J         Write output file in JSON format.
-  --output BASENAME, -o BASENAME
-                        Write downloaded measurements to file.
-  --features            Enable Features
-                        BLOOD_PRESSURE = sync blood pressure
-  --no-upload           Won't upload to Garmin Connect.
-  --verbose, -v         Run verbosely
 ```
 
 ### Providing credentials via environment variables
