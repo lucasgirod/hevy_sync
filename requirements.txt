@@ -3,3 +3,4 @@ requests
 garth
 fit_tool
 garminconnect
+python-dateutil

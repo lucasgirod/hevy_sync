@@ -30,6 +30,7 @@ setup(
         "requests==2.31.0",
         "garth==0.4.46",
         "python-dotenv",
+        "python-dateutil",
         "fit_tool"],
     entry_points={
         "console_scripts": ["hevy-sync=hevy_sync.sync_app:main"],
