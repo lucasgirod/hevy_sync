@@ -1,0 +1,10 @@
+garmin_tokens.json/
+temp_fit_files/
+*.pyc
+*.egg-info/
+dist/
+.idea
+*.json
+.env
+.DS_Store
+last_sync_date.txt
