@@ -1,20 +1,17 @@
-FROM python:3.12-alpine
+FROM python:3.14-slim
 
-# Install python-lxml
-RUN apk add --no-cache --virtual .build-deps \
-    gcc musl-dev \
-    libxslt-dev libxml2-dev && \
-    pip install lxml setuptools && \
-    apk del .build-deps && \
-    apk add --no-cache libxslt libxml2
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    HEVY_SYNC_CONFIG_DIR=/config
 
-RUN pip install --upgrade pip
+WORKDIR /app
 
-RUN mkdir -p /src
-COPY . /src
+COPY pyproject.toml README.md ./
+COPY hevy_sync ./hevy_sync
 
-RUN cd /src && \
-    pip install .
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel \
+    && pip install --no-cache-dir .
 
-WORKDIR /src
+RUN mkdir -p /config /tmp/hevy-sync
+
 ENTRYPOINT ["hevy-sync"]

@@ -1,3 +1,13 @@
 .git
-Dockerfile
-.dockerignore
+.github
+.venv
+*.pyc
+*.egg-info
+__pycache__
+dist
+build
+.env
+config
+temp_fit_files
+garmin_tokens*
+last_sync_date.txt

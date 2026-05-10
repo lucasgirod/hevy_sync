@@ -1,259 +1,77 @@
 # hevy-sync
 
-A tool for synchronisation of the hevy API to:
+Synchronisiert Hevy-Workouts als FIT-Aktivitäten nach Garmin Connect.
 
-- Garmin Connect
-- raw JSON output
+## Konfiguration
 
-## Installation
-
-```bash
-$ pip install hevy-sync
-```
-
-## Usage
-
-```
-usage: hevy-sync [-h] [--garmin-username GARMIN_USERNAME] [--garmin-password GARMIN_PASSWORD] [--fromdate DATE]
-                     [--todate DATE] [--to-fit] [--to-json] [--output BASENAME] [--no-upload] [--verbose]
-
-A tool for synchronisation of hevy to Garmin Connect or to provide a json string.
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --garmin-username GARMIN_USERNAME, --gu GARMIN_USERNAME
-                        username to log in to Garmin Connect.
-  --garmin-password GARMIN_PASSWORD, --gp GARMIN_PASSWORD
-                        password to log in to Garmin Connect.
-```
-
-### Providing credentials via environment variables
-
-You can use the following environment variables for providing the Garmin credentials:
-
-- `GARMIN_USERNAME`
-- `GARMIN_PASSWORD`
-
-The CLI also uses python-dotenv to populate the variables above. Therefore setting the environment variables
-has the same effect as placing the variables in a `.env` file in the working directory.
-
-### Providing credentials via secrets files
-
-You can also populate the following 'secrets' files to provide the Garmin credentials:
-
-- `/run/secrets/garmin_username`
-- `/run/secrets/garmin_password`
-
-Secrets are useful in an orchestrated container context — see the [Docker Swarm](https://docs.docker.com/engine/swarm/secrets/) or [Rancher](https://rancher.com/docs/rancher/v1.6/en/cattle/secrets/) docs for more information on how to securely inject secrets into a container.
-
-### Order of priority for credentials
-
-In the case of credentials being available via multiple means (e.g. [environment variables](#providing-credentials-via-environment-variables) and [secrets files](#providing-credentials-via-secrets-files)), the order of resolution for determining which credentials to use is as follows, with later methods overriding credentials supplied by an earlier method:
-
-1. Read secrets file(s)
-2. Read environment variable(s), variables set explicitly take precedence over values from a `.env` file.
-3. Use command invocation argument(s)
-
-### Obtaining hevy Authorization Code
-
-When running for a very first time, you need to obtain hevy authorization:
+Die App liest Environment-Variablen und optional eine lokale `.env` Datei:
 
 ```bash
-$ hevy-sync -f 2019-01-25 -v
-Can't read config file config/hevy_user.json
-User interaction needed to get Authentification Code from hevy!
-
-Open the following URL in your web browser and copy back the token. You will have *30 seconds* before the token expires. HURRY UP!
-(This is one-time activity)
-
-
-***** => STIMMT NOCH NICHT
-https://account.hevy.com/oauth2_user/authorize2?response_type=code&client_id=183e03e1f363110b3551f96765c98c10e8f1aa647a37067a1cb64bbbaf491626&state=OK&scope=user.metrics&redirect_uri=https://wieloryb.uk.to/hevy/hevy.html&
-
-Token :
+HEVY_API_KEY="..."
+GARMIN_USERNAME="you@example.com"
+GARMIN_PASSWORD="..."
+TZ="Europe/Zurich"
 ```
 
-You need to visit the URL listed by the script and then - copy Authentification Code back to the prompt.
-
-This is one-time activity and it will not be needed to repeat.
-
-
-## Tips
-
-### Garmin SSO errors
-
-Some users reported errors raised by the Garmin SSO login:
-
-```
-hevy_sync.garmin.APIException: SSO error 401
-```
-
-or 
-
-```
-hevy_sync.garmin.APIException: SSO error 403
-```
-
-These errors are raised if a user tries to login too frequently.
-E.g. by running the script every 10 minutes.
-
-**We recommend to run the script around 8-10 times per day (every 2-3 hours).**
-
-### Docker
-
-```
-$ docker pull github.com/lucasgirod/hevy-sync:master
-```
-
-First start to ensure the script can start successfully:
-
-
-Obtaining hevy authorisation:
-
-```
-$ docker run -v $HOME:/root --interactive --tty --name hevy github.com/lucasgirod/hevy-sync:master --garmin-username=<username> --garmin-password=<password>
-
-Can't read config file config/hevy_user.json
-User interaction needed to get Authentification Code from hevy!
-
-Open the following URL in your web browser and copy back the token. You will have *30 seconds* before the token expires. HURRY UP!
-(This is one-time activity)
-
-**** STIMMT NOCH NICHT
-https://account.hevy.com/oauth2_user/authorize2?response_type=code&client_id=183e03e1f363110b3551f96765c98c10e8f1aa647a37067a1cb64bbbaf491626&state=OK&scope=user.metrics&redirect_uri=https://wieloryb.uk.to/hevy/hevy.html&
-
-Token : <token>
-hevy: Get Access Token
-hevy: Refresh Access Token
-hevy: Get Measurements
-   Measurements received
-JaHa.WAW.PL
-Garmin Connect User Name: JaHa.WAW.PL
-Fit file uploaded to Garmin Connect
-```
-
-And for subsequent runs:
-
-```
-$ docker start -i hevy
-hevy: Refresh Access Token
-hevy: Get Measurements
-   Measurements received
-JaHa.WAW.PL
-Garmin Connect User Name: JaHa.WAW.PL
-Fit file uploaded to Garmin Connect
-```
-### Garmin auth
-
-You can configure the location of the garmin session file with the variabe `GARMIN_SESSION`.
-
-### Run a periodic Kubernetes job
-
-Edit the credentials in `contrib/k8s-job.yaml` and run:
+Optionale Pfade:
 
 ```bash
-$ kubectl apply -f contrib/k8s-job.yaml
+HEVY_SYNC_CONFIG_DIR="./config"
+GARMIN_TOKENS_DIR="./config/garmin_tokens"
+LAST_SYNC_DATE_FILE="./config/last_sync_date.txt"
+TEMP_FIT_DIR="/tmp/hevy-sync"
+LOG_LEVEL="INFO"
 ```
 
-### For advanced users - registering own hevy application
+`GARMIN_EMAIL` und `GARMIN_TOKENS_FILE` werden aus alten Installationen weiterhin als Fallback akzeptiert.
 
-The script has been registered as a hevy application and got assigned `Client ID` and `Consumer Secret`. If you wish to create your own application - feel free! 
+## Lokal ausfuehren
 
-
-* First you need a hevy account. [Sign up here](https://account.hevy.com/connectionuser/account_create).
-* Then you need a hevy developer app registered. [Create your app here](https://account.hevy.com/partner/add_oauth2).
-
-Note, registering it is quite cumbersome, as you need to have a callback URL and an Icon. Anyway, when done, you should have the following identifiers:
-
-| Identfier       |  Example                                                           |
-|-----------------|--------------------------------------------------------------------|
-| Client ID       | `183e03.................765c98c10e8f1aa647a37067a1......baf491626` |
-| Consumer Secret | `a75d65.................4c16719ef7bd69fa7c5d3fd0ea......ed48f1765` |
-| Callback URI    | `https://jhartman.pl/hevy/notify`                              |
-
-Configure them in `config/hevy_app.json`, for example:
-
-```
-{
-    "callback_url": "https://wieloryb.uk.to/hevy/hevy.html",
-    "client_id": "183e0******0b3551f96765c98c1******b64bbbaf491626",
-    "consumer_secret": "a75d65******1df1514c16719ef7bd69fa7*****2e2b0ed48f1765"
-}
+```bash
+python -m venv .venv
+. .venv/bin/activate
+pip install -e .
+cp .env.sample .env
+hevy-sync
 ```
 
-For the callback URL you will need to setup a webserver hosting `contrib/hevy.html`.
+Beim ersten Lauf meldet sich die App bei Garmin an und speichert Tokens unter `GARMIN_TOKENS_DIR`. Der naechste Hevy-Zeitpunkt wird in `LAST_SYNC_DATE_FILE` persistiert.
 
-To do this in a Docker installation, you can use the environment variable `hevy_APP` to point to a mounted `hevy_app.json`
+## Docker
 
-Example docker-compose:
-```
-  hevy-sync:
-    container_name: hevy-sync
-    image: github.com/lucasgirod/hevy-sync:latest
-    volumes:
-      - "hevy-sync:/root"
-      - "/etc/localtime:/etc/localtime:ro"
-    environment:
-      hevy_APP: /root/hevy_app.json
-(...)
-```
-You can then add the app-config in `hevy-sync/hevy_app.json`
+Image bauen:
 
-
-### Run a periodic docker-compose cronjob
-
-We take the official docker image and override the entrypoint to crond.
-
-If you have completed the initial setup (hevy_user.json created and working), you can create the following config
-
-```
-version: "3.8"
-services:
-  hevy-sync:
-    container_name: hevy-sync
-    image: github.com/lucasgirod/hevy-sync:master
-    volumes:
-      - "${VOLUME_PATH}/hevy-sync:/root" 
-      - /etc/localtime:/etc/localtime:ro
-    environment:
-      - TZ=${TIME_ZONE}
-    entrypoint: "/root/entrypoint.sh"
+```bash
+docker build -t hevy-sync .
 ```
 
-The `entrypoint.sh` will then register the cronjob. For example:
+Einmalig interaktiv ausfuehren:
 
+```bash
+docker run --rm -it \
+  -e HEVY_API_KEY="$HEVY_API_KEY" \
+  -e GARMIN_USERNAME="$GARMIN_USERNAME" \
+  -e GARMIN_PASSWORD="$GARMIN_PASSWORD" \
+  -v hevy-sync-lucas:/config \
+  hevy-sync
 ```
+
+## Docker Compose
+
+Dieses Repository enthaelt ein `compose.yaml`, das zum bestehenden `withings-sync` Muster passt:
+
+```bash
+docker volume create hevy-sync-lucas
+docker compose run --rm hevy-sync
+```
+
+Wenn du das konfigurierte `entrypoint: "sh /config/entrypoint.sh"` nutzt, muss im Volume `/config/entrypoint.sh` existieren. Beispiel:
+
+```sh
 #!/bin/sh
-echo "$(( $RANDOM % 59 +0 )) */3 * * * hevy-sync --gu garmin-username --gp 'mypassword' -v | tee -a /root/hevy-sync.log" > /etc/crontabs/root
-crond -f -l 6 -L /dev/stdout
+hevy-sync
 ```
-
-This will run the job every 3 hours (at a random minute) and writing the output to console and the `/root/hevy-sync.log`.
 
 ## Release
 
-Release works via the GitHub [Draft a new Release](https://github.com/lucasgirod/hevy-sync/releases/new) 
-function.
-The `version` key in `setup.py` will be bumped automatically (Version will be written to setup.py file).
-
-### Docker Image
-
-An image is created magically by GitHub Action and published 
-to [ghcr](https://github.com/jaroslawhartman/hevy-sync/pkgs/container/hevy-sync).
-
-### Manual release: pypi
-
-Will be conducted automatically within the Github-Release cycle.
-You'll find a script to create and upload a release to pypi here `contrib/do_release.sh`.
-It requires [twine](https://pypi.org/project/twine/).
-This needs the permission on the [pypi-project](https://pypi.org/project/hevy-sync/).
-
-## References
-
-* SSO authorization derived from https://github.com/cpfair/tapiriik
-
-## Credits / Authors
-
-* Based on [withings-sync](https://github.com/jaroslawhartman/withings-sync) by Jarek Hartman.
-* Based on [withings-garmin](https://github.com/ikasamah/withings-garmin) by Masayuki Hamasaki, improved to support SSO authorization in Garmin Connect 2.
-* Based on [withings-garmin-v2](https://github.com/jaroslawhartman/withings-garmin-v2) by Jarek Hartman, improved Python 3 compatability, code-style and setuptools packaging, Kubernetes and Docker support. 
+GitHub Actions baut und veroeffentlicht das Docker Image nach `ghcr.io/lucasgirod/hevy-sync` bei Pushes auf `main`, Release-Tags `v*.*.*`, manuellen Runs und dem 5-Tage-Schedule. Pull Requests bauen das Image ohne Push.

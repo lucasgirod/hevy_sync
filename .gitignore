@@ -1,8 +1,13 @@
 garmin_tokens.json/
+garmin_tokens/
+config/
 temp_fit_files/
 *.pyc
+__pycache__/
 *.egg-info/
 dist/
+build/
+.venv/
 .idea
 *.json
 .env

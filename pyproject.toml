@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=82.0.1", "wheel>=0.47.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hevy-sync"
+version = "1.0.0.dev1"
+description = "A tool for synchronising Hevy workouts to Garmin Connect."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "Lucas Girod", email = "noreply@girod-steiger.ch" },
+]
+keywords = ["garmin", "hevy", "sync", "fitness"]
+classifiers = [
+  "Topic :: Utilities",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+  "fit-tool==0.9.15",
+  "garminconnect==0.3.3",
+  "python-dotenv==1.2.2",
+  "requests==2.33.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/lucasgirod/hevy-sync"
+Repository = "https://github.com/lucasgirod/hevy-sync"
+
+[project.scripts]
+hevy-sync = "hevy_sync.sync_app:main"
+
+[tool.setuptools.packages.find]
+include = ["hevy_sync*"]

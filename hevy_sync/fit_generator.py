@@ -1,37 +1,46 @@
-import datetime
-import os
 import logging
-from fit_tool.fit_file import FitFile
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
 from fit_tool.fit_file_builder import FitFileBuilder
-from fit_tool.profile.messages.file_id_message import FileIdMessage
-from fit_tool.profile.messages.session_message import SessionMessage
-from fit_tool.profile.messages.event_message import EventMessage
-from fit_tool.profile.messages.record_message import RecordMessage
-from fit_tool.profile.messages.lap_message import LapMessage
 from fit_tool.profile.messages.activity_message import ActivityMessage
-from fit_tool.profile.profile_type import FileType, Manufacturer, Sport, Event, EventType
+from fit_tool.profile.messages.event_message import EventMessage
+from fit_tool.profile.messages.file_id_message import FileIdMessage
+from fit_tool.profile.messages.lap_message import LapMessage
+from fit_tool.profile.messages.record_message import RecordMessage
+from fit_tool.profile.messages.session_message import SessionMessage
+from fit_tool.profile.profile_type import (
+    Event,
+    EventType,
+    FileType,
+    Manufacturer,
+    Sport,
+    SubSport,
+)
 
 logger = logging.getLogger(__name__)
+
 
 class FitGenerator:
     """
     Generates Garmin FIT-Activity-Dateien aus Hevy-Trainingsdaten.
     """
-    def generate_strength_activity_fit(self, hevy_workout_data: dict, output_dir: str = "temp_fit_files") -> str:
-        if not os.path.exists(output_dir):
-            os.makedirs(output_dir)
 
-        start_datetime = datetime.datetime.fromisoformat(hevy_workout_data['start_time'].replace("Z", "+00:00"))
-        end_datetime = datetime.datetime.fromisoformat(hevy_workout_data['end_time'].replace("Z", "+00:00"))
+    def generate_strength_activity_fit(self, hevy_workout_data: dict, output_dir: Path | str) -> str:
+        output_path = Path(output_dir)
+        output_path.mkdir(parents=True, exist_ok=True)
+
+        start_datetime = datetime.fromisoformat(hevy_workout_data["start_time"].replace("Z", "+00:00"))
+        end_datetime = datetime.fromisoformat(hevy_workout_data["end_time"].replace("Z", "+00:00"))
         logger.debug(f"Parsed start_datetime: {start_datetime.isoformat()}")
         logger.debug(f"Parsed end_datetime: {end_datetime.isoformat()}")
 
         if start_datetime.tzinfo is None:
-            start_datetime = start_datetime.replace(tzinfo=datetime.timezone.utc)
+            start_datetime = start_datetime.replace(tzinfo=timezone.utc)
         if end_datetime.tzinfo is None:
-            end_datetime = end_datetime.replace(tzinfo=datetime.timezone.utc)
+            end_datetime = end_datetime.replace(tzinfo=timezone.utc)
 
-        garmin_epoch = datetime.datetime(1989, 12, 31, tzinfo=datetime.timezone.utc)
+        garmin_epoch = datetime(1989, 12, 31, tzinfo=timezone.utc)
         timestamp_fit_start = int((start_datetime - garmin_epoch).total_seconds())
         timestamp_fit_end = int((end_datetime - garmin_epoch).total_seconds())
         logger.debug(f"FIT timestamp start: {timestamp_fit_start}")
@@ -61,13 +70,8 @@ class FitGenerator:
         session_message.start_position_long = 0
         session_message.total_elapsed_time = total_elapsed_time_seconds
         session_message.total_timer_time = total_elapsed_time_seconds
-
-        import pprint
-        pprint.pprint(list(Sport))
-
-        #session_message.sport = Sport.STRENGTH_TRAINING
         session_message.sport = Sport.TRAINING
-        session_message.sub_sport = 20 # Strength_Trainng
+        session_message.sub_sport = SubSport.STRENGTH_TRAINING
         session_message.total_calories = total_calories
         session_message.avg_heart_rate = 0
         session_message.max_heart_rate = 0
@@ -103,9 +107,7 @@ class FitGenerator:
             exercise_title = exercise.get("title", "Unnamed Exercise")
             logger.debug(f"Processing exercise {idx+1}: {exercise_title}")
 
-            exercise_start_time = start_datetime + datetime.timedelta(seconds=current_timestamp_offset)
-            #timestamp_fit_exercise_start = int((exercise_start_time - garmin_epoch).total_seconds())
-            #logger.debug(f"Timestamp fit exercise start: {timestamp_fit_exercise_start} sec")
+            exercise_start_time = start_datetime + timedelta(seconds=current_timestamp_offset)
 
             record_message = RecordMessage()
             record_message.timestamp = round(exercise_start_time.timestamp() * 1000)
@@ -119,7 +121,7 @@ class FitGenerator:
             logger.debug(f"Exercise duration estimated: {exercise_duration} sec")
             current_timestamp_offset += exercise_duration
 
-        expected_end_timestamp = int((start_datetime + datetime.timedelta(seconds=current_timestamp_offset) - garmin_epoch).total_seconds())
+        expected_end_timestamp = int((start_datetime + timedelta(seconds=current_timestamp_offset) - garmin_epoch).total_seconds())
         if not exercises or timestamp_fit_end > expected_end_timestamp:
             final_record_message = RecordMessage()
             final_record_message.timestamp = round(end_datetime.timestamp() * 1000)
@@ -158,8 +160,8 @@ class FitGenerator:
         # Build and save FIT file
         fit_file = builder.build()
         file_name = f"hevy_strength_workout_{start_datetime.strftime('%Y%m%d_%H%M%S')}.fit"
-        output_path = os.path.join(output_dir, file_name)
-        fit_file.to_file(output_path)
-        logger.info(f"FIT file generated: {output_path}")
+        fit_file_path = output_path / file_name
+        fit_file.to_file(str(fit_file_path))
+        logger.info(f"FIT file generated: {fit_file_path}")
 
-        return output_path
+        return str(fit_file_path)

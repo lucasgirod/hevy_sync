@@ -1,39 +1,54 @@
-import os
 import logging
+import os
 import sys
-from dotenv import dotenv_values
+from pathlib import Path
 
-# Load environment variables from.env file
-config = dotenv_values(".env")
+from dotenv import load_dotenv
 
-# Hevy API Key
-HEVY_API_KEY = config.get("HEVY_API_KEY")
+load_dotenv()
 
-# Garmin Connect Credentials
-GARMIN_EMAIL = config.get("GARMIN_EMAIL")
-GARMIN_PASSWORD = config.get("GARMIN_PASSWORD")
+CONFIG_DIR = Path(os.getenv("HEVY_SYNC_CONFIG_DIR", ".")).expanduser()
+HEVY_API_KEY = os.getenv("HEVY_API_KEY")
 
-# File paths for persistence
-GARMIN_TOKENS_FILE = config.get("GARMIN_TOKENS_FILE", "./garmin_tokens.json")
-LAST_SYNC_DATE_FILE = config.get("LAST_SYNC_DATE_FILE", "./last_sync_date.txt")
+GARMIN_USERNAME = os.getenv("GARMIN_USERNAME") or os.getenv("GARMIN_EMAIL")
+GARMIN_PASSWORD = os.getenv("GARMIN_PASSWORD")
 
-# Logging configuration
-LOG_LEVEL = config.get("LOG_LEVEL", "INFO").upper()
+legacy_tokens_file = os.getenv("GARMIN_TOKENS_FILE")
+if os.getenv("GARMIN_TOKENS_DIR"):
+    tokens_dir = os.getenv("GARMIN_TOKENS_DIR")
+elif legacy_tokens_file:
+    legacy_path = Path(legacy_tokens_file)
+    tokens_dir = str(legacy_path.with_suffix("") if legacy_path.suffix else legacy_path)
+else:
+    tokens_dir = str(CONFIG_DIR / "garmin_tokens")
 
-# Configure logging
+GARMIN_TOKENS_DIR = Path(tokens_dir).expanduser()
+LAST_SYNC_DATE_FILE = Path(
+    os.getenv("LAST_SYNC_DATE_FILE", str(CONFIG_DIR / "last_sync_date.txt"))
+).expanduser()
+TEMP_FIT_DIR = Path(os.getenv("TEMP_FIT_DIR", "/tmp/hevy-sync")).expanduser()
+
+LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
+
 logging.basicConfig(
     level=getattr(logging, LOG_LEVEL),
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[
-            logging.StreamHandler(sys.stdout)
-        ]
+        logging.StreamHandler(sys.stdout)
+    ]
 )
 logger = logging.getLogger(__name__)
 
-# Validate essential configurations
-if not HEVY_API_KEY:
-    logger.error("HEVY_API_KEY is not set in .env file.")
-    exit(1)
-if not GARMIN_EMAIL or not GARMIN_PASSWORD:
-    logger.error("GARMIN_EMAIL or GARMIN_PASSWORD is not set in .env file.")
-    exit(1)
+
+def validate_config() -> None:
+    missing = []
+    if not HEVY_API_KEY:
+        missing.append("HEVY_API_KEY")
+    if not GARMIN_USERNAME:
+        missing.append("GARMIN_USERNAME")
+    if not GARMIN_PASSWORD:
+        missing.append("GARMIN_PASSWORD")
+
+    if missing:
+        logger.error("Missing required configuration: %s", ", ".join(missing))
+        raise SystemExit(1)

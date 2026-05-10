@@ -1,0 +1,21 @@
+services:
+  hevy-sync:
+    image: ghcr.io/lucasgirod/hevy-sync:latest
+    container_name: hevy-sync-lucas
+    stdin_open: true
+    tty: true
+    environment:
+      - TZ=${TZ:?err}
+      - HEVY_API_KEY=${HEVY_API_KEY:?err}
+      - GARMIN_USERNAME=${GARMIN_USERNAME:?err}
+      - GARMIN_PASSWORD=${GARMIN_PASSWORD:?err}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - hevy-sync-lucas:/config
+    entrypoint: "sh /config/entrypoint.sh"
+    restart: no
+
+volumes:
+  hevy-sync-lucas:
+    external: true

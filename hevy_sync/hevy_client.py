@@ -1,12 +1,11 @@
 import requests
-import datetime
 import logging
 import time
-from dateutil.parser import isoparse
+from datetime import datetime
 
-from .config import HEVY_API_KEY
 
 logger = logging.getLogger(__name__)
+
 
 class HevyClient:
     """
@@ -22,7 +21,7 @@ class HevyClient:
         })
         logger.info("HevyClient initialisiert.")
 
-    def get_workout_events_since(self, since_datetime: datetime.datetime) -> list:
+    def get_workout_events_since(self, since_datetime: datetime) -> list:
         """
         Holt alle Workout-Events seit dem gegebenen Zeitpunkt.
 
@@ -45,7 +44,7 @@ class HevyClient:
             }
 
             try:
-                response = self.session.get(url, params=params)
+                response = self.session.get(url, params=params, timeout=30)
                 response.raise_for_status()
                 data = response.json()
 
@@ -60,16 +59,18 @@ class HevyClient:
                         all_workouts.append(event["workout"])
                     elif event.get("type") == "deleted":
                         logger.debug(f"Ignoriere gelöschtes Workout {event.get('id')}")
+                    else:
+                        logger.warning("Ignoriere unbekanntes Workout-Event: %s", event.get("type"))
 
                 page += 1
                 time.sleep(0.2)
 
             except requests.exceptions.RequestException as e:
                 logger.error(f"Fehler beim Abrufen von Workout-Events (Seite {page}): {e}")
-                break
+                raise
             except ValueError as e:
                 logger.error(f"Fehler beim Parsen der Antwort (Seite {page}): {e}")
-                break
+                raise
 
         logger.info(f"Insgesamt {len(all_workouts)} Workouts seit {since_datetime} erhalten.")
         return all_workouts
