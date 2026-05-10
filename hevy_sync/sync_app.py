@@ -96,7 +96,7 @@ def main() -> int:
         fit_file_path = None
         try:
             fit_file_path = fit_generator.generate_strength_activity_fit(workout, output_dir=TEMP_FIT_DIR)
-            if garmin_client.upload_activity_file(fit_file_path, workout.get("title")):
+            if garmin_client.upload_activity_file(fit_file_path, workout.get("title"), workout=workout):
                 logger.info(f"Synced workout '{workout.get('title')}' to Garmin Connect.")
                 successful_uploads += 1
             else:
