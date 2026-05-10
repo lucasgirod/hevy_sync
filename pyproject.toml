@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=82.0.1", "wheel>=0.47.0"]
+requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,7 +7,7 @@ name = "hevy-sync"
 version = "1.0.0.dev1"
 description = "A tool for synchronising Hevy workouts to Garmin Connect."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.14"
 authors = [
   { name = "Lucas Girod", email = "noreply@girod-steiger.ch" },
 ]
@@ -16,16 +16,13 @@ classifiers = [
   "Topic :: Utilities",
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-  "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3.14",
 ]
 dependencies = [
-  "fit-tool==0.9.15",
-  "garminconnect==0.3.3",
-  "python-dotenv==1.2.2",
-  "requests==2.33.1",
+  "fit-tool",
+  "garminconnect",
+  "python-dotenv",
+  "requests",
 ]
 
 [project.urls]

@@ -74,4 +74,4 @@ hevy-sync
 
 ## Release
 
-GitHub Actions baut und veroeffentlicht das Docker Image nach `ghcr.io/lucasgirod/hevy-sync` bei Pushes auf `main`, Release-Tags `v*.*.*`, manuellen Runs und dem 5-Tage-Schedule. Pull Requests bauen das Image ohne Push.
+GitHub Actions baut und veroeffentlicht das Docker Image nach `ghcr.io/lucasgirod/hevy_sync` bei Pushes auf `main`, Release-Tags `v*.*.*`, manuellen Runs und dem 5-Tage-Schedule. Pull Requests bauen das Image ohne Push.

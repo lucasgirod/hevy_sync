@@ -1,4 +1,4 @@
-fit-tool==0.9.15
-garminconnect==0.3.3
-python-dotenv==1.2.2
-requests==2.33.1
+fit-tool
+garminconnect
+python-dotenv
+requests
