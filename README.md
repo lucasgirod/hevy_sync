@@ -52,25 +52,19 @@ docker run --rm -it \
   -e HEVY_API_KEY="$HEVY_API_KEY" \
   -e GARMIN_USERNAME="$GARMIN_USERNAME" \
   -e GARMIN_PASSWORD="$GARMIN_PASSWORD" \
-  -v hevy-sync-lucas:/config \
-  hevy-sync
+  -v "<instance-name>-config:/config" \
+  ghcr.io/lucasgirod/hevy_sync:latest
 ```
 
 ## Docker Compose
 
-Dieses Repository enthaelt ein `compose.yaml`, das zum bestehenden `withings-sync` Muster passt:
+Dieses Repository enthaelt ein `compose.yaml` fuer einen direkt startbaren Container:
 
 ```bash
-docker volume create hevy-sync-lucas
 docker compose run --rm hevy-sync
 ```
 
-Wenn du das konfigurierte `entrypoint: "sh /config/entrypoint.sh"` nutzt, muss im Volume `/config/entrypoint.sh` existieren. Beispiel:
-
-```sh
-#!/bin/sh
-hevy-sync
-```
+Der Container nutzt den EntryPoint aus dem Docker Image. Das Compose-Volume speichert nur Laufzeitdaten wie Garmin-Tokens und den letzten Sync-Zeitpunkt. Der Volume-Name wird von Docker Compose pro Projekt/Stack namespaced, sodass mehrere Instanzen auf demselben Host laufen koennen.
 
 ## Release
 

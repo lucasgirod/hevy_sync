@@ -1,7 +1,6 @@
 services:
   hevy-sync:
     image: ghcr.io/lucasgirod/hevy_sync:latest
-    container_name: hevy-sync-lucas
     stdin_open: true
     tty: true
     environment:
@@ -12,10 +11,8 @@ services:
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - hevy-sync-lucas:/config
-    entrypoint: "sh /config/entrypoint.sh"
+      - config:/config
     restart: no
 
 volumes:
-  hevy-sync-lucas:
-    external: true
+  config:
