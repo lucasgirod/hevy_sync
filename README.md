@@ -58,10 +58,10 @@ docker run --rm -it \
 
 ## Docker Compose
 
-Dieses Repository enthaelt ein `compose.yaml` fuer einen direkt startbaren Container:
+Dieses Repository enthaelt ein `docker-compose.yaml` fuer einen direkt startbaren Container:
 
 ```bash
-docker compose run --rm hevy-sync
+docker compose -f docker-compose.yaml run --rm hevy-sync
 ```
 
 Der Container nutzt den EntryPoint aus dem Docker Image. Das Compose-Volume speichert nur Laufzeitdaten wie Garmin-Tokens und den letzten Sync-Zeitpunkt. Der Volume-Name wird von Docker Compose pro Projekt/Stack namespaced, sodass mehrere Instanzen auf demselben Host laufen koennen.
