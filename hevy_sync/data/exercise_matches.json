@@ -1,0 +1,3912 @@
+{
+  "description": "Hevy exercise names mapped to Garmin FIT exercise category/name pairs. Seeded mostly from drkostas/hevy2garmin and copied to the config volume on first run for manual correction.",
+  "matches": {
+    "21s biceps curl": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "BARBELL_BICEPS_CURL",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "21s Bicep Curl",
+      "hevy_title": "21s Bicep Curl",
+      "source": "drkostas/hevy2garmin"
+    },
+    "ab scissors": {
+      "garmin_category": "CORE",
+      "garmin_category_id": 5,
+      "garmin_exercise": "BICYCLE",
+      "garmin_exercise_id": 49,
+      "hevy_template_title": "Ab Scissors",
+      "hevy_title": "Ab Scissors",
+      "source": "drkostas/hevy2garmin"
+    },
+    "ab wheel": {
+      "garmin_category": "CORE",
+      "garmin_category_id": 5,
+      "garmin_exercise": "KNEELING_AB_WHEEL",
+      "garmin_exercise_id": 18,
+      "hevy_template_title": "Ab Wheel",
+      "hevy_title": "Ab Wheel",
+      "source": "drkostas/hevy2garmin"
+    },
+    "aerobics": {
+      "garmin_category": "CARDIO",
+      "garmin_category_id": 2,
+      "garmin_exercise": "BOB_AND_WEAVE_CIRCLE",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Aerobics",
+      "hevy_title": "Aerobics",
+      "source": "drkostas/hevy2garmin"
+    },
+    "arnold press dumbbell": {
+      "garmin_category": "SHOULDER_PRESS",
+      "garmin_category_id": 24,
+      "garmin_exercise": "ARNOLD_PRESS",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Arnold Press (Dumbbell)",
+      "hevy_title": "Arnold Press (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "around the world": {
+      "garmin_category": "LATERAL_RAISE",
+      "garmin_category_id": 14,
+      "garmin_exercise": "ARM_CIRCLES",
+      "garmin_exercise_id": 32,
+      "hevy_template_title": "Around The World",
+      "hevy_title": "Around The World",
+      "source": "drkostas/hevy2garmin"
+    },
+    "assisted pistol squats": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "PISTOL_SQUAT",
+      "garmin_exercise_id": 47,
+      "hevy_template_title": "Assisted Pistol Squats",
+      "hevy_title": "Assisted Pistol Squats",
+      "source": "drkostas/hevy2garmin"
+    },
+    "back extension hyperextension": {
+      "garmin_category": "HYPEREXTENSION",
+      "garmin_category_id": 13,
+      "garmin_exercise": "SPINE_EXTENSION",
+      "garmin_exercise_id": 25,
+      "hevy_template_title": "Back Extension (Hyperextension)",
+      "hevy_title": "Back Extension (Hyperextension)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "back extension machine": {
+      "garmin_category": "HYPEREXTENSION",
+      "garmin_category_id": 13,
+      "garmin_exercise": "SPINE_EXTENSION",
+      "garmin_exercise_id": 25,
+      "hevy_template_title": "Back Extension (Machine)",
+      "hevy_title": "Back Extension (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "back extension weighted hyperextension": {
+      "garmin_category": "HYPEREXTENSION",
+      "garmin_category_id": 13,
+      "garmin_exercise": "WEIGHTED_SPINE_EXTENSION",
+      "garmin_exercise_id": 26,
+      "hevy_template_title": "Back Extension (Weighted Hyperextension)",
+      "hevy_title": "Back Extension (Weighted Hyperextension)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "ball slams": {
+      "garmin_category": "PLYO",
+      "garmin_category_id": 20,
+      "garmin_exercise": "MEDICINE_BALL_SLAM",
+      "garmin_exercise_id": 25,
+      "hevy_template_title": "Ball Slams",
+      "hevy_title": "Ball Slams",
+      "source": "drkostas/hevy2garmin"
+    },
+    "band pullaparts": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "KNEELING_REAR_FLYE",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Band Pullaparts",
+      "hevy_title": "Band Pullaparts",
+      "source": "drkostas/hevy2garmin"
+    },
+    "behind the back biceps wrist curl barbell": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "BARBELL_REVERSE_WRIST_CURL",
+      "garmin_exercise_id": 4,
+      "hevy_template_title": "Behind the Back Bicep Wrist Curl (Barbell)",
+      "hevy_title": "Behind the Back Bicep Wrist Curl (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "behind the back curl cable": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "BEHIND_THE_BACK_ONE_ARM_CABLE_CURL",
+      "garmin_exercise_id": 7,
+      "hevy_template_title": "Behind the Back Curl (Cable)",
+      "hevy_title": "Behind the Back Curl (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "beinpresse": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "LEG_PRESS",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Leg Press (Machine)",
+      "hevy_title": "Beinpresse",
+      "source": "local/hevy-template-title"
+    },
+    "beinstrecken": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "LEG_EXTENSIONS",
+      "garmin_exercise_id": 33,
+      "hevy_template_title": "Leg Extension (Machine)",
+      "hevy_title": "Beinstrecken",
+      "source": "local/hevy-template-title"
+    },
+    "belt squat machine": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "SQUAT",
+      "garmin_exercise_id": 61,
+      "hevy_template_title": "Belt Squat (Machine)",
+      "hevy_title": "Belt Squat (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "bench dip": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "BENCH_DIP",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Bench Dip",
+      "hevy_title": "Bench Dip",
+      "source": "drkostas/hevy2garmin"
+    },
+    "bench press barbell": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "BARBELL_BENCH_PRESS",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Bench Press (Barbell)",
+      "hevy_title": "Bench Press (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "bench press cable": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "SINGLE_ARM_CABLE_CHEST_PRESS",
+      "garmin_exercise_id": 20,
+      "hevy_template_title": "Bench Press (Cable)",
+      "hevy_title": "Bench Press (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "bench press close grip barbell": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "CLOSE_GRIP_BARBELL_BENCH_PRESS",
+      "garmin_exercise_id": 4,
+      "hevy_template_title": "Bench Press - Close Grip (Barbell)",
+      "hevy_title": "Bench Press - Close Grip (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "bench press dumbbell": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "DUMBBELL_BENCH_PRESS",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Bench Press (Dumbbell)",
+      "hevy_title": "Bench Press (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "bench press smith machine": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "SMITH_MACHINE_BENCH_PRESS",
+      "garmin_exercise_id": 22,
+      "hevy_template_title": "Bench Press (Smith Machine)",
+      "hevy_title": "Bench Press (Smith Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "bench press wide grip barbell": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "WIDE_GRIP_BARBELL_BENCH_PRESS",
+      "garmin_exercise_id": 25,
+      "hevy_template_title": "Bench Press - Wide Grip (Barbell)",
+      "hevy_title": "Bench Press - Wide Grip (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "bent over row band": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "BARBELL_STRAIGHT_LEG_DEADLIFT_TO_ROW",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Bent Over Row (Band)",
+      "hevy_title": "Bent Over Row (Band)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "bent over row barbell": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "BARBELL_STRAIGHT_LEG_DEADLIFT_TO_ROW",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Bent Over Row (Barbell)",
+      "hevy_title": "Bent Over Row (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "bent over row dumbbell": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "DUMBBELL_ROW",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Bent Over Row (Dumbbell)",
+      "hevy_title": "Bent Over Row (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "biceps curl barbell": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "BARBELL_BICEPS_CURL",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "Bicep Curl (Barbell)",
+      "hevy_title": "Bicep Curl (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "biceps curl cable": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "CABLE_BICEPS_CURL",
+      "garmin_exercise_id": 8,
+      "hevy_template_title": "Bicep Curl (Cable)",
+      "hevy_title": "Bicep Curl (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "biceps curl dumbbell": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "STANDING_DUMBBELL_BICEPS_CURL",
+      "garmin_exercise_id": 37,
+      "hevy_template_title": "Bicep Curl (Dumbbell)",
+      "hevy_title": "Bicep Curl (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "biceps curl machine": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "CABLE_BICEPS_CURL",
+      "garmin_exercise_id": 8,
+      "hevy_template_title": "Bicep Curl (Machine)",
+      "hevy_title": "Bicep Curl (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "biceps curl suspension": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "STANDING_DUMBBELL_BICEPS_CURL",
+      "garmin_exercise_id": 37,
+      "hevy_template_title": "Bicep Curl (Suspension)",
+      "hevy_title": "Bicep Curl (Suspension)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "bicycle crunch": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "BICYCLE_CRUNCH",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Bicycle Crunch",
+      "hevy_title": "Bicycle Crunch",
+      "source": "drkostas/hevy2garmin"
+    },
+    "bicycle crunch raised legs": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "BICYCLE_CRUNCH",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Bicycle Crunch Raised Legs",
+      "hevy_title": "Bicycle Crunch Raised Legs",
+      "source": "drkostas/hevy2garmin"
+    },
+    "bird dog": {
+      "garmin_category": "HIP_STABILITY",
+      "garmin_category_id": 11,
+      "garmin_exercise": "DEAD_BUG",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Bird Dog",
+      "hevy_title": "Bird Dog",
+      "source": "drkostas/hevy2garmin"
+    },
+    "box jump": {
+      "garmin_category": "PLYO",
+      "garmin_category_id": 20,
+      "garmin_exercise": "HIGH_BOX_JUMP",
+      "garmin_exercise_id": 13,
+      "hevy_template_title": "Box Jump",
+      "hevy_title": "Box Jump",
+      "source": "drkostas/hevy2garmin"
+    },
+    "box squat barbell": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "BARBELL_BOX_SQUAT",
+      "garmin_exercise_id": 7,
+      "hevy_template_title": "Box Squat (Barbell)",
+      "hevy_title": "Box Squat (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "brustpresse maschine": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "DUMBBELL_BENCH_PRESS",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Chest Press (Machine)",
+      "hevy_title": "Brustpresse (Maschine)",
+      "source": "local/hevy-template-title"
+    },
+    "bulgarian split squat": {
+      "garmin_category": "LUNGE",
+      "garmin_category_id": 17,
+      "garmin_exercise": "BARBELL_BULGARIAN_SPLIT_SQUAT",
+      "garmin_exercise_id": 7,
+      "hevy_template_title": "Bulgarian Split Squat",
+      "hevy_title": "Bulgarian Split Squat",
+      "source": "drkostas/hevy2garmin"
+    },
+    "burpee": {
+      "garmin_category": "TOTAL_BODY",
+      "garmin_category_id": 29,
+      "garmin_exercise": "BURPEE",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Burpee",
+      "hevy_title": "Burpee",
+      "source": "drkostas/hevy2garmin"
+    },
+    "burpee over the bar": {
+      "garmin_category": "TOTAL_BODY",
+      "garmin_category_id": 29,
+      "garmin_exercise": "BURPEE",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Burpee Over the Bar",
+      "hevy_title": "Burpee Over the Bar",
+      "source": "drkostas/hevy2garmin"
+    },
+    "butterfly pec deck": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "DUMBBELL_FLYE",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Butterfly (Pec Deck)",
+      "hevy_title": "Butterfly (Pec Deck)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "cable core palloff press": {
+      "garmin_category": "CORE",
+      "garmin_category_id": 5,
+      "garmin_exercise": "RUSSIAN_TWIST",
+      "garmin_exercise_id": 46,
+      "hevy_template_title": "Cable Core Palloff Press",
+      "hevy_title": "Cable Core Palloff Press",
+      "source": "drkostas/hevy2garmin"
+    },
+    "cable crunch": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "CABLE_CRUNCH",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Cable Crunch",
+      "hevy_title": "Cable Crunch",
+      "source": "drkostas/hevy2garmin"
+    },
+    "cable fly crossovers": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "CABLE_CROSSOVER",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Cable Fly Crossovers",
+      "hevy_title": "Cable Fly Crossovers",
+      "source": "drkostas/hevy2garmin"
+    },
+    "cable pull through": {
+      "garmin_category": "HIP_RAISE",
+      "garmin_category_id": 10,
+      "garmin_exercise": "HIP_RAISE",
+      "garmin_exercise_id": 11,
+      "hevy_template_title": "Cable Pull Through",
+      "hevy_title": "Cable Pull Through",
+      "source": "drkostas/hevy2garmin"
+    },
+    "cable twist down to up": {
+      "garmin_category": "CHOP",
+      "garmin_category_id": 4,
+      "garmin_exercise": "CABLE_WOODCHOP",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Cable Twist (Down to up)",
+      "hevy_title": "Cable Twist (Down to up)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "cable twist up to down": {
+      "garmin_category": "CHOP",
+      "garmin_category_id": 4,
+      "garmin_exercise": "CABLE_WOODCHOP",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Cable Twist (Up to down)",
+      "hevy_title": "Cable Twist (Up to down)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "calf extension machine": {
+      "garmin_category": "CALF_RAISE",
+      "garmin_category_id": 1,
+      "garmin_exercise": "STANDING_CALF_RAISE",
+      "garmin_exercise_id": 18,
+      "hevy_template_title": "Calf Extension (Machine)",
+      "hevy_title": "Calf Extension (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "calf press machine": {
+      "garmin_category": "CALF_RAISE",
+      "garmin_category_id": 1,
+      "garmin_exercise": "STANDING_CALF_RAISE",
+      "garmin_exercise_id": 18,
+      "hevy_template_title": "Calf Press (Machine)",
+      "hevy_title": "Calf Press (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "chest dip": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "BODY_WEIGHT_DIP",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Chest Dip",
+      "hevy_title": "Chest Dip",
+      "source": "drkostas/hevy2garmin"
+    },
+    "chest dip assisted": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "BODY_WEIGHT_DIP",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Chest Dip (Assisted)",
+      "hevy_title": "Chest Dip (Assisted)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "chest dip weighted": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "WEIGHTED_DIP",
+      "garmin_exercise_id": 40,
+      "hevy_template_title": "Chest Dip (Weighted)",
+      "hevy_title": "Chest Dip (Weighted)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "chest fly band": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "DUMBBELL_FLYE",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Chest Fly (Band)",
+      "hevy_title": "Chest Fly (Band)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "chest fly dumbbell": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "DUMBBELL_FLYE",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Chest Fly (Dumbbell)",
+      "hevy_title": "Chest Fly (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "chest fly machine": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "DUMBBELL_FLYE",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Chest Fly (Machine)",
+      "hevy_title": "Chest Fly (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "chest fly suspension": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "DUMBBELL_FLYE",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Chest Fly (Suspension)",
+      "hevy_title": "Chest Fly (Suspension)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "chest press band": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "BARBELL_BENCH_PRESS",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Chest Press (Band)",
+      "hevy_title": "Chest Press (Band)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "chest press machine": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "DUMBBELL_BENCH_PRESS",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Chest Press (Machine)",
+      "hevy_title": "Chest Press (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "chest supported incline row dumbbell": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "DUMBBELL_ROW",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Chest Supported Incline Row (Dumbbell)",
+      "hevy_title": "Chest Supported Incline Row (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "chest supported reverse fly dumbbell": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "KNEELING_REAR_FLYE",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Chest Supported Reverse Fly (Dumbbell)",
+      "hevy_title": "Chest Supported Reverse Fly (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "chest supported y raise dumbbell": {
+      "garmin_category": "LATERAL_RAISE",
+      "garmin_category_id": 14,
+      "garmin_exercise": "FRONT_RAISE",
+      "garmin_exercise_id": 10,
+      "hevy_template_title": "Chest Supported Y Raise (Dumbbell)",
+      "hevy_title": "Chest Supported Y Raise (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "chin up": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "CLOSE_GRIP_CHIN_UP",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "Chin Up",
+      "hevy_title": "Chin Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "chin up assisted": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "CLOSE_GRIP_CHIN_UP",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "Chin Up (Assisted)",
+      "hevy_title": "Chin Up (Assisted)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "chin up weighted": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "WEIGHTED_CLOSE_GRIP_CHIN_UP",
+      "garmin_exercise_id": 4,
+      "hevy_template_title": "Chin Up (Weighted)",
+      "hevy_title": "Chin Up (Weighted)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "clamshell": {
+      "garmin_category": "HIP_RAISE",
+      "garmin_category_id": 10,
+      "garmin_exercise": "CLAMS",
+      "garmin_exercise_id": 44,
+      "hevy_template_title": "Clamshell",
+      "hevy_title": "Clamshell",
+      "source": "drkostas/hevy2garmin"
+    },
+    "clap push ups": {
+      "garmin_category": "PUSH_UP",
+      "garmin_category_id": 22,
+      "garmin_exercise": "CLAPPING_PUSH_UP",
+      "garmin_exercise_id": 7,
+      "hevy_template_title": "Clap Push Ups",
+      "hevy_title": "Clap Push Ups",
+      "source": "drkostas/hevy2garmin"
+    },
+    "clean": {
+      "garmin_category": "OLYMPIC_LIFT",
+      "garmin_category_id": 18,
+      "garmin_exercise": "CLEAN",
+      "garmin_exercise_id": 11,
+      "hevy_template_title": "Clean",
+      "hevy_title": "Clean",
+      "source": "drkostas/hevy2garmin"
+    },
+    "clean and jerk": {
+      "garmin_category": "OLYMPIC_LIFT",
+      "garmin_category_id": 18,
+      "garmin_exercise": "CLEAN_AND_JERK",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Clean and Jerk",
+      "hevy_title": "Clean and Jerk",
+      "source": "drkostas/hevy2garmin"
+    },
+    "clean and press": {
+      "garmin_category": "OLYMPIC_LIFT",
+      "garmin_category_id": 18,
+      "garmin_exercise": "CLEAN_AND_JERK",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Clean and Press",
+      "hevy_title": "Clean and Press",
+      "source": "drkostas/hevy2garmin"
+    },
+    "clean pull": {
+      "garmin_category": "OLYMPIC_LIFT",
+      "garmin_category_id": 18,
+      "garmin_exercise": "CLEAN",
+      "garmin_exercise_id": 11,
+      "hevy_template_title": "Clean Pull",
+      "hevy_title": "Clean Pull",
+      "source": "drkostas/hevy2garmin"
+    },
+    "climbing": {
+      "garmin_category": "CARDIO",
+      "garmin_category_id": 2,
+      "garmin_exercise": "BOB_AND_WEAVE_CIRCLE",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Climbing",
+      "hevy_title": "Climbing",
+      "source": "drkostas/hevy2garmin"
+    },
+    "concentration curl": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "STANDING_DUMBBELL_BICEPS_CURL",
+      "garmin_exercise_id": 37,
+      "hevy_template_title": "Concentration Curl",
+      "hevy_title": "Concentration Curl",
+      "source": "drkostas/hevy2garmin"
+    },
+    "cross body hammer curl": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "CROSS_BODY_DUMBBELL_HAMMER_CURL",
+      "garmin_exercise_id": 12,
+      "hevy_template_title": "Cross Body Hammer Curl",
+      "hevy_title": "Cross Body Hammer Curl",
+      "source": "drkostas/hevy2garmin"
+    },
+    "crunch": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "CRUNCH",
+      "garmin_exercise_id": 83,
+      "hevy_template_title": "Crunch",
+      "hevy_title": "Crunch",
+      "source": "drkostas/hevy2garmin"
+    },
+    "crunch machine": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "KNEELING_CABLE_CRUNCH",
+      "garmin_exercise_id": 28,
+      "hevy_template_title": "Crunch (Machine)",
+      "hevy_title": "Crunch (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "crunch maschine": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "KNEELING_CABLE_CRUNCH",
+      "garmin_exercise_id": 28,
+      "hevy_template_title": "Crunch (Machine)",
+      "hevy_title": "Crunch (Maschine)",
+      "source": "local/hevy-template-title"
+    },
+    "crunch weighted": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "WEIGHTED_CRUNCH",
+      "garmin_exercise_id": 79,
+      "hevy_template_title": "Crunch (Weighted)",
+      "hevy_title": "Crunch (Weighted)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "curtsy lunge dumbbell": {
+      "garmin_category": "LUNGE",
+      "garmin_category_id": 17,
+      "garmin_exercise": "DUMBBELL_LUNGE",
+      "garmin_exercise_id": 21,
+      "hevy_template_title": "Curtsy Lunge (Dumbbell)",
+      "hevy_title": "Curtsy Lunge (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "dead bug": {
+      "garmin_category": "HIP_STABILITY",
+      "garmin_category_id": 11,
+      "garmin_exercise": "DEAD_BUG",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Dead Bug",
+      "hevy_title": "Dead Bug",
+      "source": "drkostas/hevy2garmin"
+    },
+    "dead hang": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "PULL_UP",
+      "garmin_exercise_id": 38,
+      "hevy_template_title": "Dead Hang",
+      "hevy_title": "Dead Hang",
+      "source": "drkostas/hevy2garmin"
+    },
+    "deadlift band": {
+      "garmin_category": "DEADLIFT",
+      "garmin_category_id": 8,
+      "garmin_exercise": "BARBELL_DEADLIFT",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Deadlift (Band)",
+      "hevy_title": "Deadlift (Band)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "deadlift barbell": {
+      "garmin_category": "DEADLIFT",
+      "garmin_category_id": 8,
+      "garmin_exercise": "BARBELL_DEADLIFT",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Deadlift (Barbell)",
+      "hevy_title": "Deadlift (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "deadlift dumbbell": {
+      "garmin_category": "DEADLIFT",
+      "garmin_category_id": 8,
+      "garmin_exercise": "DUMBBELL_DEADLIFT",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Deadlift (Dumbbell)",
+      "hevy_title": "Deadlift (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "deadlift high pull": {
+      "garmin_category": "DEADLIFT",
+      "garmin_category_id": 8,
+      "garmin_exercise": "SUMO_DEADLIFT_HIGH_PULL",
+      "garmin_exercise_id": 16,
+      "hevy_template_title": "Deadlift High Pull",
+      "hevy_title": "Deadlift High Pull",
+      "source": "drkostas/hevy2garmin"
+    },
+    "deadlift smith machine": {
+      "garmin_category": "DEADLIFT",
+      "garmin_category_id": 8,
+      "garmin_exercise": "BARBELL_DEADLIFT",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Deadlift (Smith Machine)",
+      "hevy_title": "Deadlift (Smith Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "deadlift trap bar": {
+      "garmin_category": "DEADLIFT",
+      "garmin_category_id": 8,
+      "garmin_exercise": "TRAP_BAR_DEADLIFT",
+      "garmin_exercise_id": 17,
+      "hevy_template_title": "Deadlift (Trap bar)",
+      "hevy_title": "Deadlift (Trap bar)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "decline bench press barbell": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "DECLINE_DUMBBELL_BENCH_PRESS",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Decline Bench Press (Barbell)",
+      "hevy_title": "Decline Bench Press (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "decline bench press dumbbell": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "DECLINE_DUMBBELL_BENCH_PRESS",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Decline Bench Press (Dumbbell)",
+      "hevy_title": "Decline Bench Press (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "decline bench press machine": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "DECLINE_DUMBBELL_BENCH_PRESS",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Decline Bench Press (Machine)",
+      "hevy_title": "Decline Bench Press (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "decline bench press smith machine": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "SMITH_MACHINE_BENCH_PRESS",
+      "garmin_exercise_id": 22,
+      "hevy_template_title": "Decline Bench Press (Smith Machine)",
+      "hevy_title": "Decline Bench Press (Smith Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "decline chest fly dumbbell": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "DECLINE_DUMBBELL_FLYE",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Decline Chest Fly (Dumbbell)",
+      "hevy_title": "Decline Chest Fly (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "decline crunch": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "CRUNCH",
+      "garmin_exercise_id": 83,
+      "hevy_template_title": "Decline Crunch",
+      "hevy_title": "Decline Crunch",
+      "source": "drkostas/hevy2garmin"
+    },
+    "decline crunch weighted": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "WEIGHTED_CRUNCH",
+      "garmin_exercise_id": 79,
+      "hevy_template_title": "Decline Crunch (Weighted)",
+      "hevy_title": "Decline Crunch (Weighted)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "decline push up": {
+      "garmin_category": "PUSH_UP",
+      "garmin_category_id": 22,
+      "garmin_exercise": "DECLINE_PUSH_UP",
+      "garmin_exercise_id": 13,
+      "hevy_template_title": "Decline Push Up",
+      "hevy_title": "Decline Push Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "diamond push up": {
+      "garmin_category": "PUSH_UP",
+      "garmin_category_id": 22,
+      "garmin_exercise": "DIAMOND_PUSH_UP",
+      "garmin_exercise_id": 15,
+      "hevy_template_title": "Diamond Push Up",
+      "hevy_title": "Diamond Push Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "downward dog": {
+      "garmin_category": "WARM_UP",
+      "garmin_category_id": 31,
+      "garmin_exercise": "QUADRUPED_ROCKING",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Downward Dog",
+      "hevy_title": "Downward Dog",
+      "source": "drkostas/hevy2garmin"
+    },
+    "drag curl": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "BARBELL_BICEPS_CURL",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "Drag Curl",
+      "hevy_title": "Drag Curl",
+      "source": "drkostas/hevy2garmin"
+    },
+    "dragon flag": {
+      "garmin_category": "LEG_RAISE",
+      "garmin_category_id": 16,
+      "garmin_exercise": "HANGING_LEG_RAISE",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Dragon Flag",
+      "hevy_title": "Dragon Flag",
+      "source": "drkostas/hevy2garmin"
+    },
+    "dragonfly": {
+      "garmin_category": "LEG_RAISE",
+      "garmin_category_id": 16,
+      "garmin_exercise": "HANGING_LEG_RAISE",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Dragonfly",
+      "hevy_title": "Dragonfly",
+      "source": "drkostas/hevy2garmin"
+    },
+    "dumbbell row": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "DUMBBELL_ROW",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Dumbbell Row",
+      "hevy_title": "Dumbbell Row",
+      "source": "drkostas/hevy2garmin"
+    },
+    "dumbbell snatch": {
+      "garmin_category": "OLYMPIC_LIFT",
+      "garmin_category_id": 18,
+      "garmin_exercise": "SINGLE_ARM_DUMBBELL_SNATCH",
+      "garmin_exercise_id": 16,
+      "hevy_template_title": "Dumbbell Snatch",
+      "hevy_title": "Dumbbell Snatch",
+      "source": "drkostas/hevy2garmin"
+    },
+    "dumbbell squeeze press": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "DUMBBELL_BENCH_PRESS",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Dumbbell Squeeze Press",
+      "hevy_title": "Dumbbell Squeeze Press",
+      "source": "drkostas/hevy2garmin"
+    },
+    "dumbbell step up": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "DUMBBELL_STEP_UP",
+      "garmin_exercise_id": 32,
+      "hevy_template_title": "Dumbbell Step Up",
+      "hevy_title": "Dumbbell Step Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "elbow to knee": {
+      "garmin_category": "SIT_UP",
+      "garmin_category_id": 27,
+      "garmin_exercise": "SIT_UP",
+      "garmin_exercise_id": 37,
+      "hevy_template_title": "Elbow to Knee",
+      "hevy_title": "Elbow to Knee",
+      "source": "drkostas/hevy2garmin"
+    },
+    "ez bar biceps curl": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "EZ_BAR_PREACHER_CURL",
+      "garmin_exercise_id": 19,
+      "hevy_template_title": "EZ Bar Biceps Curl",
+      "hevy_title": "EZ Bar Biceps Curl",
+      "source": "drkostas/hevy2garmin"
+    },
+    "face pull": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "FACE_PULL",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Face Pull",
+      "hevy_title": "Face Pull",
+      "source": "drkostas/hevy2garmin"
+    },
+    "farmers walk": {
+      "garmin_category": "CARRY",
+      "garmin_category_id": 3,
+      "garmin_exercise": "FARMERS_WALK",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Farmers Walk",
+      "hevy_title": "Farmers Walk",
+      "source": "drkostas/hevy2garmin"
+    },
+    "feet up bench press barbell": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "BARBELL_BENCH_PRESS",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Feet Up Bench Press (Barbell)",
+      "hevy_title": "Feet Up Bench Press (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "fire hydrants": {
+      "garmin_category": "HIP_STABILITY",
+      "garmin_category_id": 11,
+      "garmin_exercise": "FIRE_HYDRANT_KICKS",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Fire Hydrants",
+      "hevy_title": "Fire Hydrants",
+      "source": "drkostas/hevy2garmin"
+    },
+    "floor press barbell": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "BARBELL_FLOOR_PRESS",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "Floor Press (Barbell)",
+      "hevy_title": "Floor Press (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "floor press dumbbell": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "DUMBBELL_FLOOR_PRESS",
+      "garmin_exercise_id": 7,
+      "hevy_template_title": "Floor Press (Dumbbell)",
+      "hevy_title": "Floor Press (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "floor triceps dip": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "BENCH_DIP",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Floor Triceps Dip",
+      "hevy_title": "Floor Triceps Dip",
+      "source": "drkostas/hevy2garmin"
+    },
+    "flutter kicks": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "FLUTTER_KICKS",
+      "garmin_exercise_id": 13,
+      "hevy_template_title": "Flutter Kicks",
+      "hevy_title": "Flutter Kicks",
+      "source": "drkostas/hevy2garmin"
+    },
+    "frog jumps": {
+      "garmin_category": "PLYO",
+      "garmin_category_id": 20,
+      "garmin_exercise": "BODY_WEIGHT_JUMP_SQUAT",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "Frog Jumps",
+      "hevy_title": "Frog Jumps",
+      "source": "drkostas/hevy2garmin"
+    },
+    "frog pumps dumbbell": {
+      "garmin_category": "HIP_RAISE",
+      "garmin_category_id": 10,
+      "garmin_exercise": "HIP_RAISE",
+      "garmin_exercise_id": 11,
+      "hevy_template_title": "Frog Pumps (Dumbbell)",
+      "hevy_title": "Frog Pumps (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "front lever hold": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "PULL_UP",
+      "garmin_exercise_id": 38,
+      "hevy_template_title": "Front Lever Hold",
+      "hevy_title": "Front Lever Hold",
+      "source": "drkostas/hevy2garmin"
+    },
+    "front lever raise": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "PULL_UP",
+      "garmin_exercise_id": 38,
+      "hevy_template_title": "Front Lever Raise",
+      "hevy_title": "Front Lever Raise",
+      "source": "drkostas/hevy2garmin"
+    },
+    "front raise band": {
+      "garmin_category": "LATERAL_RAISE",
+      "garmin_category_id": 14,
+      "garmin_exercise": "FRONT_RAISE",
+      "garmin_exercise_id": 10,
+      "hevy_template_title": "Front Raise (Band)",
+      "hevy_title": "Front Raise (Band)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "front raise barbell": {
+      "garmin_category": "LATERAL_RAISE",
+      "garmin_category_id": 14,
+      "garmin_exercise": "FRONT_RAISE",
+      "garmin_exercise_id": 10,
+      "hevy_template_title": "Front Raise (Barbell)",
+      "hevy_title": "Front Raise (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "front raise cable": {
+      "garmin_category": "LATERAL_RAISE",
+      "garmin_category_id": 14,
+      "garmin_exercise": "CABLE_FRONT_RAISE",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Front Raise (Cable)",
+      "hevy_title": "Front Raise (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "front raise dumbbell": {
+      "garmin_category": "LATERAL_RAISE",
+      "garmin_category_id": 14,
+      "garmin_exercise": "FRONT_RAISE",
+      "garmin_exercise_id": 10,
+      "hevy_template_title": "Front Raise (Dumbbell)",
+      "hevy_title": "Front Raise (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "front raise suspension": {
+      "garmin_category": "LATERAL_RAISE",
+      "garmin_category_id": 14,
+      "garmin_exercise": "FRONT_RAISE",
+      "garmin_exercise_id": 10,
+      "hevy_template_title": "Front Raise (Suspension)",
+      "hevy_title": "Front Raise (Suspension)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "front squat": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "BARBELL_FRONT_SQUAT",
+      "garmin_exercise_id": 8,
+      "hevy_template_title": "Front Squat",
+      "hevy_title": "Front Squat",
+      "source": "drkostas/hevy2garmin"
+    },
+    "full squat": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "BARBELL_BACK_SQUAT",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Full Squat",
+      "hevy_title": "Full Squat",
+      "source": "drkostas/hevy2garmin"
+    },
+    "glute bridge": {
+      "garmin_category": "HIP_RAISE",
+      "garmin_category_id": 10,
+      "garmin_exercise": "HIP_RAISE",
+      "garmin_exercise_id": 11,
+      "hevy_template_title": "Glute Bridge",
+      "hevy_title": "Glute Bridge",
+      "source": "drkostas/hevy2garmin"
+    },
+    "glute ham raise": {
+      "garmin_category": "HIP_RAISE",
+      "garmin_category_id": 10,
+      "garmin_exercise": "HIP_RAISE",
+      "garmin_exercise_id": 11,
+      "hevy_template_title": "Glute Ham Raise",
+      "hevy_title": "Glute Ham Raise",
+      "source": "drkostas/hevy2garmin"
+    },
+    "glute kickback machine": {
+      "garmin_category": "HIP_STABILITY",
+      "garmin_category_id": 11,
+      "garmin_exercise": "QUADRUPED_HIP_EXTENSION",
+      "garmin_exercise_id": 17,
+      "hevy_template_title": "Glute Kickback (Machine)",
+      "hevy_title": "Glute Kickback (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "glute kickback on floor": {
+      "garmin_category": "HIP_STABILITY",
+      "garmin_category_id": 11,
+      "garmin_exercise": "QUADRUPED_HIP_EXTENSION",
+      "garmin_exercise_id": 17,
+      "hevy_template_title": "Glute Kickback on Floor",
+      "hevy_title": "Glute Kickback on Floor",
+      "source": "drkostas/hevy2garmin"
+    },
+    "goblet squat": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "GOBLET_SQUAT",
+      "garmin_exercise_id": 37,
+      "hevy_template_title": "Goblet Squat",
+      "hevy_title": "Goblet Squat",
+      "source": "drkostas/hevy2garmin"
+    },
+    "good morning barbell": {
+      "garmin_category": "LEG_CURL",
+      "garmin_category_id": 15,
+      "garmin_exercise": "GOOD_MORNING",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Good Morning (Barbell)",
+      "hevy_title": "Good Morning (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "gorilla row kettlebell": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "KETTLEBELL_ROW",
+      "garmin_exercise_id": 9,
+      "hevy_template_title": "Gorilla Row (Kettlebell)",
+      "hevy_title": "Gorilla Row (Kettlebell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hack squat": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "BARBELL_HACK_SQUAT",
+      "garmin_exercise_id": 9,
+      "hevy_template_title": "Hack Squat",
+      "hevy_title": "Hack Squat",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hack squat machine": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "BARBELL_HACK_SQUAT",
+      "garmin_exercise_id": 9,
+      "hevy_template_title": "Hack Squat (Machine)",
+      "hevy_title": "Hack Squat (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hammer curl band": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "DUMBBELL_HAMMER_CURL",
+      "garmin_exercise_id": 16,
+      "hevy_template_title": "Hammer Curl (Band)",
+      "hevy_title": "Hammer Curl (Band)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hammer curl cable": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "CABLE_HAMMER_CURL",
+      "garmin_exercise_id": 9,
+      "hevy_template_title": "Hammer Curl (Cable)",
+      "hevy_title": "Hammer Curl (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hammer curl dumbbell": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "DUMBBELL_HAMMER_CURL",
+      "garmin_exercise_id": 16,
+      "hevy_template_title": "Hammer Curl (Dumbbell)",
+      "hevy_title": "Hammer Curl (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "handstand hold": {
+      "garmin_category": "PUSH_UP",
+      "garmin_category_id": 22,
+      "garmin_exercise": "HANDSTAND_PUSH_UP",
+      "garmin_exercise_id": 25,
+      "hevy_template_title": "Handstand Hold",
+      "hevy_title": "Handstand Hold",
+      "source": "drkostas/hevy2garmin"
+    },
+    "handstand push up": {
+      "garmin_category": "PUSH_UP",
+      "garmin_category_id": 22,
+      "garmin_exercise": "HANDSTAND_PUSH_UP",
+      "garmin_exercise_id": 25,
+      "hevy_template_title": "Handstand Push Up",
+      "hevy_title": "Handstand Push Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hang clean": {
+      "garmin_category": "OLYMPIC_LIFT",
+      "garmin_category_id": 18,
+      "garmin_exercise": "BARBELL_HANG_POWER_CLEAN",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Hang Clean",
+      "hevy_title": "Hang Clean",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hang snatch": {
+      "garmin_category": "OLYMPIC_LIFT",
+      "garmin_category_id": 18,
+      "garmin_exercise": "BARBELL_HANG_POWER_SNATCH",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Hang Snatch",
+      "hevy_title": "Hang Snatch",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hanging knee raise": {
+      "garmin_category": "LEG_RAISE",
+      "garmin_category_id": 16,
+      "garmin_exercise": "HANGING_KNEE_RAISE",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Hanging Knee Raise",
+      "hevy_title": "Hanging Knee Raise",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hanging leg raise": {
+      "garmin_category": "LEG_RAISE",
+      "garmin_category_id": 16,
+      "garmin_exercise": "HANGING_LEG_RAISE",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Hanging Leg Raise",
+      "hevy_title": "Hanging Leg Raise",
+      "source": "drkostas/hevy2garmin"
+    },
+    "heel taps": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "CRUNCH",
+      "garmin_exercise_id": 83,
+      "hevy_template_title": "Heel Taps",
+      "hevy_title": "Heel Taps",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hex press dumbbell": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "DUMBBELL_BENCH_PRESS",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Hex Press (Dumbbell)",
+      "hevy_title": "Hex Press (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "high knee skips": {
+      "garmin_category": "PLYO",
+      "garmin_category_id": 20,
+      "garmin_exercise": "BODY_WEIGHT_JUMP_SQUAT",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "High Knee Skips",
+      "hevy_title": "High Knee Skips",
+      "source": "drkostas/hevy2garmin"
+    },
+    "high knees": {
+      "garmin_category": "CARDIO",
+      "garmin_category_id": 2,
+      "garmin_exercise": "BOB_AND_WEAVE_CIRCLE",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "High Knees",
+      "hevy_title": "High Knees",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hiit": {
+      "garmin_category": "CARDIO",
+      "garmin_category_id": 2,
+      "garmin_exercise": "BOB_AND_WEAVE_CIRCLE",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "HIIT",
+      "hevy_title": "HIIT",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hiking": {
+      "garmin_category": "RUN",
+      "garmin_category_id": 32,
+      "garmin_exercise": "WALK",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Hiking",
+      "hevy_title": "Hiking",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hip abduction machine": {
+      "garmin_category": "HIP_STABILITY",
+      "garmin_category_id": 11,
+      "garmin_exercise": "STANDING_HIP_ABDUCTION",
+      "garmin_exercise_id": 28,
+      "hevy_template_title": "Hip Abduction (Machine)",
+      "hevy_title": "Hip Abduction (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hip adduction machine": {
+      "garmin_category": "HIP_STABILITY",
+      "garmin_category_id": 11,
+      "garmin_exercise": "STANDING_ADDUCTION",
+      "garmin_exercise_id": 25,
+      "hevy_template_title": "Hip Adduction (Machine)",
+      "hevy_title": "Hip Adduction (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hip thrust": {
+      "garmin_category": "HIP_RAISE",
+      "garmin_category_id": 10,
+      "garmin_exercise": "BARBELL_HIP_THRUST_ON_FLOOR",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Hip Thrust",
+      "hevy_title": "Hip Thrust",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hip thrust barbell": {
+      "garmin_category": "HIP_RAISE",
+      "garmin_category_id": 10,
+      "garmin_exercise": "BARBELL_HIP_THRUST_WITH_BENCH",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Hip Thrust (Barbell)",
+      "hevy_title": "Hip Thrust (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hip thrust machine": {
+      "garmin_category": "HIP_RAISE",
+      "garmin_category_id": 10,
+      "garmin_exercise": "BARBELL_HIP_THRUST_WITH_BENCH",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Hip Thrust (Machine)",
+      "hevy_title": "Hip Thrust (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hip thrust smith machine": {
+      "garmin_category": "HIP_RAISE",
+      "garmin_category_id": 10,
+      "garmin_exercise": "BARBELL_HIP_THRUST_WITH_BENCH",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Hip Thrust (Smith Machine)",
+      "hevy_title": "Hip Thrust (Smith Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hollow rock": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "HOLLOW_ROCK",
+      "garmin_exercise_id": 24,
+      "hevy_template_title": "Hollow Rock",
+      "hevy_title": "Hollow Rock",
+      "source": "drkostas/hevy2garmin"
+    },
+    "hueftabduktion": {
+      "garmin_category": "HIP_STABILITY",
+      "garmin_category_id": 11,
+      "garmin_exercise": "STANDING_HIP_ABDUCTION",
+      "garmin_exercise_id": 28,
+      "hevy_template_title": "Hip Abduction (Machine)",
+      "hevy_title": "Hüftabduktion",
+      "source": "local/hevy-template-title"
+    },
+    "hueftadduktion": {
+      "garmin_category": "HIP_STABILITY",
+      "garmin_category_id": 11,
+      "garmin_exercise": "STANDING_ADDUCTION",
+      "garmin_exercise_id": 25,
+      "hevy_template_title": "Hip Adduction (Machine)",
+      "hevy_title": "Hüftadduktion",
+      "source": "local/hevy-template-title"
+    },
+    "incline bench press barbell": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "INCLINE_BARBELL_BENCH_PRESS",
+      "garmin_exercise_id": 8,
+      "hevy_template_title": "Incline Bench Press (Barbell)",
+      "hevy_title": "Incline Bench Press (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "incline bench press dumbbell": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "INCLINE_DUMBBELL_BENCH_PRESS",
+      "garmin_exercise_id": 9,
+      "hevy_template_title": "Incline Bench Press (Dumbbell)",
+      "hevy_title": "Incline Bench Press (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "incline bench press smith machine": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "INCLINE_BARBELL_BENCH_PRESS",
+      "garmin_exercise_id": 8,
+      "hevy_template_title": "Incline Bench Press (Smith Machine)",
+      "hevy_title": "Incline Bench Press (Smith Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "incline chest fly dumbbell": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "INCLINE_DUMBBELL_FLYE",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "Incline Chest Fly (Dumbbell)",
+      "hevy_title": "Incline Chest Fly (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "incline chest press machine": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "INCLINE_DUMBBELL_BENCH_PRESS",
+      "garmin_exercise_id": 9,
+      "hevy_template_title": "Incline Chest Press (Machine)",
+      "hevy_title": "Incline Chest Press (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "incline push ups": {
+      "garmin_category": "PUSH_UP",
+      "garmin_category_id": 22,
+      "garmin_exercise": "INCLINE_PUSH_UP",
+      "garmin_exercise_id": 27,
+      "hevy_template_title": "Incline Push Ups",
+      "hevy_title": "Incline Push Ups",
+      "source": "drkostas/hevy2garmin"
+    },
+    "inverted row": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "MODIFIED_INVERTED_ROW",
+      "garmin_exercise_id": 10,
+      "hevy_template_title": "Inverted Row",
+      "hevy_title": "Inverted Row",
+      "source": "drkostas/hevy2garmin"
+    },
+    "iso lateral chest press machine": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "DUMBBELL_BENCH_PRESS",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Iso-Lateral Chest Press (Machine)",
+      "hevy_title": "Iso-Lateral Chest Press (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "iso lateral high row machine": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "SEATED_CABLE_ROW",
+      "garmin_exercise_id": 18,
+      "hevy_template_title": "Iso-Lateral High Row (Machine)",
+      "hevy_title": "Iso-Lateral High Row (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "iso lateral low row": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "SEATED_CABLE_ROW",
+      "garmin_exercise_id": 18,
+      "hevy_template_title": "Iso-Lateral Low Row",
+      "hevy_title": "Iso-Lateral Low Row",
+      "source": "drkostas/hevy2garmin"
+    },
+    "iso lateral row machine": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "DUMBBELL_ROW",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Iso-Lateral Row (Machine)",
+      "hevy_title": "Iso-Lateral Row (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "jack knife suspension": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "CRUNCH",
+      "garmin_exercise_id": 83,
+      "hevy_template_title": "Jack Knife (Suspension)",
+      "hevy_title": "Jack Knife (Suspension)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "jackknife sit up": {
+      "garmin_category": "SIT_UP",
+      "garmin_category_id": 27,
+      "garmin_exercise": "SIT_UP",
+      "garmin_exercise_id": 37,
+      "hevy_template_title": "Jackknife Sit Up",
+      "hevy_title": "Jackknife Sit Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "jm press barbell": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "CLOSE_GRIP_BARBELL_BENCH_PRESS",
+      "garmin_exercise_id": 4,
+      "hevy_template_title": "JM Press (Barbell)",
+      "hevy_title": "JM Press (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "jump rope": {
+      "garmin_category": "CARDIO",
+      "garmin_category_id": 2,
+      "garmin_exercise": "JUMP_ROPE",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Jump Rope",
+      "hevy_title": "Jump Rope",
+      "source": "drkostas/hevy2garmin"
+    },
+    "jump shrug": {
+      "garmin_category": "SHRUG",
+      "garmin_category_id": 26,
+      "garmin_exercise": "BARBELL_JUMP_SHRUG",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Jump Shrug",
+      "hevy_title": "Jump Shrug",
+      "source": "drkostas/hevy2garmin"
+    },
+    "jump squat": {
+      "garmin_category": "PLYO",
+      "garmin_category_id": 20,
+      "garmin_exercise": "BODY_WEIGHT_JUMP_SQUAT",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "Jump Squat",
+      "hevy_title": "Jump Squat",
+      "source": "drkostas/hevy2garmin"
+    },
+    "jumping jack": {
+      "garmin_category": "CARDIO",
+      "garmin_category_id": 2,
+      "garmin_exercise": "JUMPING_JACKS",
+      "garmin_exercise_id": 12,
+      "hevy_template_title": "Jumping Jack",
+      "hevy_title": "Jumping Jack",
+      "source": "drkostas/hevy2garmin"
+    },
+    "jumping lunge": {
+      "garmin_category": "PLYO",
+      "garmin_category_id": 20,
+      "garmin_exercise": "ALTERNATING_JUMP_LUNGE",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Jumping Lunge",
+      "hevy_title": "Jumping Lunge",
+      "source": "drkostas/hevy2garmin"
+    },
+    "kettlebell around the world": {
+      "garmin_category": "CORE",
+      "garmin_category_id": 5,
+      "garmin_exercise": "RUSSIAN_TWIST",
+      "garmin_exercise_id": 46,
+      "hevy_template_title": "Kettlebell Around the World",
+      "hevy_title": "Kettlebell Around the World",
+      "source": "drkostas/hevy2garmin"
+    },
+    "kettlebell clean": {
+      "garmin_category": "OLYMPIC_LIFT",
+      "garmin_category_id": 18,
+      "garmin_exercise": "CLEAN",
+      "garmin_exercise_id": 11,
+      "hevy_template_title": "Kettlebell Clean",
+      "hevy_title": "Kettlebell Clean",
+      "source": "drkostas/hevy2garmin"
+    },
+    "kettlebell curl": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "KETTLEBELL_BICEPS_CURL",
+      "garmin_exercise_id": 24,
+      "hevy_template_title": "Kettlebell Curl",
+      "hevy_title": "Kettlebell Curl",
+      "source": "drkostas/hevy2garmin"
+    },
+    "kettlebell goblet squat": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "GOBLET_SQUAT",
+      "garmin_exercise_id": 37,
+      "hevy_template_title": "Kettlebell Goblet Squat",
+      "hevy_title": "Kettlebell Goblet Squat",
+      "source": "drkostas/hevy2garmin"
+    },
+    "kettlebell halo": {
+      "garmin_category": "SHOULDER_STABILITY",
+      "garmin_category_id": 25,
+      "garmin_exercise": "BENT_ARM_LATERAL_RAISE_AND_EXTERNAL_ROTATION",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "Kettlebell Halo",
+      "hevy_title": "Kettlebell Halo",
+      "source": "drkostas/hevy2garmin"
+    },
+    "kettlebell high pull": {
+      "garmin_category": "OLYMPIC_LIFT",
+      "garmin_category_id": 18,
+      "garmin_exercise": "BARBELL_HIGH_PULL",
+      "garmin_exercise_id": 8,
+      "hevy_template_title": "Kettlebell High Pull",
+      "hevy_title": "Kettlebell High Pull",
+      "source": "drkostas/hevy2garmin"
+    },
+    "kettlebell shoulder press": {
+      "garmin_category": "SHOULDER_PRESS",
+      "garmin_category_id": 24,
+      "garmin_exercise": "OVERHEAD_DUMBBELL_PRESS",
+      "garmin_exercise_id": 15,
+      "hevy_template_title": "Kettlebell Shoulder Press",
+      "hevy_title": "Kettlebell Shoulder Press",
+      "source": "drkostas/hevy2garmin"
+    },
+    "kettlebell snatch": {
+      "garmin_category": "OLYMPIC_LIFT",
+      "garmin_category_id": 18,
+      "garmin_exercise": "SINGLE_ARM_KETTLEBELL_SNATCH",
+      "garmin_exercise_id": 18,
+      "hevy_template_title": "Kettlebell Snatch",
+      "hevy_title": "Kettlebell Snatch",
+      "source": "drkostas/hevy2garmin"
+    },
+    "kettlebell swing": {
+      "garmin_category": "HIP_RAISE",
+      "garmin_category_id": 10,
+      "garmin_exercise": "KETTLEBELL_SWING",
+      "garmin_exercise_id": 23,
+      "hevy_template_title": "Kettlebell Swing",
+      "hevy_title": "Kettlebell Swing",
+      "source": "drkostas/hevy2garmin"
+    },
+    "kettlebell turkish get up": {
+      "garmin_category": "TOTAL_BODY",
+      "garmin_category_id": 29,
+      "garmin_exercise": "BURPEE",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Kettlebell Turkish Get Up",
+      "hevy_title": "Kettlebell Turkish Get Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "kipping pull up": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "KIPPING_PULL_UP",
+      "garmin_exercise_id": 32,
+      "hevy_template_title": "Kipping Pull Up",
+      "hevy_title": "Kipping Pull Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "knee raise parallel bars": {
+      "garmin_category": "LEG_RAISE",
+      "garmin_category_id": 16,
+      "garmin_exercise": "HANGING_KNEE_RAISE",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Knee Raise Parallel Bars",
+      "hevy_title": "Knee Raise Parallel Bars",
+      "source": "drkostas/hevy2garmin"
+    },
+    "kneeling pulldown band": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "KNEELING_LAT_PULLDOWN",
+      "garmin_exercise_id": 11,
+      "hevy_template_title": "Kneeling Pulldown (band)",
+      "hevy_title": "Kneeling Pulldown (band)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "kneeling push up": {
+      "garmin_category": "PUSH_UP",
+      "garmin_category_id": 22,
+      "garmin_exercise": "KNEELING_PUSH_UP",
+      "garmin_exercise_id": 33,
+      "hevy_template_title": "Kneeling Push Up",
+      "hevy_title": "Kneeling Push Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "l sit hold": {
+      "garmin_category": "LEG_RAISE",
+      "garmin_category_id": 16,
+      "garmin_exercise": "HANGING_LEG_RAISE",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "L-Sit Hold",
+      "hevy_title": "L-Sit Hold",
+      "source": "drkostas/hevy2garmin"
+    },
+    "landmine 180": {
+      "garmin_category": "CHOP",
+      "garmin_category_id": 4,
+      "garmin_exercise": "CABLE_WOODCHOP",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Landmine 180",
+      "hevy_title": "Landmine 180",
+      "source": "drkostas/hevy2garmin"
+    },
+    "landmine row": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "ONE_ARM_BENT_OVER_ROW",
+      "garmin_exercise_id": 13,
+      "hevy_template_title": "Landmine Row",
+      "hevy_title": "Landmine Row",
+      "source": "drkostas/hevy2garmin"
+    },
+    "landmine squat and press": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "THRUSTERS",
+      "garmin_exercise_id": 79,
+      "hevy_template_title": "Landmine Squat and Press",
+      "hevy_title": "Landmine Squat and Press",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lat pulldown band": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "LAT_PULLDOWN",
+      "garmin_exercise_id": 13,
+      "hevy_template_title": "Lat Pulldown (Band)",
+      "hevy_title": "Lat Pulldown (Band)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lat pulldown cable": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "LAT_PULLDOWN",
+      "garmin_exercise_id": 13,
+      "hevy_template_title": "Lat Pulldown (Cable)",
+      "hevy_title": "Lat Pulldown (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lat pulldown close grip cable": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "CLOSE_GRIP_LAT_PULLDOWN",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Lat Pulldown - Close Grip (Cable)",
+      "hevy_title": "Lat Pulldown - Close Grip (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lat pulldown machine": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "LAT_PULLDOWN",
+      "garmin_exercise_id": 13,
+      "hevy_template_title": "Lat Pulldown (Machine)",
+      "hevy_title": "Lat Pulldown (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lateral band walks": {
+      "garmin_category": "HIP_STABILITY",
+      "garmin_category_id": 11,
+      "garmin_exercise": "LATERAL_WALKS_WITH_BAND_AT_ANKLES",
+      "garmin_exercise_id": 11,
+      "hevy_template_title": "Lateral Band Walks",
+      "hevy_title": "Lateral Band Walks",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lateral box jump": {
+      "garmin_category": "PLYO",
+      "garmin_category_id": 20,
+      "garmin_exercise": "LATERAL_PLYO_SQUATS",
+      "garmin_exercise_id": 19,
+      "hevy_template_title": "Lateral Box Jump",
+      "hevy_title": "Lateral Box Jump",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lateral leg raises": {
+      "garmin_category": "HIP_STABILITY",
+      "garmin_category_id": 11,
+      "garmin_exercise": "SIDE_LYING_LEG_RAISE",
+      "garmin_exercise_id": 21,
+      "hevy_template_title": "Lateral Leg Raises",
+      "hevy_title": "Lateral Leg Raises",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lateral lunge": {
+      "garmin_category": "LUNGE",
+      "garmin_category_id": 17,
+      "garmin_exercise": "LUNGE",
+      "garmin_exercise_id": 32,
+      "hevy_template_title": "Lateral Lunge",
+      "hevy_title": "Lateral Lunge",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lateral raise band": {
+      "garmin_category": "LATERAL_RAISE",
+      "garmin_category_id": 14,
+      "garmin_exercise": "LEANING_DUMBBELL_LATERAL_RAISE",
+      "garmin_exercise_id": 11,
+      "hevy_template_title": "Lateral Raise (Band)",
+      "hevy_title": "Lateral Raise (Band)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lateral raise cable": {
+      "garmin_category": "LATERAL_RAISE",
+      "garmin_category_id": 14,
+      "garmin_exercise": "ONE_ARM_CABLE_LATERAL_RAISE",
+      "garmin_exercise_id": 14,
+      "hevy_template_title": "Lateral Raise (Cable)",
+      "hevy_title": "Lateral Raise (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lateral raise dumbbell": {
+      "garmin_category": "LATERAL_RAISE",
+      "garmin_category_id": 14,
+      "garmin_exercise": "LEANING_DUMBBELL_LATERAL_RAISE",
+      "garmin_exercise_id": 11,
+      "hevy_template_title": "Lateral Raise (Dumbbell)",
+      "hevy_title": "Lateral Raise (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lateral raise machine": {
+      "garmin_category": "LATERAL_RAISE",
+      "garmin_category_id": 14,
+      "garmin_exercise": "SEATED_LATERAL_RAISE",
+      "garmin_exercise_id": 24,
+      "hevy_template_title": "Lateral Raise (Machine)",
+      "hevy_title": "Lateral Raise (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lateral squat": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "SQUAT",
+      "garmin_exercise_id": 61,
+      "hevy_template_title": "Lateral Squat",
+      "hevy_title": "Lateral Squat",
+      "source": "drkostas/hevy2garmin"
+    },
+    "latzug maschine": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "LAT_PULLDOWN",
+      "garmin_exercise_id": 13,
+      "hevy_template_title": "Lat Pulldown (Machine)",
+      "hevy_title": "Latzug (Maschine)",
+      "source": "local/hevy-template-title"
+    },
+    "leg extension machine": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "LEG_EXTENSIONS",
+      "garmin_exercise_id": 33,
+      "hevy_template_title": "Leg Extension (Machine)",
+      "hevy_title": "Leg Extension (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "leg press horizontal machine": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "LEG_PRESS",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Leg Press Horizontal (Machine)",
+      "hevy_title": "Leg Press Horizontal (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "leg press machine": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "LEG_PRESS",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Leg Press (Machine)",
+      "hevy_title": "Leg Press (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "leg raise parallel bars": {
+      "garmin_category": "LEG_RAISE",
+      "garmin_category_id": 16,
+      "garmin_exercise": "HANGING_LEG_RAISE",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Leg Raise Parallel Bars",
+      "hevy_title": "Leg Raise Parallel Bars",
+      "source": "drkostas/hevy2garmin"
+    },
+    "liegendes beinbeugen maschine": {
+      "garmin_category": "LEG_CURL",
+      "garmin_category_id": 15,
+      "garmin_exercise": "LEG_CURL",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Lying Leg Curl (Machine)",
+      "hevy_title": "Liegendes Beinbeugen (Maschine)",
+      "source": "local/hevy-template-title"
+    },
+    "low cable fly crossovers": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "CABLE_CROSSOVER",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Low Cable Fly Crossovers",
+      "hevy_title": "Low Cable Fly Crossovers",
+      "source": "drkostas/hevy2garmin"
+    },
+    "low row suspension": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "SUSPENDED_INVERTED_ROW",
+      "garmin_exercise_id": 26,
+      "hevy_template_title": "Low Row (Suspension)",
+      "hevy_title": "Low Row (Suspension)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lunge": {
+      "garmin_category": "LUNGE",
+      "garmin_category_id": 17,
+      "garmin_exercise": "LUNGE",
+      "garmin_exercise_id": 32,
+      "hevy_template_title": "Lunge",
+      "hevy_title": "Lunge",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lunge barbell": {
+      "garmin_category": "LUNGE",
+      "garmin_category_id": 17,
+      "garmin_exercise": "BARBELL_LUNGE",
+      "garmin_exercise_id": 10,
+      "hevy_template_title": "Lunge (Barbell)",
+      "hevy_title": "Lunge (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lunge dumbbell": {
+      "garmin_category": "LUNGE",
+      "garmin_category_id": 17,
+      "garmin_exercise": "DUMBBELL_LUNGE",
+      "garmin_exercise_id": 21,
+      "hevy_template_title": "Lunge (Dumbbell)",
+      "hevy_title": "Lunge (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lying knee raise": {
+      "garmin_category": "LEG_RAISE",
+      "garmin_category_id": 16,
+      "garmin_exercise": "LYING_STRAIGHT_LEG_RAISE",
+      "garmin_exercise_id": 8,
+      "hevy_template_title": "Lying Knee Raise",
+      "hevy_title": "Lying Knee Raise",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lying leg curl machine": {
+      "garmin_category": "LEG_CURL",
+      "garmin_category_id": 15,
+      "garmin_exercise": "LEG_CURL",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Lying Leg Curl (Machine)",
+      "hevy_title": "Lying Leg Curl (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lying leg raise": {
+      "garmin_category": "LEG_RAISE",
+      "garmin_category_id": 16,
+      "garmin_exercise": "LYING_STRAIGHT_LEG_RAISE",
+      "garmin_exercise_id": 8,
+      "hevy_template_title": "Lying Leg Raise",
+      "hevy_title": "Lying Leg Raise",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lying neck curls": {
+      "garmin_category": "UNKNOWN",
+      "garmin_category_id": 65534,
+      "garmin_exercise": "UNKNOWN",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Lying Neck Curls",
+      "hevy_title": "Lying Neck Curls",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lying neck curls weighted": {
+      "garmin_category": "UNKNOWN",
+      "garmin_category_id": 65534,
+      "garmin_exercise": "UNKNOWN",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Lying Neck Curls (Weighted)",
+      "hevy_title": "Lying Neck Curls (Weighted)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lying neck extension": {
+      "garmin_category": "UNKNOWN",
+      "garmin_category_id": 65534,
+      "garmin_exercise": "UNKNOWN",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Lying Neck Extension",
+      "hevy_title": "Lying Neck Extension",
+      "source": "drkostas/hevy2garmin"
+    },
+    "lying neck extension weighted": {
+      "garmin_category": "UNKNOWN",
+      "garmin_category_id": 65534,
+      "garmin_exercise": "UNKNOWN",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Lying Neck Extension (Weighted)",
+      "hevy_title": "Lying Neck Extension (Weighted)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "meadows rows barbell": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "ONE_ARM_BENT_OVER_ROW",
+      "garmin_exercise_id": 13,
+      "hevy_template_title": "Meadows Rows (Barbell)",
+      "hevy_title": "Meadows Rows (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "mountain climber": {
+      "garmin_category": "PLANK",
+      "garmin_category_id": 19,
+      "garmin_exercise": "MOUNTAIN_CLIMBER",
+      "garmin_exercise_id": 34,
+      "hevy_template_title": "Mountain Climber",
+      "hevy_title": "Mountain Climber",
+      "source": "drkostas/hevy2garmin"
+    },
+    "muscle up": {
+      "garmin_category": "LATERAL_RAISE",
+      "garmin_category_id": 14,
+      "garmin_exercise": "MUSCLE_UP",
+      "garmin_exercise_id": 13,
+      "hevy_template_title": "Muscle Up",
+      "hevy_title": "Muscle Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "negative pull up": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "PULL_UP",
+      "garmin_exercise_id": 38,
+      "hevy_template_title": "Negative Pull Up",
+      "hevy_title": "Negative Pull Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "nordic hamstrings curls": {
+      "garmin_category": "LEG_CURL",
+      "garmin_category_id": 15,
+      "garmin_exercise": "LEG_CURL",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Nordic Hamstrings Curls",
+      "hevy_title": "Nordic Hamstrings Curls",
+      "source": "drkostas/hevy2garmin"
+    },
+    "oblique crunch": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "CRUNCH",
+      "garmin_exercise_id": 83,
+      "hevy_template_title": "Oblique Crunch",
+      "hevy_title": "Oblique Crunch",
+      "source": "drkostas/hevy2garmin"
+    },
+    "one arm cable cross body triceps extension": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "CABLE_KICKBACK",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "One-Arm Cable Cross Body Triceps Extension",
+      "hevy_title": "One-Arm Cable Cross Body Triceps Extension",
+      "source": "drkostas/hevy2garmin"
+    },
+    "one arm push up": {
+      "garmin_category": "PUSH_UP",
+      "garmin_category_id": 22,
+      "garmin_exercise": "ONE_ARM_PUSH_UP",
+      "garmin_exercise_id": 38,
+      "hevy_template_title": "One Arm Push Up",
+      "hevy_title": "One Arm Push Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "overhead curl cable": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "CABLE_BICEPS_CURL",
+      "garmin_exercise_id": 8,
+      "hevy_template_title": "Overhead Curl (Cable)",
+      "hevy_title": "Overhead Curl (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "overhead dumbbell lunge": {
+      "garmin_category": "CARRY",
+      "garmin_category_id": 3,
+      "garmin_exercise": "OVERHEAD_CARRY",
+      "garmin_exercise_id": 4,
+      "hevy_template_title": "Overhead Dumbbell Lunge",
+      "hevy_title": "Overhead Dumbbell Lunge",
+      "source": "drkostas/hevy2garmin"
+    },
+    "overhead plate raise": {
+      "garmin_category": "LATERAL_RAISE",
+      "garmin_category_id": 14,
+      "garmin_exercise": "PLATE_RAISES",
+      "garmin_exercise_id": 16,
+      "hevy_template_title": "Overhead Plate Raise",
+      "hevy_title": "Overhead Plate Raise",
+      "source": "drkostas/hevy2garmin"
+    },
+    "overhead press barbell": {
+      "garmin_category": "SHOULDER_PRESS",
+      "garmin_category_id": 24,
+      "garmin_exercise": "OVERHEAD_BARBELL_PRESS",
+      "garmin_exercise_id": 14,
+      "hevy_template_title": "Overhead Press (Barbell)",
+      "hevy_title": "Overhead Press (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "overhead press dumbbell": {
+      "garmin_category": "SHOULDER_PRESS",
+      "garmin_category_id": 24,
+      "garmin_exercise": "OVERHEAD_DUMBBELL_PRESS",
+      "garmin_exercise_id": 15,
+      "hevy_template_title": "Overhead Press (Dumbbell)",
+      "hevy_title": "Overhead Press (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "overhead press smith machine": {
+      "garmin_category": "SHOULDER_PRESS",
+      "garmin_category_id": 24,
+      "garmin_exercise": "SMITH_MACHINE_OVERHEAD_PRESS",
+      "garmin_exercise_id": 20,
+      "hevy_template_title": "Overhead Press (Smith Machine)",
+      "hevy_title": "Overhead Press (Smith Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "overhead squat": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "OVERHEAD_SQUAT",
+      "garmin_exercise_id": 44,
+      "hevy_template_title": "Overhead Squat",
+      "hevy_title": "Overhead Squat",
+      "source": "drkostas/hevy2garmin"
+    },
+    "overhead triceps extension cable": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "CABLE_OVERHEAD_TRICEPS_EXTENSION",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Overhead Triceps Extension (Cable)",
+      "hevy_title": "Overhead Triceps Extension (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "partial glute bridge barbell": {
+      "garmin_category": "HIP_RAISE",
+      "garmin_category_id": 10,
+      "garmin_exercise": "BARBELL_HIP_THRUST_ON_FLOOR",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Partial Glute Bridge (Barbell)",
+      "hevy_title": "Partial Glute Bridge (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "pause squat barbell": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "BARBELL_BACK_SQUAT",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Pause Squat (Barbell)",
+      "hevy_title": "Pause Squat (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "pendlay row barbell": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "BARBELL_STRAIGHT_LEG_DEADLIFT_TO_ROW",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Pendlay Row (Barbell)",
+      "hevy_title": "Pendlay Row (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "pendulum squat machine": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "SQUAT",
+      "garmin_exercise_id": 61,
+      "hevy_template_title": "Pendulum Squat (Machine)",
+      "hevy_title": "Pendulum Squat (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "pike pushup": {
+      "garmin_category": "PUSH_UP",
+      "garmin_category_id": 22,
+      "garmin_exercise": "SHOULDER_PUSH_UP",
+      "garmin_exercise_id": 49,
+      "hevy_template_title": "Pike Pushup",
+      "hevy_title": "Pike Pushup",
+      "source": "drkostas/hevy2garmin"
+    },
+    "pilates": {
+      "garmin_category": "CARDIO",
+      "garmin_category_id": 2,
+      "garmin_exercise": "BOB_AND_WEAVE_CIRCLE",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Pilates",
+      "hevy_title": "Pilates",
+      "source": "drkostas/hevy2garmin"
+    },
+    "pinwheel curl dumbbell": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "CROSS_BODY_DUMBBELL_HAMMER_CURL",
+      "garmin_exercise_id": 12,
+      "hevy_template_title": "Pinwheel Curl (Dumbbell)",
+      "hevy_title": "Pinwheel Curl (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "pistol squat": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "PISTOL_SQUAT",
+      "garmin_exercise_id": 47,
+      "hevy_template_title": "Pistol Squat",
+      "hevy_title": "Pistol Squat",
+      "source": "drkostas/hevy2garmin"
+    },
+    "plank": {
+      "garmin_category": "PLANK",
+      "garmin_category_id": 19,
+      "garmin_exercise": "PLANK",
+      "garmin_exercise_id": 43,
+      "hevy_template_title": "Plank",
+      "hevy_title": "Plank",
+      "source": "drkostas/hevy2garmin"
+    },
+    "plank pushup": {
+      "garmin_category": "PUSH_UP",
+      "garmin_category_id": 22,
+      "garmin_exercise": "PUSH_UP",
+      "garmin_exercise_id": 77,
+      "hevy_template_title": "Plank Pushup",
+      "hevy_title": "Plank Pushup",
+      "source": "drkostas/hevy2garmin"
+    },
+    "plate curl": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "PLATE_PINCH_CURL",
+      "garmin_exercise_id": 27,
+      "hevy_template_title": "Plate Curl",
+      "hevy_title": "Plate Curl",
+      "source": "drkostas/hevy2garmin"
+    },
+    "plate front raise": {
+      "garmin_category": "LATERAL_RAISE",
+      "garmin_category_id": 14,
+      "garmin_exercise": "PLATE_RAISES",
+      "garmin_exercise_id": 16,
+      "hevy_template_title": "Plate Front Raise",
+      "hevy_title": "Plate Front Raise",
+      "source": "drkostas/hevy2garmin"
+    },
+    "plate press": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "KETTLEBELL_CHEST_PRESS",
+      "garmin_exercise_id": 12,
+      "hevy_template_title": "Plate Press",
+      "hevy_title": "Plate Press",
+      "source": "drkostas/hevy2garmin"
+    },
+    "plate squeeze svend press": {
+      "garmin_category": "BENCH_PRESS",
+      "garmin_category_id": 0,
+      "garmin_exercise": "KETTLEBELL_CHEST_PRESS",
+      "garmin_exercise_id": 12,
+      "hevy_template_title": "Plate Squeeze (Svend Press)",
+      "hevy_title": "Plate Squeeze (Svend Press)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "power clean": {
+      "garmin_category": "OLYMPIC_LIFT",
+      "garmin_category_id": 18,
+      "garmin_exercise": "BARBELL_POWER_CLEAN",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Power Clean",
+      "hevy_title": "Power Clean",
+      "source": "drkostas/hevy2garmin"
+    },
+    "power snatch": {
+      "garmin_category": "OLYMPIC_LIFT",
+      "garmin_category_id": 18,
+      "garmin_exercise": "BARBELL_POWER_SNATCH",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "Power Snatch",
+      "hevy_title": "Power Snatch",
+      "source": "drkostas/hevy2garmin"
+    },
+    "preacher curl barbell": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "EZ_BAR_PREACHER_CURL",
+      "garmin_exercise_id": 19,
+      "hevy_template_title": "Preacher Curl (Barbell)",
+      "hevy_title": "Preacher Curl (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "preacher curl dumbbell": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "ONE_ARM_PREACHER_CURL",
+      "garmin_exercise_id": 26,
+      "hevy_template_title": "Preacher Curl (Dumbbell)",
+      "hevy_title": "Preacher Curl (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "preacher curl machine": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "PREACHER_CURL_WITH_CABLE",
+      "garmin_exercise_id": 28,
+      "hevy_template_title": "Preacher Curl (Machine)",
+      "hevy_title": "Preacher Curl (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "press under": {
+      "garmin_category": "OLYMPIC_LIFT",
+      "garmin_category_id": 18,
+      "garmin_exercise": "CLEAN",
+      "garmin_exercise_id": 11,
+      "hevy_template_title": "Press Under",
+      "hevy_title": "Press Under",
+      "source": "drkostas/hevy2garmin"
+    },
+    "pull up": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "PULL_UP",
+      "garmin_exercise_id": 38,
+      "hevy_template_title": "Pull Up",
+      "hevy_title": "Pull Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "pull up assisted": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "BANDED_PULL_UPS",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Pull Up (Assisted)",
+      "hevy_title": "Pull Up (Assisted)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "pull up band": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "BANDED_PULL_UPS",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Pull Up (Band)",
+      "hevy_title": "Pull Up (Band)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "pull up weighted": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "WEIGHTED_PULL_UP",
+      "garmin_exercise_id": 24,
+      "hevy_template_title": "Pull Up (Weighted)",
+      "hevy_title": "Pull Up (Weighted)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "pullover dumbbell": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "EZ_BAR_PULLOVER",
+      "garmin_exercise_id": 8,
+      "hevy_template_title": "Pullover (Dumbbell)",
+      "hevy_title": "Pullover (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "pullover machine": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "EZ_BAR_PULLOVER",
+      "garmin_exercise_id": 8,
+      "hevy_template_title": "Pullover (Machine)",
+      "hevy_title": "Pullover (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "push press": {
+      "garmin_category": "SHOULDER_PRESS",
+      "garmin_category_id": 24,
+      "garmin_exercise": "BARBELL_PUSH_PRESS",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "Push Press",
+      "hevy_title": "Push Press",
+      "source": "drkostas/hevy2garmin"
+    },
+    "push up": {
+      "garmin_category": "PUSH_UP",
+      "garmin_category_id": 22,
+      "garmin_exercise": "PUSH_UP",
+      "garmin_exercise_id": 77,
+      "hevy_template_title": "Push Up",
+      "hevy_title": "Push Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "push up close grip": {
+      "garmin_category": "PUSH_UP",
+      "garmin_category_id": 22,
+      "garmin_exercise": "CLOSE_HANDS_PUSH_UP",
+      "garmin_exercise_id": 11,
+      "hevy_template_title": "Push Up - Close Grip",
+      "hevy_title": "Push Up - Close Grip",
+      "source": "drkostas/hevy2garmin"
+    },
+    "push up weighted": {
+      "garmin_category": "PUSH_UP",
+      "garmin_category_id": 22,
+      "garmin_exercise": "WEIGHTED_PUSH_UP",
+      "garmin_exercise_id": 40,
+      "hevy_template_title": "Push Up (Weighted)",
+      "hevy_title": "Push Up (Weighted)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "rack pull": {
+      "garmin_category": "DEADLIFT",
+      "garmin_category_id": 8,
+      "garmin_exercise": "RACK_PULL",
+      "garmin_exercise_id": 7,
+      "hevy_template_title": "Rack Pull",
+      "hevy_title": "Rack Pull",
+      "source": "drkostas/hevy2garmin"
+    },
+    "rear delt reverse fly cable": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "SINGLE_ARM_STANDING_CABLE_REVERSE_FLYE",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Rear Delt Reverse Fly (Cable)",
+      "hevy_title": "Rear Delt Reverse Fly (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "rear delt reverse fly dumbbell": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "KNEELING_REAR_FLYE",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Rear Delt Reverse Fly (Dumbbell)",
+      "hevy_title": "Rear Delt Reverse Fly (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "rear delt reverse fly machine": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "KNEELING_REAR_FLYE",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Rear Delt Reverse Fly (Machine)",
+      "hevy_title": "Rear Delt Reverse Fly (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "rear deltoid": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "KNEELING_REAR_FLYE",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Rear Deltoid",
+      "hevy_title": "Rear Deltoid",
+      "source": "drkostas/hevy2garmin"
+    },
+    "rear kick machine": {
+      "garmin_category": "HIP_STABILITY",
+      "garmin_category_id": 11,
+      "garmin_exercise": "STANDING_REAR_LEG_RAISE",
+      "garmin_exercise_id": 30,
+      "hevy_template_title": "Rear Kick (Machine)",
+      "hevy_title": "Rear Kick (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "renegade row dumbbell": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "RENEGADE_ROW",
+      "garmin_exercise_id": 15,
+      "hevy_template_title": "Renegade Row (Dumbbell)",
+      "hevy_title": "Renegade Row (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "reverse crunch": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "REVERSE_CRUNCH",
+      "garmin_exercise_id": 46,
+      "hevy_template_title": "Reverse Crunch",
+      "hevy_title": "Reverse Crunch",
+      "source": "drkostas/hevy2garmin"
+    },
+    "reverse curl barbell": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "REVERSE_GRIP_BARBELL_BICEPS_CURL",
+      "garmin_exercise_id": 31,
+      "hevy_template_title": "Reverse Curl (Barbell)",
+      "hevy_title": "Reverse Curl (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "reverse curl cable": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "REVERSE_GRIP_BARBELL_BICEPS_CURL",
+      "garmin_exercise_id": 31,
+      "hevy_template_title": "Reverse Curl (Cable)",
+      "hevy_title": "Reverse Curl (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "reverse curl dumbbell": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "REVERSE_GRIP_BARBELL_BICEPS_CURL",
+      "garmin_exercise_id": 31,
+      "hevy_template_title": "Reverse Curl (Dumbbell)",
+      "hevy_title": "Reverse Curl (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "reverse ez bar curl": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "REVERSE_EZ_BAR_CURL",
+      "garmin_exercise_id": 29,
+      "hevy_template_title": "Reverse EZ-Bar Curl",
+      "hevy_title": "Reverse EZ-Bar Curl",
+      "source": "drkostas/hevy2garmin"
+    },
+    "reverse fly single arm cable": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "SINGLE_ARM_STANDING_CABLE_REVERSE_FLYE",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Reverse Fly Single Arm (Cable)",
+      "hevy_title": "Reverse Fly Single Arm (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "reverse grip concentration curl": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "REVERSE_GRIP_BARBELL_BICEPS_CURL",
+      "garmin_exercise_id": 31,
+      "hevy_template_title": "Reverse Grip Concentration Curl",
+      "hevy_title": "Reverse Grip Concentration Curl",
+      "source": "drkostas/hevy2garmin"
+    },
+    "reverse grip lat pulldown cable": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "REVERSE_GRIP_PULLDOWN",
+      "garmin_exercise_id": 18,
+      "hevy_template_title": "Reverse Grip Lat Pulldown (Cable)",
+      "hevy_title": "Reverse Grip Lat Pulldown (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "reverse hyperextension": {
+      "garmin_category": "HYPEREXTENSION",
+      "garmin_category_id": 13,
+      "garmin_exercise": "BENT_KNEE_REVERSE_HYPEREXTENSION",
+      "garmin_exercise_id": 4,
+      "hevy_template_title": "Reverse Hyperextension",
+      "hevy_title": "Reverse Hyperextension",
+      "source": "drkostas/hevy2garmin"
+    },
+    "reverse lunge": {
+      "garmin_category": "LUNGE",
+      "garmin_category_id": 17,
+      "garmin_exercise": "LUNGE",
+      "garmin_exercise_id": 32,
+      "hevy_template_title": "Reverse Lunge",
+      "hevy_title": "Reverse Lunge",
+      "source": "drkostas/hevy2garmin"
+    },
+    "reverse lunge barbell": {
+      "garmin_category": "LUNGE",
+      "garmin_category_id": 17,
+      "garmin_exercise": "BARBELL_REVERSE_LUNGE",
+      "garmin_exercise_id": 11,
+      "hevy_template_title": "Reverse Lunge (Barbell)",
+      "hevy_title": "Reverse Lunge (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "reverse lunge dumbbell": {
+      "garmin_category": "LUNGE",
+      "garmin_category_id": 17,
+      "garmin_exercise": "DUMBBELL_LUNGE",
+      "garmin_exercise_id": 21,
+      "hevy_template_title": "Reverse Lunge (Dumbbell)",
+      "hevy_title": "Reverse Lunge (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "reverse plank": {
+      "garmin_category": "PLANK",
+      "garmin_category_id": 19,
+      "garmin_exercise": "PLANK",
+      "garmin_exercise_id": 43,
+      "hevy_template_title": "Reverse Plank",
+      "hevy_title": "Reverse Plank",
+      "source": "drkostas/hevy2garmin"
+    },
+    "ring dips": {
+      "garmin_category": "LATERAL_RAISE",
+      "garmin_category_id": 14,
+      "garmin_exercise": "RING_DIP",
+      "garmin_exercise_id": 17,
+      "hevy_template_title": "Ring Dips",
+      "hevy_title": "Ring Dips",
+      "source": "drkostas/hevy2garmin"
+    },
+    "ring pull up": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "PULL_UP",
+      "garmin_exercise_id": 38,
+      "hevy_template_title": "Ring Pull Up",
+      "hevy_title": "Ring Pull Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "ring push up": {
+      "garmin_category": "PUSH_UP",
+      "garmin_category_id": 22,
+      "garmin_exercise": "RING_PUSH_UP",
+      "garmin_exercise_id": 75,
+      "hevy_template_title": "Ring Push Up",
+      "hevy_title": "Ring Push Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "romanian deadlift barbell": {
+      "garmin_category": "DEADLIFT",
+      "garmin_category_id": 8,
+      "garmin_exercise": "BARBELL_STRAIGHT_LEG_DEADLIFT",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Romanian Deadlift (Barbell)",
+      "hevy_title": "Romanian Deadlift (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "romanian deadlift dumbbell": {
+      "garmin_category": "DEADLIFT",
+      "garmin_category_id": 8,
+      "garmin_exercise": "DUMBBELL_STRAIGHT_LEG_DEADLIFT",
+      "garmin_exercise_id": 4,
+      "hevy_template_title": "Romanian Deadlift (Dumbbell)",
+      "hevy_title": "Romanian Deadlift (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "rope cable curl": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "CABLE_BICEPS_CURL",
+      "garmin_exercise_id": 8,
+      "hevy_template_title": "Rope Cable Curl",
+      "hevy_title": "Rope Cable Curl",
+      "source": "drkostas/hevy2garmin"
+    },
+    "rope straight arm pulldown": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "STRAIGHT_ARM_PULLDOWN",
+      "garmin_exercise_id": 20,
+      "hevy_template_title": "Rope Straight Arm Pulldown",
+      "hevy_title": "Rope Straight Arm Pulldown",
+      "source": "drkostas/hevy2garmin"
+    },
+    "rudern sitzend maschine": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "SEATED_CABLE_ROW",
+      "garmin_exercise_id": 18,
+      "hevy_template_title": "Seated Row (Machine)",
+      "hevy_title": "Rudern sitzend (Maschine)",
+      "source": "local/hevy-template-title"
+    },
+    "rueckenstrecken maschine": {
+      "garmin_category": "HYPEREXTENSION",
+      "garmin_category_id": 13,
+      "garmin_exercise": "SPINE_EXTENSION",
+      "garmin_exercise_id": 25,
+      "hevy_template_title": "Back Extension (Machine)",
+      "hevy_title": "Rückenstrecken (Maschine)",
+      "source": "local/hevy-template-title"
+    },
+    "running": {
+      "garmin_category": "RUN",
+      "garmin_category_id": 32,
+      "garmin_exercise": "RUN",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Running",
+      "hevy_title": "Running",
+      "source": "drkostas/hevy2garmin"
+    },
+    "russian twist bodyweight": {
+      "garmin_category": "CORE",
+      "garmin_category_id": 5,
+      "garmin_exercise": "RUSSIAN_TWIST",
+      "garmin_exercise_id": 46,
+      "hevy_template_title": "Russian Twist (Bodyweight)",
+      "hevy_title": "Russian Twist (Bodyweight)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "russian twist weighted": {
+      "garmin_category": "CORE",
+      "garmin_category_id": 5,
+      "garmin_exercise": "RUSSIAN_TWIST",
+      "garmin_exercise_id": 46,
+      "hevy_template_title": "Russian Twist (Weighted)",
+      "hevy_title": "Russian Twist (Weighted)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "scapular pull ups": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "PULL_UP",
+      "garmin_exercise_id": 38,
+      "hevy_template_title": "Scapular Pull Ups",
+      "hevy_title": "Scapular Pull Ups",
+      "source": "drkostas/hevy2garmin"
+    },
+    "schulterpresse sitzend maschine": {
+      "garmin_category": "SHOULDER_PRESS",
+      "garmin_category_id": 24,
+      "garmin_exercise": "SMITH_MACHINE_OVERHEAD_PRESS",
+      "garmin_exercise_id": 20,
+      "hevy_template_title": "Seated Shoulder Press (Machine)",
+      "hevy_title": "Schulterpresse sitzend (Maschine)",
+      "source": "local/hevy-template-title"
+    },
+    "seated cable row bar grip": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "SEATED_CABLE_ROW",
+      "garmin_exercise_id": 18,
+      "hevy_template_title": "Seated Cable Row - Bar Grip",
+      "hevy_title": "Seated Cable Row - Bar Grip",
+      "source": "drkostas/hevy2garmin"
+    },
+    "seated cable row bar wide grip": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "WIDE_GRIP_SEATED_CABLE_ROW",
+      "garmin_exercise_id": 33,
+      "hevy_template_title": "Seated Cable Row - Bar Wide Grip",
+      "hevy_title": "Seated Cable Row - Bar Wide Grip",
+      "source": "drkostas/hevy2garmin"
+    },
+    "seated cable row v grip cable": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "V_GRIP_CABLE_ROW",
+      "garmin_exercise_id": 32,
+      "hevy_template_title": "Seated Cable Row - V Grip (Cable)",
+      "hevy_title": "Seated Cable Row - V Grip (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "seated calf raise": {
+      "garmin_category": "CALF_RAISE",
+      "garmin_category_id": 1,
+      "garmin_exercise": "SEATED_CALF_RAISE",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Seated Calf Raise",
+      "hevy_title": "Seated Calf Raise",
+      "source": "drkostas/hevy2garmin"
+    },
+    "seated chest flys cable": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "CABLE_CROSSOVER",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Seated Chest Flys (Cable)",
+      "hevy_title": "Seated Chest Flys (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "seated dip machine": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "BODY_WEIGHT_DIP",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Seated Dip Machine",
+      "hevy_title": "Seated Dip Machine",
+      "source": "drkostas/hevy2garmin"
+    },
+    "seated incline curl dumbbell": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "INCLINE_DUMBBELL_BICEPS_CURL",
+      "garmin_exercise_id": 22,
+      "hevy_template_title": "Seated Incline Curl (Dumbbell)",
+      "hevy_title": "Seated Incline Curl (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "seated lateral raise dumbbell": {
+      "garmin_category": "LATERAL_RAISE",
+      "garmin_category_id": 14,
+      "garmin_exercise": "SEATED_LATERAL_RAISE",
+      "garmin_exercise_id": 24,
+      "hevy_template_title": "Seated Lateral Raise (Dumbbell)",
+      "hevy_title": "Seated Lateral Raise (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "seated leg curl machine": {
+      "garmin_category": "LEG_CURL",
+      "garmin_category_id": 15,
+      "garmin_exercise": "LEG_CURL",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Seated Leg Curl (Machine)",
+      "hevy_title": "Seated Leg Curl (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "seated overhead press barbell": {
+      "garmin_category": "SHOULDER_PRESS",
+      "garmin_category_id": 24,
+      "garmin_exercise": "SEATED_BARBELL_SHOULDER_PRESS",
+      "garmin_exercise_id": 16,
+      "hevy_template_title": "Seated Overhead Press (Barbell)",
+      "hevy_title": "Seated Overhead Press (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "seated overhead press dumbbell": {
+      "garmin_category": "SHOULDER_PRESS",
+      "garmin_category_id": 24,
+      "garmin_exercise": "SEATED_DUMBBELL_SHOULDER_PRESS",
+      "garmin_exercise_id": 17,
+      "hevy_template_title": "Seated Overhead Press (Dumbbell)",
+      "hevy_title": "Seated Overhead Press (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "seated palms up wrist curl": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "BARBELL_WRIST_CURL",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Seated Palms Up Wrist Curl",
+      "hevy_title": "Seated Palms Up Wrist Curl",
+      "source": "drkostas/hevy2garmin"
+    },
+    "seated row machine": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "SEATED_CABLE_ROW",
+      "garmin_exercise_id": 18,
+      "hevy_template_title": "Seated Row (Machine)",
+      "hevy_title": "Seated Row (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "seated shoulder press machine": {
+      "garmin_category": "SHOULDER_PRESS",
+      "garmin_category_id": 24,
+      "garmin_exercise": "SMITH_MACHINE_OVERHEAD_PRESS",
+      "garmin_exercise_id": 20,
+      "hevy_template_title": "Seated Shoulder Press (Machine)",
+      "hevy_title": "Seated Shoulder Press (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "seated triceps press": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "SEATED_BARBELL_OVERHEAD_TRICEPS_EXTENSION",
+      "garmin_exercise_id": 20,
+      "hevy_template_title": "Seated Triceps Press",
+      "hevy_title": "Seated Triceps Press",
+      "source": "drkostas/hevy2garmin"
+    },
+    "seated wrist extension barbell": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "BARBELL_REVERSE_WRIST_CURL",
+      "garmin_exercise_id": 4,
+      "hevy_template_title": "Seated Wrist Extension (Barbell)",
+      "hevy_title": "Seated Wrist Extension (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "shoulder extension": {
+      "garmin_category": "SHOULDER_STABILITY",
+      "garmin_category_id": 25,
+      "garmin_exercise": "BENT_ARM_LATERAL_RAISE_AND_EXTERNAL_ROTATION",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "Shoulder Extension",
+      "hevy_title": "Shoulder Extension",
+      "source": "drkostas/hevy2garmin"
+    },
+    "shoulder press dumbbell": {
+      "garmin_category": "SHOULDER_PRESS",
+      "garmin_category_id": 24,
+      "garmin_exercise": "OVERHEAD_DUMBBELL_PRESS",
+      "garmin_exercise_id": 15,
+      "hevy_template_title": "Shoulder Press (Dumbbell)",
+      "hevy_title": "Shoulder Press (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "shoulder press machine plates": {
+      "garmin_category": "SHOULDER_PRESS",
+      "garmin_category_id": 24,
+      "garmin_exercise": "SMITH_MACHINE_OVERHEAD_PRESS",
+      "garmin_exercise_id": 20,
+      "hevy_template_title": "Shoulder Press (Machine Plates)",
+      "hevy_title": "Shoulder Press (Machine Plates)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "shoulder taps": {
+      "garmin_category": "SHOULDER_STABILITY",
+      "garmin_category_id": 25,
+      "garmin_exercise": "BENT_ARM_LATERAL_RAISE_AND_EXTERNAL_ROTATION",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "Shoulder Taps",
+      "hevy_title": "Shoulder Taps",
+      "source": "drkostas/hevy2garmin"
+    },
+    "shrug barbell": {
+      "garmin_category": "SHRUG",
+      "garmin_category_id": 26,
+      "garmin_exercise": "BARBELL_SHRUG",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Shrug (Barbell)",
+      "hevy_title": "Shrug (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "shrug cable": {
+      "garmin_category": "SHRUG",
+      "garmin_category_id": 26,
+      "garmin_exercise": "DUMBBELL_SHRUG",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Shrug (Cable)",
+      "hevy_title": "Shrug (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "shrug dumbbell": {
+      "garmin_category": "SHRUG",
+      "garmin_category_id": 26,
+      "garmin_exercise": "DUMBBELL_SHRUG",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Shrug (Dumbbell)",
+      "hevy_title": "Shrug (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "shrug machine": {
+      "garmin_category": "SHRUG",
+      "garmin_category_id": 26,
+      "garmin_exercise": "DUMBBELL_SHRUG",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Shrug (Machine)",
+      "hevy_title": "Shrug (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "shrug smith machine": {
+      "garmin_category": "SHRUG",
+      "garmin_category_id": 26,
+      "garmin_exercise": "BARBELL_SHRUG",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Shrug (Smith Machine)",
+      "hevy_title": "Shrug (Smith Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "side bend": {
+      "garmin_category": "CORE",
+      "garmin_category_id": 5,
+      "garmin_exercise": "SIDE_BEND",
+      "garmin_exercise_id": 8,
+      "hevy_template_title": "Side Bend",
+      "hevy_title": "Side Bend",
+      "source": "drkostas/hevy2garmin"
+    },
+    "side bend dumbbell": {
+      "garmin_category": "CORE",
+      "garmin_category_id": 5,
+      "garmin_exercise": "WEIGHTED_SIDE_BEND",
+      "garmin_exercise_id": 9,
+      "hevy_template_title": "Side Bend (Dumbbell)",
+      "hevy_title": "Side Bend (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "side plank": {
+      "garmin_category": "PLANK",
+      "garmin_category_id": 19,
+      "garmin_exercise": "SIDE_PLANK",
+      "garmin_exercise_id": 66,
+      "hevy_template_title": "Side Plank",
+      "hevy_title": "Side Plank",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single arm cable crossover": {
+      "garmin_category": "FLYE",
+      "garmin_category_id": 9,
+      "garmin_exercise": "CABLE_CROSSOVER",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Single Arm Cable Crossover",
+      "hevy_title": "Single Arm Cable Crossover",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single arm cable row": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "SINGLE_ARM_CABLE_ROW",
+      "garmin_exercise_id": 20,
+      "hevy_template_title": "Single Arm Cable Row",
+      "hevy_title": "Single Arm Cable Row",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single arm curl cable": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "BEHIND_THE_BACK_ONE_ARM_CABLE_CURL",
+      "garmin_exercise_id": 7,
+      "hevy_template_title": "Single Arm Curl (Cable)",
+      "hevy_title": "Single Arm Curl (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single arm landmine press barbell": {
+      "garmin_category": "SHOULDER_PRESS",
+      "garmin_category_id": 24,
+      "garmin_exercise": "SINGLE_ARM_DUMBBELL_SHOULDER_PRESS",
+      "garmin_exercise_id": 18,
+      "hevy_template_title": "Single Arm Landmine Press (Barbell)",
+      "hevy_title": "Single Arm Landmine Press (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single arm lat pulldown": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "LAT_PULLDOWN",
+      "garmin_exercise_id": 13,
+      "hevy_template_title": "Single Arm Lat Pulldown",
+      "hevy_title": "Single Arm Lat Pulldown",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single arm lateral raise cable": {
+      "garmin_category": "LATERAL_RAISE",
+      "garmin_category_id": 14,
+      "garmin_exercise": "ONE_ARM_CABLE_LATERAL_RAISE",
+      "garmin_exercise_id": 14,
+      "hevy_template_title": "Single Arm Lateral Raise (Cable)",
+      "hevy_title": "Single Arm Lateral Raise (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single arm tricep extension dumbbell": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "SINGLE_ARM_DUMBBELL_OVERHEAD_TRICEPS_EXTENSION",
+      "garmin_exercise_id": 24,
+      "hevy_template_title": "Single Arm Tricep Extension (Dumbbell)",
+      "hevy_title": "Single Arm Tricep Extension (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single arm triceps pushdown cable": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "TRICEPS_PRESSDOWN",
+      "garmin_exercise_id": 39,
+      "hevy_template_title": "Single Arm Triceps Pushdown (Cable)",
+      "hevy_title": "Single Arm Triceps Pushdown (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single leg extensions": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "LEG_EXTENSIONS",
+      "garmin_exercise_id": 33,
+      "hevy_template_title": "Single Leg Extensions",
+      "hevy_title": "Single Leg Extensions",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single leg glute bridge": {
+      "garmin_category": "HIP_RAISE",
+      "garmin_category_id": 10,
+      "garmin_exercise": "SINGLE_LEG_HIP_RAISE",
+      "garmin_exercise_id": 30,
+      "hevy_template_title": "Single Leg Glute Bridge",
+      "hevy_title": "Single Leg Glute Bridge",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single leg hip thrust": {
+      "garmin_category": "HIP_RAISE",
+      "garmin_category_id": 10,
+      "garmin_exercise": "SINGLE_LEG_HIP_RAISE",
+      "garmin_exercise_id": 30,
+      "hevy_template_title": "Single Leg Hip Thrust",
+      "hevy_title": "Single Leg Hip Thrust",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single leg hip thrust dumbbell": {
+      "garmin_category": "HIP_RAISE",
+      "garmin_category_id": 10,
+      "garmin_exercise": "SINGLE_LEG_HIP_RAISE",
+      "garmin_exercise_id": 30,
+      "hevy_template_title": "Single Leg Hip Thrust (Dumbbell)",
+      "hevy_title": "Single Leg Hip Thrust (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single leg press machine": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "LEG_PRESS",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Single Leg Press (Machine)",
+      "hevy_title": "Single Leg Press (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single leg romanian deadlift barbell": {
+      "garmin_category": "DEADLIFT",
+      "garmin_category_id": 8,
+      "garmin_exercise": "SINGLE_LEG_BARBELL_DEADLIFT",
+      "garmin_exercise_id": 10,
+      "hevy_template_title": "Single Leg Romanian Deadlift (Barbell)",
+      "hevy_title": "Single Leg Romanian Deadlift (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single leg romanian deadlift dumbbell": {
+      "garmin_category": "DEADLIFT",
+      "garmin_category_id": 8,
+      "garmin_exercise": "SINGLE_LEG_ROMANIAN_DEADLIFT_WITH_DUMBBELL",
+      "garmin_exercise_id": 14,
+      "hevy_template_title": "Single Leg Romanian Deadlift (Dumbbell)",
+      "hevy_title": "Single Leg Romanian Deadlift (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single leg standing calf raise": {
+      "garmin_category": "CALF_RAISE",
+      "garmin_category_id": 1,
+      "garmin_exercise": "SINGLE_LEG_STANDING_CALF_RAISE",
+      "garmin_exercise_id": 15,
+      "hevy_template_title": "Single Leg Standing Calf Raise",
+      "hevy_title": "Single Leg Standing Calf Raise",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single leg standing calf raise barbell": {
+      "garmin_category": "CALF_RAISE",
+      "garmin_category_id": 1,
+      "garmin_exercise": "SINGLE_LEG_STANDING_CALF_RAISE",
+      "garmin_exercise_id": 15,
+      "hevy_template_title": "Single Leg Standing Calf Raise (Barbell)",
+      "hevy_title": "Single Leg Standing Calf Raise (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single leg standing calf raise dumbbell": {
+      "garmin_category": "CALF_RAISE",
+      "garmin_category_id": 1,
+      "garmin_exercise": "SINGLE_LEG_STANDING_DUMBBELL_CALF_RAISE",
+      "garmin_exercise_id": 16,
+      "hevy_template_title": "Single Leg Standing Calf Raise (Dumbbell)",
+      "hevy_title": "Single Leg Standing Calf Raise (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "single leg standing calf raise machine": {
+      "garmin_category": "CALF_RAISE",
+      "garmin_category_id": 1,
+      "garmin_exercise": "SINGLE_LEG_STANDING_CALF_RAISE",
+      "garmin_exercise_id": 15,
+      "hevy_template_title": "Single Leg Standing Calf Raise (Machine)",
+      "hevy_title": "Single Leg Standing Calf Raise (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "sissy squat weighted": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "WEIGHTED_SQUAT",
+      "garmin_exercise_id": 62,
+      "hevy_template_title": "Sissy Squat (Weighted)",
+      "hevy_title": "Sissy Squat (Weighted)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "sit up": {
+      "garmin_category": "SIT_UP",
+      "garmin_category_id": 27,
+      "garmin_exercise": "SIT_UP",
+      "garmin_exercise_id": 37,
+      "hevy_template_title": "Sit Up",
+      "hevy_title": "Sit Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "sit up weighted": {
+      "garmin_category": "SIT_UP",
+      "garmin_category_id": 27,
+      "garmin_exercise": "WEIGHTED_SIT_UP",
+      "garmin_exercise_id": 34,
+      "hevy_template_title": "Sit Up (Weighted)",
+      "hevy_title": "Sit Up (Weighted)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "skating": {
+      "garmin_category": "CARDIO",
+      "garmin_category_id": 2,
+      "garmin_exercise": "BOB_AND_WEAVE_CIRCLE",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Skating",
+      "hevy_title": "Skating",
+      "source": "drkostas/hevy2garmin"
+    },
+    "skiing": {
+      "garmin_category": "CARDIO",
+      "garmin_category_id": 2,
+      "garmin_exercise": "BOB_AND_WEAVE_CIRCLE",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Skiing",
+      "hevy_title": "Skiing",
+      "source": "drkostas/hevy2garmin"
+    },
+    "skullcrusher barbell": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "LYING_EZ_BAR_TRICEPS_EXTENSION",
+      "garmin_exercise_id": 13,
+      "hevy_template_title": "Skullcrusher (Barbell)",
+      "hevy_title": "Skullcrusher (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "skullcrusher dumbbell": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "DUMBBELL_LYING_TRICEPS_EXTENSION",
+      "garmin_exercise_id": 7,
+      "hevy_template_title": "Skullcrusher (Dumbbell)",
+      "hevy_title": "Skullcrusher (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "sled push": {
+      "garmin_category": "PLYO",
+      "garmin_category_id": 20,
+      "garmin_exercise": "SQUAT_JUMP_ONTO_BOX",
+      "garmin_exercise_id": 29,
+      "hevy_template_title": "Sled Push",
+      "hevy_title": "Sled Push",
+      "source": "drkostas/hevy2garmin"
+    },
+    "snatch": {
+      "garmin_category": "OLYMPIC_LIFT",
+      "garmin_category_id": 18,
+      "garmin_exercise": "BARBELL_SNATCH",
+      "garmin_exercise_id": 9,
+      "hevy_template_title": "Snatch",
+      "hevy_title": "Snatch",
+      "source": "drkostas/hevy2garmin"
+    },
+    "snowboarding": {
+      "garmin_category": "CARDIO",
+      "garmin_category_id": 2,
+      "garmin_exercise": "BOB_AND_WEAVE_CIRCLE",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Snowboarding",
+      "hevy_title": "Snowboarding",
+      "source": "drkostas/hevy2garmin"
+    },
+    "spider curl barbell": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "BARBELL_BICEPS_CURL",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "Spider Curl (Barbell)",
+      "hevy_title": "Spider Curl (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "spider curl dumbbell": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "STANDING_DUMBBELL_BICEPS_CURL",
+      "garmin_exercise_id": 37,
+      "hevy_template_title": "Spider Curl (Dumbbell)",
+      "hevy_title": "Spider Curl (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "spiderman": {
+      "garmin_category": "PLANK",
+      "garmin_category_id": 19,
+      "garmin_exercise": "SPIDERMAN_PLANK",
+      "garmin_exercise_id": 90,
+      "hevy_template_title": "Spiderman",
+      "hevy_title": "Spiderman",
+      "source": "drkostas/hevy2garmin"
+    },
+    "split jerk": {
+      "garmin_category": "OLYMPIC_LIFT",
+      "garmin_category_id": 18,
+      "garmin_exercise": "BARBELL_SPLIT_JERK",
+      "garmin_exercise_id": 10,
+      "hevy_template_title": "Split Jerk",
+      "hevy_title": "Split Jerk",
+      "source": "drkostas/hevy2garmin"
+    },
+    "split squat dumbbell": {
+      "garmin_category": "LUNGE",
+      "garmin_category_id": 17,
+      "garmin_exercise": "GUNSLINGER_LUNGE",
+      "garmin_exercise_id": 28,
+      "hevy_template_title": "Split Squat (Dumbbell)",
+      "hevy_title": "Split Squat (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "sprints": {
+      "garmin_category": "RUN",
+      "garmin_category_id": 32,
+      "garmin_exercise": "SPRINT",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "Sprints",
+      "hevy_title": "Sprints",
+      "source": "drkostas/hevy2garmin"
+    },
+    "squat band": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "SQUAT",
+      "garmin_exercise_id": 61,
+      "hevy_template_title": "Squat (Band)",
+      "hevy_title": "Squat (Band)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "squat barbell": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "BARBELL_BACK_SQUAT",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Squat (Barbell)",
+      "hevy_title": "Squat (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "squat bodyweight": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "SQUAT",
+      "garmin_exercise_id": 61,
+      "hevy_template_title": "Squat (Bodyweight)",
+      "hevy_title": "Squat (Bodyweight)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "squat dumbbell": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "DUMBBELL_SQUAT",
+      "garmin_exercise_id": 29,
+      "hevy_template_title": "Squat (Dumbbell)",
+      "hevy_title": "Squat (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "squat machine": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "SQUAT",
+      "garmin_exercise_id": 61,
+      "hevy_template_title": "Squat (Machine)",
+      "hevy_title": "Squat (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "squat row": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "SEATED_CABLE_ROW",
+      "garmin_exercise_id": 18,
+      "hevy_template_title": "Squat Row",
+      "hevy_title": "Squat Row",
+      "source": "drkostas/hevy2garmin"
+    },
+    "squat smith machine": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "BARBELL_BACK_SQUAT",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Squat (Smith Machine)",
+      "hevy_title": "Squat (Smith Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "squat suspension": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "SQUAT",
+      "garmin_exercise_id": 61,
+      "hevy_template_title": "Squat (Suspension)",
+      "hevy_title": "Squat (Suspension)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "standing cable glute kickbacks": {
+      "garmin_category": "HIP_STABILITY",
+      "garmin_category_id": 11,
+      "garmin_exercise": "STANDING_REAR_LEG_RAISE",
+      "garmin_exercise_id": 30,
+      "hevy_template_title": "Standing Cable Glute Kickbacks",
+      "hevy_title": "Standing Cable Glute Kickbacks",
+      "source": "drkostas/hevy2garmin"
+    },
+    "standing calf raise": {
+      "garmin_category": "CALF_RAISE",
+      "garmin_category_id": 1,
+      "garmin_exercise": "STANDING_CALF_RAISE",
+      "garmin_exercise_id": 18,
+      "hevy_template_title": "Standing Calf Raise",
+      "hevy_title": "Standing Calf Raise",
+      "source": "drkostas/hevy2garmin"
+    },
+    "standing calf raise barbell": {
+      "garmin_category": "CALF_RAISE",
+      "garmin_category_id": 1,
+      "garmin_exercise": "STANDING_BARBELL_CALF_RAISE",
+      "garmin_exercise_id": 17,
+      "hevy_template_title": "Standing Calf Raise (Barbell)",
+      "hevy_title": "Standing Calf Raise (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "standing calf raise dumbbell": {
+      "garmin_category": "CALF_RAISE",
+      "garmin_category_id": 1,
+      "garmin_exercise": "STANDING_DUMBBELL_CALF_RAISE",
+      "garmin_exercise_id": 20,
+      "hevy_template_title": "Standing Calf Raise (Dumbbell)",
+      "hevy_title": "Standing Calf Raise (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "standing calf raise machine": {
+      "garmin_category": "CALF_RAISE",
+      "garmin_category_id": 1,
+      "garmin_exercise": "STANDING_CALF_RAISE",
+      "garmin_exercise_id": 18,
+      "hevy_template_title": "Standing Calf Raise (Machine)",
+      "hevy_title": "Standing Calf Raise (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "standing calf raise smith": {
+      "garmin_category": "CALF_RAISE",
+      "garmin_category_id": 1,
+      "garmin_exercise": "STANDING_BARBELL_CALF_RAISE",
+      "garmin_exercise_id": 17,
+      "hevy_template_title": "Standing Calf Raise (Smith)",
+      "hevy_title": "Standing Calf Raise (Smith)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "standing leg curls": {
+      "garmin_category": "LEG_CURL",
+      "garmin_category_id": 15,
+      "garmin_exercise": "LEG_CURL",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Standing Leg Curls",
+      "hevy_title": "Standing Leg Curls",
+      "source": "drkostas/hevy2garmin"
+    },
+    "standing military press barbell": {
+      "garmin_category": "SHOULDER_PRESS",
+      "garmin_category_id": 24,
+      "garmin_exercise": "OVERHEAD_BARBELL_PRESS",
+      "garmin_exercise_id": 14,
+      "hevy_template_title": "Standing Military Press (Barbell)",
+      "hevy_title": "Standing Military Press (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "step up": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "STEP_UP",
+      "garmin_exercise_id": 66,
+      "hevy_template_title": "Step Up",
+      "hevy_title": "Step Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "sternum pull up gironda": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "PULL_UP",
+      "garmin_exercise_id": 38,
+      "hevy_template_title": "Sternum Pull up (Gironda)",
+      "hevy_title": "Sternum Pull up (Gironda)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "straight arm lat pulldown cable": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "STRAIGHT_ARM_PULLDOWN",
+      "garmin_exercise_id": 20,
+      "hevy_template_title": "Straight Arm Lat Pulldown (Cable)",
+      "hevy_title": "Straight Arm Lat Pulldown (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "straight leg deadlift": {
+      "garmin_category": "DEADLIFT",
+      "garmin_category_id": 8,
+      "garmin_exercise": "BARBELL_STRAIGHT_LEG_DEADLIFT",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Straight Leg Deadlift",
+      "hevy_title": "Straight Leg Deadlift",
+      "source": "drkostas/hevy2garmin"
+    },
+    "stretching": {
+      "garmin_category": "WARM_UP",
+      "garmin_category_id": 31,
+      "garmin_exercise": "QUADRUPED_ROCKING",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Stretching",
+      "hevy_title": "Stretching",
+      "source": "drkostas/hevy2garmin"
+    },
+    "sumo deadlift": {
+      "garmin_category": "DEADLIFT",
+      "garmin_category_id": 8,
+      "garmin_exercise": "SUMO_DEADLIFT",
+      "garmin_exercise_id": 15,
+      "hevy_template_title": "Sumo Deadlift",
+      "hevy_title": "Sumo Deadlift",
+      "source": "drkostas/hevy2garmin"
+    },
+    "sumo squat": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "SUMO_SQUAT",
+      "garmin_exercise_id": 69,
+      "hevy_template_title": "Sumo Squat",
+      "hevy_title": "Sumo Squat",
+      "source": "drkostas/hevy2garmin"
+    },
+    "sumo squat barbell": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "SUMO_SQUAT",
+      "garmin_exercise_id": 69,
+      "hevy_template_title": "Sumo Squat (Barbell)",
+      "hevy_title": "Sumo Squat (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "sumo squat dumbbell": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "SUMO_SQUAT",
+      "garmin_exercise_id": 69,
+      "hevy_template_title": "Sumo Squat (Dumbbell)",
+      "hevy_title": "Sumo Squat (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "sumo squat kettlebell": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "SUMO_SQUAT",
+      "garmin_exercise_id": 69,
+      "hevy_template_title": "Sumo Squat (Kettlebell)",
+      "hevy_title": "Sumo Squat (Kettlebell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "superman": {
+      "garmin_category": "HYPEREXTENSION",
+      "garmin_category_id": 13,
+      "garmin_exercise": "SUPERMAN_FROM_FLOOR",
+      "garmin_exercise_id": 29,
+      "hevy_template_title": "Superman",
+      "hevy_title": "Superman",
+      "source": "drkostas/hevy2garmin"
+    },
+    "swimming": {
+      "garmin_category": "CARDIO",
+      "garmin_category_id": 2,
+      "garmin_exercise": "BOB_AND_WEAVE_CIRCLE",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Swimming",
+      "hevy_title": "Swimming",
+      "source": "drkostas/hevy2garmin"
+    },
+    "t bar row": {
+      "garmin_category": "ROW",
+      "garmin_category_id": 23,
+      "garmin_exercise": "T_BAR_ROW",
+      "garmin_exercise_id": 28,
+      "hevy_template_title": "T Bar Row",
+      "hevy_title": "T Bar Row",
+      "source": "drkostas/hevy2garmin"
+    },
+    "thruster barbell": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "THRUSTERS",
+      "garmin_exercise_id": 79,
+      "hevy_template_title": "Thruster (Barbell)",
+      "hevy_title": "Thruster (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "thruster kettlebell": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "THRUSTERS",
+      "garmin_exercise_id": 79,
+      "hevy_template_title": "Thruster (Kettlebell)",
+      "hevy_title": "Thruster (Kettlebell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "toe touch": {
+      "garmin_category": "SIT_UP",
+      "garmin_category_id": 27,
+      "garmin_exercise": "SIT_UP",
+      "garmin_exercise_id": 37,
+      "hevy_template_title": "Toe Touch",
+      "hevy_title": "Toe Touch",
+      "source": "drkostas/hevy2garmin"
+    },
+    "toes to bar": {
+      "garmin_category": "CRUNCH",
+      "garmin_category_id": 6,
+      "garmin_exercise": "TOES_TO_BAR",
+      "garmin_exercise_id": 81,
+      "hevy_template_title": "Toes to Bar",
+      "hevy_title": "Toes to Bar",
+      "source": "drkostas/hevy2garmin"
+    },
+    "torso rotation": {
+      "garmin_category": "CHOP",
+      "garmin_category_id": 4,
+      "garmin_exercise": "CABLE_WOODCHOP",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Torso Rotation",
+      "hevy_title": "Torso Rotation",
+      "source": "drkostas/hevy2garmin"
+    },
+    "triceps dip": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "BODY_WEIGHT_DIP",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Triceps Dip",
+      "hevy_title": "Triceps Dip",
+      "source": "drkostas/hevy2garmin"
+    },
+    "triceps dip assisted": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "BODY_WEIGHT_DIP",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Triceps Dip (Assisted)",
+      "hevy_title": "Triceps Dip (Assisted)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "triceps dip weighted": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "WEIGHTED_DIP",
+      "garmin_exercise_id": 40,
+      "hevy_template_title": "Triceps Dip (Weighted)",
+      "hevy_title": "Triceps Dip (Weighted)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "triceps extension barbell": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "EZ_BAR_OVERHEAD_TRICEPS_EXTENSION",
+      "garmin_exercise_id": 8,
+      "hevy_template_title": "Triceps Extension (Barbell)",
+      "hevy_title": "Triceps Extension (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "triceps extension cable": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "CABLE_OVERHEAD_TRICEPS_EXTENSION",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Triceps Extension (Cable)",
+      "hevy_title": "Triceps Extension (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "triceps extension dumbbell": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "OVERHEAD_DUMBBELL_TRICEPS_EXTENSION",
+      "garmin_exercise_id": 15,
+      "hevy_template_title": "Triceps Extension (Dumbbell)",
+      "hevy_title": "Triceps Extension (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "triceps extension machine": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "CABLE_OVERHEAD_TRICEPS_EXTENSION",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Triceps Extension (Machine)",
+      "hevy_title": "Triceps Extension (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "triceps extension suspension": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "CABLE_OVERHEAD_TRICEPS_EXTENSION",
+      "garmin_exercise_id": 5,
+      "hevy_template_title": "Triceps Extension (Suspension)",
+      "hevy_title": "Triceps Extension (Suspension)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "triceps kickback cable": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "CABLE_KICKBACK",
+      "garmin_exercise_id": 3,
+      "hevy_template_title": "Triceps Kickback (Cable)",
+      "hevy_title": "Triceps Kickback (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "triceps kickback dumbbell": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "DUMBBELL_KICKBACK",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Triceps Kickback (Dumbbell)",
+      "hevy_title": "Triceps Kickback (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "triceps pressdown": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "TRICEPS_PRESSDOWN",
+      "garmin_exercise_id": 39,
+      "hevy_template_title": "Triceps Pressdown",
+      "hevy_title": "Triceps Pressdown",
+      "source": "drkostas/hevy2garmin"
+    },
+    "triceps pushdown": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "TRICEPS_PRESSDOWN",
+      "garmin_exercise_id": 39,
+      "hevy_template_title": "Triceps Pushdown",
+      "hevy_title": "Triceps Pushdown",
+      "source": "drkostas/hevy2garmin"
+    },
+    "triceps rope pushdown": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "ROPE_PRESSDOWN",
+      "garmin_exercise_id": 19,
+      "hevy_template_title": "Triceps Rope Pushdown",
+      "hevy_title": "Triceps Rope Pushdown",
+      "source": "drkostas/hevy2garmin"
+    },
+    "upright row barbell": {
+      "garmin_category": "SHRUG",
+      "garmin_category_id": 26,
+      "garmin_exercise": "BARBELL_UPRIGHT_ROW",
+      "garmin_exercise_id": 2,
+      "hevy_template_title": "Upright Row (Barbell)",
+      "hevy_title": "Upright Row (Barbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "upright row cable": {
+      "garmin_category": "SHRUG",
+      "garmin_category_id": 26,
+      "garmin_exercise": "DUMBBELL_UPRIGHT_ROW",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Upright Row (Cable)",
+      "hevy_title": "Upright Row (Cable)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "upright row dumbbell": {
+      "garmin_category": "SHRUG",
+      "garmin_category_id": 26,
+      "garmin_exercise": "DUMBBELL_UPRIGHT_ROW",
+      "garmin_exercise_id": 6,
+      "hevy_template_title": "Upright Row (Dumbbell)",
+      "hevy_title": "Upright Row (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "v up": {
+      "garmin_category": "SIT_UP",
+      "garmin_category_id": 27,
+      "garmin_exercise": "V_UP",
+      "garmin_exercise_id": 31,
+      "hevy_template_title": "V Up",
+      "hevy_title": "V Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "vertical traction machine": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "LAT_PULLDOWN",
+      "garmin_exercise_id": 13,
+      "hevy_template_title": "Vertical Traction (Machine)",
+      "hevy_title": "Vertical Traction (Machine)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "waiter curl dumbbell": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "STANDING_DUMBBELL_BICEPS_CURL",
+      "garmin_exercise_id": 37,
+      "hevy_template_title": "Waiter Curl (Dumbbell)",
+      "hevy_title": "Waiter Curl (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "walking": {
+      "garmin_category": "RUN",
+      "garmin_category_id": 32,
+      "garmin_exercise": "WALK",
+      "garmin_exercise_id": 1,
+      "hevy_template_title": "Walking",
+      "hevy_title": "Walking",
+      "source": "drkostas/hevy2garmin"
+    },
+    "walking lunge": {
+      "garmin_category": "LUNGE",
+      "garmin_category_id": 17,
+      "garmin_exercise": "WALKING_LUNGE",
+      "garmin_exercise_id": 78,
+      "hevy_template_title": "Walking Lunge",
+      "hevy_title": "Walking Lunge",
+      "source": "drkostas/hevy2garmin"
+    },
+    "walking lunge dumbbell": {
+      "garmin_category": "LUNGE",
+      "garmin_category_id": 17,
+      "garmin_exercise": "WALKING_DUMBBELL_LUNGE",
+      "garmin_exercise_id": 77,
+      "hevy_template_title": "Walking Lunge (Dumbbell)",
+      "hevy_title": "Walking Lunge (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "wall ball": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "WALL_BALL",
+      "garmin_exercise_id": 83,
+      "hevy_template_title": "Wall Ball",
+      "hevy_title": "Wall Ball",
+      "source": "drkostas/hevy2garmin"
+    },
+    "wall sit": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "BODY_WEIGHT_WALL_SQUAT",
+      "garmin_exercise_id": 20,
+      "hevy_template_title": "Wall Sit",
+      "hevy_title": "Wall Sit",
+      "source": "drkostas/hevy2garmin"
+    },
+    "warm up": {
+      "garmin_category": "WARM_UP",
+      "garmin_category_id": 31,
+      "garmin_exercise": "QUADRUPED_ROCKING",
+      "garmin_exercise_id": 0,
+      "hevy_template_title": "Warm Up",
+      "hevy_title": "Warm Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "wide elbow triceps press dumbbell": {
+      "garmin_category": "TRICEPS_EXTENSION",
+      "garmin_category_id": 30,
+      "garmin_exercise": "OVERHEAD_DUMBBELL_TRICEPS_EXTENSION",
+      "garmin_exercise_id": 15,
+      "hevy_template_title": "Wide-Elbow Triceps Press (Dumbbell)",
+      "hevy_title": "Wide-Elbow Triceps Press (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    },
+    "wide pull up": {
+      "garmin_category": "PULL_UP",
+      "garmin_category_id": 21,
+      "garmin_exercise": "WIDE_GRIP_PULL_UP",
+      "garmin_exercise_id": 26,
+      "hevy_template_title": "Wide Pull Up",
+      "hevy_title": "Wide Pull Up",
+      "source": "drkostas/hevy2garmin"
+    },
+    "wrist roller": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "DUMBBELL_WRIST_CURL",
+      "garmin_exercise_id": 18,
+      "hevy_template_title": "Wrist Roller",
+      "hevy_title": "Wrist Roller",
+      "source": "drkostas/hevy2garmin"
+    },
+    "zercher squat": {
+      "garmin_category": "SQUAT",
+      "garmin_category_id": 28,
+      "garmin_exercise": "ZERCHER_SQUAT",
+      "garmin_exercise_id": 86,
+      "hevy_template_title": "Zercher Squat",
+      "hevy_title": "Zercher Squat",
+      "source": "drkostas/hevy2garmin"
+    },
+    "zottman curl dumbbell": {
+      "garmin_category": "CURL",
+      "garmin_category_id": 7,
+      "garmin_exercise": "TWISTING_STANDING_DUMBBELL_BICEPS_CURL",
+      "garmin_exercise_id": 42,
+      "hevy_template_title": "Zottman Curl (Dumbbell)",
+      "hevy_title": "Zottman Curl (Dumbbell)",
+      "source": "drkostas/hevy2garmin"
+    }
+  },
+  "schema_version": 2,
+  "upstream": {
+    "imported_at": "2026-05-10T19:54:39.689900+00:00",
+    "imported_entries": 433,
+    "license": "MIT",
+    "repository": "https://github.com/drkostas/hevy2garmin",
+    "skipped_entries": 11,
+    "source_file": "src/hevy2garmin/mapper.py",
+    "usable_entries": 433
+  }
+}

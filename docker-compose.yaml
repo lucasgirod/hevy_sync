@@ -9,6 +9,19 @@ services:
       - GARMIN_USERNAME=${GARMIN_USERNAME:?err}
       - GARMIN_PASSWORD=${GARMIN_PASSWORD:?err}
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - SYNC_LIMIT=${SYNC_LIMIT:-10}
+      - SYNC_FETCH_ALL=${SYNC_FETCH_ALL:-false}
+      - SYNC_SINCE=${SYNC_SINCE:-}
+      - SKIP_EXISTING=${SKIP_EXISTING:-true}
+      - DRY_RUN=${DRY_RUN:-false}
+      - MERGE_MODE=${MERGE_MODE:-true}
+      - MERGE_OVERLAP_PCT=${MERGE_OVERLAP_PCT:-70}
+      - MERGE_MAX_DRIFT_MIN=${MERGE_MAX_DRIFT_MIN:-20}
+      - DESCRIPTION_ENABLED=${DESCRIPTION_ENABLED:-true}
+      - HR_FUSION_ENABLED=${HR_FUSION_ENABLED:-true}
+      - USER_WEIGHT_KG=${USER_WEIGHT_KG:-80}
+      - USER_BIRTH_YEAR=${USER_BIRTH_YEAR:-1990}
+      - USER_VO2MAX=${USER_VO2MAX:-45}
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - config:/config

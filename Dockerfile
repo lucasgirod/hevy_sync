@@ -6,7 +6,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-COPY pyproject.toml README.md ./
+COPY pyproject.toml README.md NOTICE.md ./
 COPY hevy_sync ./hevy_sync
 
 RUN pip install --no-cache-dir --upgrade pip setuptools wheel \

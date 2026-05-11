@@ -1,6 +1,8 @@
 # hevy-sync
 
-Synchronisiert Hevy-Workouts als FIT-Aktivitäten nach Garmin Connect.
+Synchronisiert Hevy-Workouts nach Garmin Connect als Krafttraining mit Übungen, Sätzen, Gewichten, Wiederholungen, optionaler Herzfrequenz und Kalorien-Schätzung.
+
+Die Docker-Architektur bleibt bewusst schlank: ein Container, ein Config-Volume, ein Run. Die Sync-Funktionalität ist stark an [drkostas/hevy2garmin](https://github.com/drkostas/hevy2garmin) angelehnt und nutzt daraus adaptierte MIT-lizenzierte Konzepte und Mapping-Daten.
 
 ## Konfiguration
 
@@ -18,14 +20,57 @@ Optionale Pfade:
 ```bash
 HEVY_SYNC_CONFIG_DIR="./config"
 GARMIN_TOKENS_DIR="./config/garmin_tokens"
-LAST_SYNC_DATE_FILE="./config/last_sync_date.txt"
+SYNC_DB_FILE="./config/sync.db"
 TEMP_FIT_DIR="/tmp/hevy-sync"
+EXERCISE_MATCHES_FILE="./config/exercise_matches.json"
 LOG_LEVEL="INFO"
+```
+
+Sync-Verhalten:
+
+```bash
+SYNC_LIMIT="10"
+SYNC_FETCH_ALL="false"
+SYNC_SINCE=""
+SKIP_EXISTING="true"
+DRY_RUN="false"
+MERGE_MODE="true"
+MERGE_OVERLAP_PCT="70"
+MERGE_MAX_DRIFT_MIN="20"
+DESCRIPTION_ENABLED="true"
+HR_FUSION_ENABLED="true"
+```
+
+Profil für die Keytel-Kalorien-Schätzung:
+
+```bash
+USER_WEIGHT_KG="80"
+USER_BIRTH_YEAR="1990"
+USER_VO2MAX="45"
 ```
 
 `GARMIN_EMAIL` und `GARMIN_TOKENS_FILE` werden aus alten Installationen weiterhin als Fallback akzeptiert.
 
-## Lokal ausfuehren
+## Wie Der Sync Läuft
+
+1. Hevy-Workouts werden über die offizielle Hevy API gelesen.
+2. Übungen werden über `exercise_matches.json` auf Garmin FIT Kategorien gemappt.
+3. Wenn `MERGE_MODE=true`, sucht die App eine passende Garmin-Krafttraining-Aktivität und schreibt die Hevy-Sätze in diese Aktivität. Herzfrequenz, Training Effect und Recovery-Daten der Uhr bleiben dadurch erhalten.
+4. Wenn kein passendes Garmin-Training gefunden wird, erzeugt die App eine FIT-Datei und lädt sie zu Garmin hoch.
+5. Wenn `HR_FUSION_ENABLED=true`, werden Garmin-Tages-Herzfrequenzdaten in den Zeitraum des Hevy-Workouts geschnitten und ins FIT-File eingebettet.
+6. Kalorien werden mit der Keytel-Formel geschätzt und in FIT-Datei/Beschreibung übernommen.
+7. Synchronisierte Workouts werden in `SYNC_DB_FILE` gespeichert, standardmäßig im Docker-Volume.
+
+## Garmin-Übungsmapping
+
+Das Repository enthält zwei Mapping-Dateien:
+
+- `hevy_sync/data/exercise_matches.json`: Master-Seed für Hevy-zu-Garmin-Matches, größtenteils aus `drkostas/hevy2garmin`.
+- `hevy_sync/data/garmin_exercises.json`: alle Garmin-Übungen, die das verwendete FIT-Profil kennt.
+
+Beim ersten Lauf wird `exercise_matches.json` nach `EXERCISE_MATCHES_FILE` kopiert. Im Docker-Image liegt diese Datei standardmäßig unter `/config/exercise_matches.json`. Neue automatische oder unbekannte Übungen werden nur in dieser Laufzeitdatei ergänzt. Manuelle Korrekturen dort haben Vorrang und werden bei Image-Updates nicht überschrieben.
+
+## Lokal Ausführen
 
 ```bash
 python -m venv .venv
@@ -35,7 +80,7 @@ cp .env.sample .env
 hevy-sync
 ```
 
-Beim ersten Lauf meldet sich die App bei Garmin an und speichert Tokens unter `GARMIN_TOKENS_DIR`. Der naechste Hevy-Zeitpunkt wird in `LAST_SYNC_DATE_FILE` persistiert.
+Beim ersten Garmin-Login speichert die App Tokens unter `GARMIN_TOKENS_DIR`. Danach werden die Tokens wiederverwendet.
 
 ## Docker
 
@@ -45,7 +90,7 @@ Image bauen:
 docker build -t hevy-sync .
 ```
 
-Einmalig interaktiv ausfuehren:
+Einmalig interaktiv ausführen:
 
 ```bash
 docker run --rm -it \
@@ -58,14 +103,14 @@ docker run --rm -it \
 
 ## Docker Compose
 
-Dieses Repository enthaelt ein `docker-compose.yaml` fuer einen direkt startbaren Container:
+Dieses Repository enthält ein `docker-compose.yaml` für einen direkt startbaren Container:
 
 ```bash
 docker compose -f docker-compose.yaml run --rm hevy-sync
 ```
 
-Der Container nutzt den EntryPoint aus dem Docker Image. Das Compose-Volume speichert nur Laufzeitdaten wie Garmin-Tokens und den letzten Sync-Zeitpunkt. Der Volume-Name wird von Docker Compose pro Projekt/Stack namespaced, sodass mehrere Instanzen auf demselben Host laufen koennen.
+Das Compose-Volume speichert Garmin-Tokens, SQLite-State, HR-Cache und das korrigierbare `exercise_matches.json`. Der Volume-Name wird von Docker Compose pro Projekt/Stack namespaced, sodass mehrere Instanzen auf demselben Host laufen können.
 
-## Release
+## Attribution
 
-GitHub Actions baut und veroeffentlicht das Docker Image nach `ghcr.io/lucasgirod/hevy_sync` bei Pushes auf `main`, Release-Tags `v*.*.*`, manuellen Runs und dem 5-Tage-Schedule. Pull Requests bauen das Image ohne Push.
+Teile der Sync-Funktionalität und die große Übungsmapping-Tabelle sind aus [drkostas/hevy2garmin](https://github.com/drkostas/hevy2garmin) adaptiert. Siehe [NOTICE.md](NOTICE.md).

@@ -20,9 +20,12 @@ classifiers = [
 ]
 dependencies = [
   "fit-tool",
+  "garmin-auth",
   "garminconnect",
+  "curl_cffi",
   "python-dotenv",
   "requests",
+  "ua-generator",
 ]
 
 [project.urls]
@@ -34,3 +37,6 @@ hevy-sync = "hevy_sync.sync_app:main"
 
 [tool.setuptools.packages.find]
 include = ["hevy_sync*"]
+
+[tool.setuptools.package-data]
+"hevy_sync.data" = ["*.json"]

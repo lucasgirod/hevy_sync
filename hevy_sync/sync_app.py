@@ -1,128 +1,208 @@
-import os
-import json
+"""Container entrypoint for Hevy -> Garmin sync."""
+
+from __future__ import annotations
+
 import logging
-from datetime import datetime, timedelta, timezone
+import os
+import tempfile
+from pathlib import Path
 
 from .config import (
+    DESCRIPTION_ENABLED,
+    DRY_RUN,
     GARMIN_PASSWORD,
     GARMIN_TOKENS_DIR,
     GARMIN_USERNAME,
     HEVY_API_KEY,
-    LAST_SYNC_DATE_FILE,
+    HR_FUSION_ENABLED,
+    MERGE_MAX_DRIFT_MIN,
+    MERGE_MODE,
+    MERGE_OVERLAP_PCT,
+    SYNC_DB_FILE,
+    SYNC_FETCH_ALL,
+    SYNC_LIMIT,
+    SYNC_SINCE,
     TEMP_FIT_DIR,
     validate_config,
 )
+from .fit import generate_fit
+from .garmin import (
+    find_activity_by_start_time,
+    generate_description,
+    get_client,
+    rename_activity,
+    set_description,
+    upload_fit,
+)
 from .hevy_client import HevyClient
-from .garmin_client import GarminClient
-from .fit_generator import FitGenerator
+from .hr import get_workout_hr_samples
+from .mapper import ensure_exercise_matches_file, lookup_exercise
+from .merge import attempt_merge, reset_circuit_breaker
+from .state import SQLiteState
 
 logger = logging.getLogger(__name__)
 
 
-def get_last_sync_date() -> datetime:
-    """Reads the last synchronization date from a file."""
-    if LAST_SYNC_DATE_FILE.exists():
-        with LAST_SYNC_DATE_FILE.open("r") as f:
-            date_str = f.read().strip()
-            if date_str:
-                try:
-                    sync_date = datetime.fromisoformat(date_str)
-                    if sync_date.tzinfo is None:
-                        return sync_date.replace(tzinfo=timezone.utc)
-                    return sync_date.astimezone(timezone.utc)
-                except ValueError:
-                    logger.warning(f"Invalid date format in {LAST_SYNC_DATE_FILE}. Starting from scratch.")
-    fallback_date = datetime.now(timezone.utc) - timedelta(days=30)
-    logger.info(f"No last sync date found. Using default (30 days ago): {fallback_date.isoformat()}")
-    return fallback_date
-
-def set_last_sync_date(sync_date: datetime):
-    """Writes the last synchronization date to a file."""
-    LAST_SYNC_DATE_FILE.parent.mkdir(parents=True, exist_ok=True)
-    with LAST_SYNC_DATE_FILE.open("w") as f:
-        f.write(sync_date.isoformat())
-
-
 def main() -> int:
-    logger.info("Starting hevy-to-garmin-sync process...")
+    logger.info("Starting hevy-sync container run...")
     validate_config()
+    ensure_exercise_matches_file()
+    TEMP_FIT_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Initialize clients
-    hevy_client = HevyClient(api_key=HEVY_API_KEY)
-    fit_generator = FitGenerator()
-
-    last_sync_date = get_last_sync_date()
-    current_time = datetime.now(timezone.utc)
+    state = SQLiteState(SYNC_DB_FILE)
+    hevy = HevyClient(api_key=HEVY_API_KEY)
 
     try:
-        workouts_to_sync = hevy_client.get_workout_events_since(last_sync_date)
-        logger.info(f"Found {len(workouts_to_sync)} workouts from Hevy since {last_sync_date.isoformat()}.")
-        logger.debug(f"Workouts to sync:\n{json.dumps(workouts_to_sync, indent=2, ensure_ascii=False)}")
-    except Exception as e:
-        logger.error(f"Failed to fetch workouts from Hevy: {e}")
+        total_count = hevy.get_workout_count()
+        logger.info("Hevy meldet %s Workouts insgesamt.", total_count)
+        limit = None if SYNC_FETCH_ALL else SYNC_LIMIT
+        workouts = hevy.get_recent_workouts(limit=limit, since=SYNC_SINCE, fetch_all=SYNC_FETCH_ALL)
+    except Exception as exc:
+        logger.error("Hevy-Workouts konnten nicht geladen werden: %s", exc)
         return 1
 
-    if not workouts_to_sync:
-        logger.info("No new workouts to sync from Hevy.")
-        set_last_sync_date(current_time)
+    logger.info("%s Hevy-Workouts werden geprüft.", len(workouts))
+    if not workouts:
+        state.record_sync_log(synced=0, skipped=0, failed=0, trigger="container")
         return 0
 
-    garmin_client = GarminClient(username=GARMIN_USERNAME, password=GARMIN_PASSWORD, tokens_dir=GARMIN_TOKENS_DIR)
-    successful_uploads = 0
-    failed_uploads = 0
-    latest_workout_time = last_sync_date
+    for workout in workouts:
+        for exercise in workout.get("exercises", []):
+            cat, _, _ = lookup_exercise(exercise)
+            if cat == 65534:
+                logger.warning("Nicht gemappte Übung: %s", exercise.get("title") or exercise.get("name"))
 
-    for workout in workouts_to_sync:
-        workout_start_time_str = workout.get('start_time')
-        if not workout_start_time_str:
-            logger.warning(f"Workout '{workout.get('title')}' has no start_time. Skipping.")
-            failed_uploads += 1
-            continue
-
-        try:
-            workout_start_time = datetime.fromisoformat(workout_start_time_str.replace('Z', '+00:00'))
-        except ValueError:
-            logger.warning(f"Could not parse start_time for workout: {workout.get('title')} ({workout_start_time_str}). Skipping.")
-            failed_uploads += 1
-            continue
-
-        if workout_start_time <= last_sync_date:
-            logger.info(f"Skipping already synced workout: {workout.get('title')} ({workout_start_time.isoformat()})")
-            continue
-
-        if workout_start_time > latest_workout_time:
-            latest_workout_time = workout_start_time
-
-        fit_file_path = None
-        try:
-            fit_file_path = fit_generator.generate_strength_activity_fit(workout, output_dir=TEMP_FIT_DIR)
-            if garmin_client.upload_activity_file(fit_file_path, workout.get("title"), workout=workout):
-                logger.info(f"Synced workout '{workout.get('title')}' to Garmin Connect.")
-                successful_uploads += 1
-            else:
-                logger.error(f"Failed to sync workout '{workout.get('title')}' to Garmin Connect.")
-                failed_uploads += 1
-        except Exception as e:
-            logger.error(f"Error processing/uploading workout '{workout.get('title')}': {e}", exc_info=True)
-            failed_uploads += 1
-        finally:
-            if fit_file_path and os.path.exists(fit_file_path):
-                os.remove(fit_file_path)
-                logger.debug(f"Removed temporary FIT file: {fit_file_path}")
-
-    if failed_uploads:
-        logger.warning("Keeping last sync date unchanged because %s workout(s) failed.", failed_uploads)
-        next_sync_time = last_sync_date
-    elif not successful_uploads:
-        next_sync_time = current_time
-        set_last_sync_date(next_sync_time)
+    garmin_client = None
+    if DRY_RUN:
+        logger.info("DRY_RUN aktiv: Es werden keine Garmin-Änderungen geschrieben.")
     else:
-        next_sync_time = latest_workout_time + timedelta(seconds=1)
-        set_last_sync_date(next_sync_time)
+        try:
+            logger.info("Authentifiziere bei Garmin Connect...")
+            garmin_client = get_client(GARMIN_USERNAME, GARMIN_PASSWORD, str(GARMIN_TOKENS_DIR))
+        except Exception as exc:
+            logger.error("Garmin-Login fehlgeschlagen: %s", exc)
+            return 1
 
-    logger.info(f"Synchronization complete. Successfully uploaded {successful_uploads} workouts.")
-    logger.info(f"Next sync will start from: {next_sync_time.isoformat()}")
-    return 1 if failed_uploads else 0
+    stats = {
+        "synced": 0,
+        "skipped": 0,
+        "failed": 0,
+        "merged": 0,
+        "uploaded": 0,
+        "merge_fallback": 0,
+    }
+
+    if MERGE_MODE:
+        reset_circuit_breaker()
+        logger.info("Merge-Modus aktiv: passende Garmin-Krafttrainings werden mit Hevy-Sätzen ergänzt.")
+
+    for workout in workouts:
+        workout_id = workout.get("id", "unknown")
+        title = workout.get("title", "Workout")
+        start_time = workout.get("start_time") or workout.get("startTime")
+
+        if state.is_synced(workout_id):
+            logger.info("Überspringe bereits synchronisiertes Workout: %s", title)
+            stats["skipped"] += 1
+            continue
+
+        logger.info("Synchronisiere: %s (%s)", title, workout_id)
+        try:
+            if MERGE_MODE and garmin_client:
+                merge_result = attempt_merge(
+                    garmin_client,
+                    workout,
+                    state,
+                    overlap_threshold=MERGE_OVERLAP_PCT / 100.0,
+                    max_drift_minutes=MERGE_MAX_DRIFT_MIN,
+                )
+                if merge_result.merged:
+                    state.mark_synced(
+                        hevy_id=workout_id,
+                        garmin_activity_id=str(merge_result.activity_id),
+                        title=title,
+                        hevy_updated_at=workout.get("updated_at"),
+                        sync_method="merge",
+                    )
+                    stats["synced"] += 1
+                    stats["merged"] += 1
+                    logger.info("Workout in bestehende Garmin-Aktivität %s übernommen.", merge_result.activity_id)
+                    continue
+
+                stats["merge_fallback"] += 1
+                logger.info("Merge-Fallback für %s: %s", title, merge_result.fallback_reason)
+
+            hr_samples = get_workout_hr_samples(garmin_client, workout, state) if HR_FUSION_ENABLED and garmin_client else []
+            with tempfile.TemporaryDirectory(dir=TEMP_FIT_DIR) as tmp:
+                fit_path = str(Path(tmp) / f"{workout_id}.fit")
+                result = generate_fit(workout, hr_samples=hr_samples, output_path=fit_path)
+                logger.info(
+                    "FIT erzeugt: %s Übungen, %s Sätze, %s HR-Samples, %s kcal.",
+                    result["exercises"],
+                    result["total_sets"],
+                    result["hr_samples"],
+                    result["calories"],
+                )
+
+                if DRY_RUN:
+                    logger.info("DRY_RUN: FIT-Datei würde hochgeladen: %s", fit_path)
+                    activity_id = None
+                else:
+                    existing_id = find_activity_by_start_time(garmin_client, start_time) if start_time else None
+                    if existing_id:
+                        activity_id = existing_id
+                        logger.info("Garmin-Aktivität existiert bereits (%s), Upload wird übersprungen.", activity_id)
+                    else:
+                        upload_result = upload_fit(garmin_client, fit_path, workout_start=start_time)
+                        activity_id = upload_result.get("activity_id")
+
+                if activity_id and garmin_client:
+                    rename_activity(garmin_client, activity_id, title)
+                    if DESCRIPTION_ENABLED:
+                        set_description(
+                            garmin_client,
+                            activity_id,
+                            generate_description(
+                                workout,
+                                calories=result.get("calories"),
+                                avg_hr=result.get("avg_hr"),
+                            ),
+                        )
+
+                if not DRY_RUN:
+                    state.mark_synced(
+                        hevy_id=workout_id,
+                        garmin_activity_id=str(activity_id) if activity_id else None,
+                        title=title,
+                        calories=result.get("calories"),
+                        avg_hr=result.get("avg_hr"),
+                        hevy_updated_at=workout.get("updated_at"),
+                        sync_method="upload_fallback" if MERGE_MODE else "upload",
+                    )
+                stats["synced"] += 1
+                stats["uploaded"] += 1
+                logger.info("Workout synchronisiert: %s -> Garmin %s", title, activity_id)
+
+        except Exception as exc:
+            stats["failed"] += 1
+            logger.error("Workout '%s' konnte nicht synchronisiert werden: %s", title, exc, exc_info=True)
+
+    state.record_sync_log(
+        synced=stats["synced"],
+        skipped=stats["skipped"],
+        failed=stats["failed"],
+        trigger="github-actions" if os.environ.get("GITHUB_ACTIONS") else "container",
+    )
+    logger.info(
+        "Sync fertig: %s synced, %s merged, %s uploaded, %s skipped, %s failed.",
+        stats["synced"],
+        stats["merged"],
+        stats["uploaded"],
+        stats["skipped"],
+        stats["failed"],
+    )
+    return 1 if stats["failed"] else 0
+
 
 if __name__ == "__main__":
     raise SystemExit(main())

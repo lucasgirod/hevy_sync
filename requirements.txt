@@ -1,4 +1,7 @@
 fit-tool
+garmin-auth
 garminconnect
+curl_cffi
 python-dotenv
 requests
+ua-generator

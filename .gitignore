@@ -10,6 +10,7 @@ build/
 .venv/
 .idea
 *.json
+!hevy_sync/data/*.json
 .env
 .DS_Store
 last_sync_date.txt
