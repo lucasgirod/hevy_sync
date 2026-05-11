@@ -41,13 +41,15 @@ DESCRIPTION_ENABLED="true"
 HR_FUSION_ENABLED="true"
 ```
 
-Profil für die Keytel-Kalorien-Schätzung:
+Profil-Fallbacks für die Keytel-Kalorien-Schätzung:
 
 ```bash
 USER_WEIGHT_KG="80"
 USER_BIRTH_YEAR="1990"
 USER_VO2MAX="45"
 ```
+
+Diese Werte werden normalerweise aus Garmin Connect gelesen. Die Env-Werte werden nur verwendet, wenn Garmin einzelne Profilwerte nicht liefert oder der Garmin-Login im Dry-Run nicht verfügbar ist.
 
 Das Compose-File zieht `ghcr.io/lucasgirod/hevy_sync:latest` bei jedem Deploy neu, damit keine alte lokale Image-Version weiterläuft.
 
@@ -58,8 +60,9 @@ Das Compose-File zieht `ghcr.io/lucasgirod/hevy_sync:latest` bei jedem Deploy ne
 3. Wenn `MERGE_MODE=true`, sucht die App eine passende Garmin-Krafttraining-Aktivität und schreibt die Hevy-Sätze in diese Aktivität. Herzfrequenz, Training Effect und Recovery-Daten der Uhr bleiben dadurch erhalten.
 4. Wenn kein passendes Garmin-Training gefunden wird, erzeugt die App eine FIT-Datei und lädt sie zu Garmin hoch.
 5. Wenn `HR_FUSION_ENABLED=true`, werden Garmin-Tages-Herzfrequenzdaten in den Zeitraum des Hevy-Workouts geschnitten und ins FIT-File eingebettet.
-6. Kalorien werden mit der Keytel-Formel geschätzt und in FIT-Datei/Beschreibung übernommen.
-7. Synchronisierte Workouts werden in `SYNC_DB_FILE` gespeichert, standardmäßig im Docker-Volume.
+6. Gewicht, Jahrgang und VO2Max werden aus Garmin Connect gelesen; fehlende Werte fallen auf die optionalen `USER_*` Env-Werte zurück.
+7. Kalorien werden mit der Keytel-Formel geschätzt und in FIT-Datei/Beschreibung übernommen.
+8. Synchronisierte Workouts werden in `SYNC_DB_FILE` gespeichert, standardmäßig im Docker-Volume.
 
 ## Garmin-Übungsmapping
 
@@ -118,7 +121,7 @@ docker build -t hevy-sync:local .
 docker run --rm -it --env-file .env -e DRY_RUN=true -v hevy-sync-test:/config hevy-sync:local
 ```
 
-Hinweis: `docker run --env-file` interpretiert Anführungszeichen anders als Docker Compose. Wenn deine `.env` Werte in Quotes enthält, ist Compose robuster.
+Hinweis: `docker run --env-file` interpretiert Anführungszeichen anders als Docker Compose. Die App normalisiert quoted Werte aus `.env`, damit beide Varianten funktionieren.
 
 ## Attribution
 

@@ -39,6 +39,7 @@ from .hevy_client import HevyClient
 from .hr import get_workout_hr_samples
 from .mapper import ensure_exercise_matches_file, lookup_exercise
 from .merge import attempt_merge, reset_circuit_breaker
+from .profile import resolve_user_profile
 from .state import SQLiteState
 
 logger = logging.getLogger(__name__)
@@ -74,6 +75,7 @@ def main() -> int:
                 logger.warning("Nicht gemappte Übung: %s", exercise.get("title") or exercise.get("name"))
 
     garmin_client = None
+    runtime_profile = None
     if DRY_RUN:
         logger.info("DRY_RUN aktiv: Garmin wird nur lesend verwendet, es werden keine Änderungen geschrieben.")
 
@@ -86,6 +88,14 @@ def main() -> int:
         else:
             logger.error("Garmin-Login fehlgeschlagen: %s", exc)
             return 1
+
+    if garmin_client:
+        from .config import load_runtime_config
+
+        runtime_profile = resolve_user_profile(
+            garmin_client,
+            load_runtime_config().get("user_profile", {}),
+        )
 
     stats = {
         "synced": 0,
@@ -152,7 +162,12 @@ def main() -> int:
                 logger.info("%s Garmin-HR-Samples für '%s' gefunden.", len(hr_samples), title)
             with tempfile.TemporaryDirectory(dir=TEMP_FIT_DIR) as tmp:
                 fit_path = str(Path(tmp) / f"{workout_id}.fit")
-                result = generate_fit(workout, hr_samples=hr_samples, output_path=fit_path)
+                result = generate_fit(
+                    workout,
+                    hr_samples=hr_samples,
+                    output_path=fit_path,
+                    profile=runtime_profile,
+                )
                 logger.info(
                     "FIT erzeugt: %s Übungen, %s Sätze, %s HR-Samples, %s kcal.",
                     result["exercises"],
