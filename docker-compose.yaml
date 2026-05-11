@@ -58,7 +58,7 @@ services:
     pull_policy: always
     depends_on:
       - hevy-sync
-    command: ["caddy", "run", "--config", "/etc/caddy/Caddyfile"]
+    command: ["caddy", "run", "--config", "/etc/caddy/caddy.json"]
     environment:
       - HEVY_SYNC_DOMAIN=${HEVY_SYNC_DOMAIN:?err}
       - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL:?err}
@@ -67,8 +67,8 @@ services:
     ports:
       - "443:443"
     configs:
-      - source: caddyfile
-        target: /etc/caddy/Caddyfile
+      - source: caddy_json
+        target: /etc/caddy/caddy.json
     volumes:
       - caddy_data:/data
       - caddy_config:/config
@@ -83,42 +83,125 @@ services:
     restart: unless-stopped
 
 configs:
-  caddyfile:
+  caddy_json:
     content: |
       {
-        email {$$LETSENCRYPT_EMAIL}
-      }
-
-      {$$HEVY_SYNC_DOMAIN} {
-        tls {
-          dns cloudflare {env.CLOUDFLARE_API_TOKEN}
-        }
-
-        header {
-          X-Content-Type-Options nosniff
-          Referrer-Policy no-referrer
-        }
-
-        @webhook {
-          method POST
-          path {$$WEBHOOK_PATH}
-        }
-        handle @webhook {
-          request_body {
-            max_size 64KB
+        "admin": {
+          "disabled": true
+        },
+        "apps": {
+          "http": {
+            "servers": {
+              "srv0": {
+                "listen": [":443"],
+                "automatic_https": {
+                  "disable_redirects": true
+                },
+                "routes": [
+                  {
+                    "match": [
+                      {
+                        "host": ["${HEVY_SYNC_DOMAIN:?err}"]
+                      }
+                    ],
+                    "handle": [
+                      {
+                        "handler": "subroute",
+                        "routes": [
+                          {
+                            "handle": [
+                              {
+                                "handler": "headers",
+                                "response": {
+                                  "set": {
+                                    "Referrer-Policy": ["no-referrer"],
+                                    "X-Content-Type-Options": ["nosniff"]
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "match": [
+                              {
+                                "method": ["POST"],
+                                "path": ["${WEBHOOK_PATH:-/webhook/hevy}"]
+                              }
+                            ],
+                            "handle": [
+                              {
+                                "handler": "request_body",
+                                "max_size": 65536
+                              },
+                              {
+                                "handler": "reverse_proxy",
+                                "upstreams": [
+                                  {
+                                    "dial": "hevy-sync:8000"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "match": [
+                              {
+                                "method": ["GET"],
+                                "path": ["/health"]
+                              }
+                            ],
+                            "handle": [
+                              {
+                                "handler": "reverse_proxy",
+                                "upstreams": [
+                                  {
+                                    "dial": "hevy-sync:8000"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "handle": [
+                              {
+                                "handler": "static_response",
+                                "status_code": 404
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "terminal": true
+                  }
+                ]
+              }
+            }
+          },
+          "tls": {
+            "automation": {
+              "policies": [
+                {
+                  "subjects": ["${HEVY_SYNC_DOMAIN:?err}"],
+                  "issuers": [
+                    {
+                      "module": "acme",
+                      "email": "${LETSENCRYPT_EMAIL:?err}",
+                      "challenges": {
+                        "dns": {
+                          "provider": {
+                            "name": "cloudflare",
+                            "api_token": "{env.CLOUDFLARE_API_TOKEN}"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
           }
-          reverse_proxy hevy-sync:8000
         }
-
-        @health {
-          method GET
-          path /health
-        }
-        handle @health {
-          reverse_proxy hevy-sync:8000
-        }
-
-        respond 404
       }
 
 volumes:
