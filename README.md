@@ -49,7 +49,7 @@ USER_BIRTH_YEAR="1990"
 USER_VO2MAX="45"
 ```
 
-`GARMIN_EMAIL` und `GARMIN_TOKENS_FILE` werden aus alten Installationen weiterhin als Fallback akzeptiert. Das Compose-File zieht `ghcr.io/lucasgirod/hevy_sync:latest` bei jedem Deploy neu, damit keine alte lokale Image-Version weiterläuft.
+Das Compose-File zieht `ghcr.io/lucasgirod/hevy_sync:latest` bei jedem Deploy neu, damit keine alte lokale Image-Version weiterläuft.
 
 ## Wie Der Sync Läuft
 

@@ -7,52 +7,66 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-CONFIG_DIR = Path(os.getenv("HEVY_SYNC_CONFIG_DIR", ".")).expanduser()
-HEVY_API_KEY = os.getenv("HEVY_API_KEY")
+def _env(name: str, default: str | None = None) -> str | None:
+    value = os.getenv(name, default)
+    if value is None:
+        return None
+    value = value.strip()
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in ("'", '"'):
+        value = value[1:-1]
+    return value
 
-GARMIN_USERNAME = os.getenv("GARMIN_USERNAME") or os.getenv("GARMIN_EMAIL")
-GARMIN_PASSWORD = os.getenv("GARMIN_PASSWORD")
 
-legacy_tokens_file = os.getenv("GARMIN_TOKENS_FILE")
-if os.getenv("GARMIN_TOKENS_DIR"):
-    tokens_dir = os.getenv("GARMIN_TOKENS_DIR")
-elif legacy_tokens_file:
-    legacy_path = Path(legacy_tokens_file)
-    tokens_dir = str(legacy_path.with_suffix("") if legacy_path.suffix else legacy_path)
-else:
-    tokens_dir = str(CONFIG_DIR / "garmin_tokens")
+def _env_bool(name: str, default: str = "false") -> bool:
+    return (_env(name, default) or "").lower() in ("1", "true", "yes", "on")
 
-GARMIN_TOKENS_DIR = Path(tokens_dir).expanduser()
-LAST_SYNC_DATE_FILE = Path(
-    os.getenv("LAST_SYNC_DATE_FILE", str(CONFIG_DIR / "last_sync_date.txt"))
-).expanduser()
-TEMP_FIT_DIR = Path(os.getenv("TEMP_FIT_DIR", "/tmp/hevy-sync")).expanduser()
+
+def _env_int(name: str, default: str) -> int:
+    return int(_env(name, default) or default)
+
+
+def _env_float(name: str, default: str) -> float:
+    return float(_env(name, default) or default)
+
+
+def _env_path(name: str, default: str) -> Path:
+    return Path(_env(name, default) or default).expanduser()
+
+
+CONFIG_DIR = _env_path("HEVY_SYNC_CONFIG_DIR", ".")
+HEVY_API_KEY = _env("HEVY_API_KEY")
+
+GARMIN_USERNAME = _env("GARMIN_USERNAME")
+GARMIN_PASSWORD = _env("GARMIN_PASSWORD")
+
+GARMIN_TOKENS_DIR = _env_path("GARMIN_TOKENS_DIR", str(CONFIG_DIR / "garmin_tokens"))
+TEMP_FIT_DIR = _env_path("TEMP_FIT_DIR", "/tmp/hevy-sync")
 EXERCISE_MATCHES_FILE = Path(
-    os.getenv("EXERCISE_MATCHES_FILE", str(CONFIG_DIR / "exercise_matches.json"))
+    _env("EXERCISE_MATCHES_FILE", str(CONFIG_DIR / "exercise_matches.json"))
 ).expanduser()
-SYNC_DB_FILE = Path(os.getenv("SYNC_DB_FILE", str(CONFIG_DIR / "sync.db"))).expanduser()
+SYNC_DB_FILE = _env_path("SYNC_DB_FILE", str(CONFIG_DIR / "sync.db"))
 
-SYNC_LIMIT = int(os.getenv("SYNC_LIMIT", "10"))
-SYNC_FETCH_ALL = os.getenv("SYNC_FETCH_ALL", "false").lower() in ("1", "true", "yes", "on")
-SYNC_SINCE = os.getenv("SYNC_SINCE")
-SKIP_EXISTING = os.getenv("SKIP_EXISTING", "true").lower() in ("1", "true", "yes", "on")
-DRY_RUN = os.getenv("DRY_RUN", "false").lower() in ("1", "true", "yes", "on")
+SYNC_LIMIT = _env_int("SYNC_LIMIT", "10")
+SYNC_FETCH_ALL = _env_bool("SYNC_FETCH_ALL")
+SYNC_SINCE = _env("SYNC_SINCE")
+SKIP_EXISTING = _env_bool("SKIP_EXISTING", "true")
+DRY_RUN = _env_bool("DRY_RUN")
 
-MERGE_MODE = os.getenv("MERGE_MODE", "true").lower() in ("1", "true", "yes", "on")
-MERGE_OVERLAP_PCT = float(os.getenv("MERGE_OVERLAP_PCT", "70"))
-MERGE_MAX_DRIFT_MIN = int(os.getenv("MERGE_MAX_DRIFT_MIN", "20"))
-DESCRIPTION_ENABLED = os.getenv("DESCRIPTION_ENABLED", "true").lower() in ("1", "true", "yes", "on")
-HR_FUSION_ENABLED = os.getenv("HR_FUSION_ENABLED", "true").lower() in ("1", "true", "yes", "on")
+MERGE_MODE = _env_bool("MERGE_MODE", "true")
+MERGE_OVERLAP_PCT = _env_float("MERGE_OVERLAP_PCT", "70")
+MERGE_MAX_DRIFT_MIN = _env_int("MERGE_MAX_DRIFT_MIN", "20")
+DESCRIPTION_ENABLED = _env_bool("DESCRIPTION_ENABLED", "true")
+HR_FUSION_ENABLED = _env_bool("HR_FUSION_ENABLED", "true")
 
-USER_WEIGHT_KG = float(os.getenv("USER_WEIGHT_KG", "80"))
-USER_BIRTH_YEAR = int(os.getenv("USER_BIRTH_YEAR", "1990"))
-USER_VO2MAX = float(os.getenv("USER_VO2MAX", "45"))
-WORKING_SET_SECONDS = int(os.getenv("WORKING_SET_SECONDS", "40"))
-WARMUP_SET_SECONDS = int(os.getenv("WARMUP_SET_SECONDS", "25"))
-REST_BETWEEN_SETS_SECONDS = int(os.getenv("REST_BETWEEN_SETS_SECONDS", "75"))
-REST_BETWEEN_EXERCISES_SECONDS = int(os.getenv("REST_BETWEEN_EXERCISES_SECONDS", "120"))
+USER_WEIGHT_KG = _env_float("USER_WEIGHT_KG", "80")
+USER_BIRTH_YEAR = _env_int("USER_BIRTH_YEAR", "1990")
+USER_VO2MAX = _env_float("USER_VO2MAX", "45")
+WORKING_SET_SECONDS = _env_int("WORKING_SET_SECONDS", "40")
+WARMUP_SET_SECONDS = _env_int("WARMUP_SET_SECONDS", "25")
+REST_BETWEEN_SETS_SECONDS = _env_int("REST_BETWEEN_SETS_SECONDS", "75")
+REST_BETWEEN_EXERCISES_SECONDS = _env_int("REST_BETWEEN_EXERCISES_SECONDS", "120")
 
-LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
+LOG_LEVEL = (_env("LOG_LEVEL", "INFO") or "INFO").upper()
 
 logging.basicConfig(
     level=getattr(logging, LOG_LEVEL),
