@@ -49,7 +49,7 @@ USER_BIRTH_YEAR="1990"
 USER_VO2MAX="45"
 ```
 
-`GARMIN_EMAIL` und `GARMIN_TOKENS_FILE` werden aus alten Installationen weiterhin als Fallback akzeptiert.
+`GARMIN_EMAIL` und `GARMIN_TOKENS_FILE` werden aus alten Installationen weiterhin als Fallback akzeptiert. Das Compose-File zieht `ghcr.io/lucasgirod/hevy_sync:latest` bei jedem Deploy neu, damit keine alte lokale Image-Version weiterläuft.
 
 ## Wie Der Sync Läuft
 
@@ -110,6 +110,15 @@ docker compose -f docker-compose.yaml run --rm hevy-sync
 ```
 
 Das Compose-Volume speichert Garmin-Tokens, SQLite-State, HR-Cache und das korrigierbare `exercise_matches.json`. Der Volume-Name wird von Docker Compose pro Projekt/Stack namespaced, sodass mehrere Instanzen auf demselben Host laufen können.
+
+Für lokale Tests direkt aus dem Arbeitsverzeichnis:
+
+```bash
+docker build -t hevy-sync:local .
+docker run --rm -it --env-file .env -e DRY_RUN=true -v hevy-sync-test:/config hevy-sync:local
+```
+
+Hinweis: `docker run --env-file` interpretiert Anführungszeichen anders als Docker Compose. Wenn deine `.env` Werte in Quotes enthält, ist Compose robuster.
 
 ## Attribution
 

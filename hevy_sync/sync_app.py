@@ -27,6 +27,7 @@ from .config import (
 )
 from .fit import generate_fit
 from .garmin import (
+    find_matching_garmin_activity,
     find_activity_by_start_time,
     generate_description,
     get_client,
@@ -74,12 +75,15 @@ def main() -> int:
 
     garmin_client = None
     if DRY_RUN:
-        logger.info("DRY_RUN aktiv: Es werden keine Garmin-Änderungen geschrieben.")
-    else:
-        try:
-            logger.info("Authentifiziere bei Garmin Connect...")
-            garmin_client = get_client(GARMIN_USERNAME, GARMIN_PASSWORD, str(GARMIN_TOKENS_DIR))
-        except Exception as exc:
+        logger.info("DRY_RUN aktiv: Garmin wird nur lesend verwendet, es werden keine Änderungen geschrieben.")
+
+    try:
+        logger.info("Authentifiziere bei Garmin Connect...")
+        garmin_client = get_client(GARMIN_USERNAME, GARMIN_PASSWORD, str(GARMIN_TOKENS_DIR))
+    except Exception as exc:
+        if DRY_RUN:
+            logger.warning("Garmin-Login im DRY_RUN fehlgeschlagen; fahre ohne HR/Merge-Test fort: %s", exc)
+        else:
             logger.error("Garmin-Login fehlgeschlagen: %s", exc)
             return 1
 
@@ -108,7 +112,7 @@ def main() -> int:
 
         logger.info("Synchronisiere: %s (%s)", title, workout_id)
         try:
-            if MERGE_MODE and garmin_client:
+            if MERGE_MODE and garmin_client and not DRY_RUN:
                 merge_result = attempt_merge(
                     garmin_client,
                     workout,
@@ -131,8 +135,21 @@ def main() -> int:
 
                 stats["merge_fallback"] += 1
                 logger.info("Merge-Fallback für %s: %s", title, merge_result.fallback_reason)
+            elif MERGE_MODE and garmin_client and DRY_RUN:
+                match = find_matching_garmin_activity(
+                    garmin_client,
+                    workout,
+                    overlap_threshold=MERGE_OVERLAP_PCT / 100.0,
+                    max_drift_minutes=MERGE_MAX_DRIFT_MIN,
+                )
+                if match:
+                    logger.info("DRY_RUN: würde in Garmin-Aktivität %s mergen.", match.get("activityId"))
+                else:
+                    logger.info("DRY_RUN: keine passende Garmin-Aktivität für Merge gefunden.")
 
             hr_samples = get_workout_hr_samples(garmin_client, workout, state) if HR_FUSION_ENABLED and garmin_client else []
+            if HR_FUSION_ENABLED:
+                logger.info("%s Garmin-HR-Samples für '%s' gefunden.", len(hr_samples), title)
             with tempfile.TemporaryDirectory(dir=TEMP_FIT_DIR) as tmp:
                 fit_path = str(Path(tmp) / f"{workout_id}.fit")
                 result = generate_fit(workout, hr_samples=hr_samples, output_path=fit_path)

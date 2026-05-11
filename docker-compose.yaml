@@ -1,12 +1,14 @@
 services:
   hevy-sync:
     image: ghcr.io/lucasgirod/hevy_sync:latest
+    pull_policy: always
     stdin_open: true
     tty: true
     environment:
-      - TZ=${TZ:?err}
+      - TZ=${TZ:-Europe/Zurich}
       - HEVY_API_KEY=${HEVY_API_KEY:?err}
-      - GARMIN_USERNAME=${GARMIN_USERNAME:?err}
+      - GARMIN_USERNAME=${GARMIN_USERNAME:-}
+      - GARMIN_EMAIL=${GARMIN_EMAIL:-}
       - GARMIN_PASSWORD=${GARMIN_PASSWORD:?err}
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
       - SYNC_LIMIT=${SYNC_LIMIT:-10}
