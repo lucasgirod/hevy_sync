@@ -136,7 +136,7 @@ Der Stack besteht aus:
 - `hevy-sync`: dauerhafter App-Service mit Cron und Webhook auf Port 8000 im Docker-Netz.
 - `caddy`: HTTPS-Reverse-Proxy auf Port 443 mit Let’s Encrypt und Cloudflare-DNS-Challenge über `caddybuilds/caddy-cloudflare:latest`.
 
-Das Compose-Volume `config` speichert Garmin-Tokens, SQLite-State, HR-Cache und das korrigierbare `exercise_matches.json`. `caddy_data` und `caddy_config` speichern Zertifikate und Caddy-State. Die `Caddyfile` aus dem Repository wird in den Caddy-Container gemountet. Die Volume-Namen werden von Docker Compose pro Projekt/Stack namespaced, sodass mehrere Instanzen auf demselben Host laufen können.
+Das Compose-Volume `config` speichert Garmin-Tokens, SQLite-State, HR-Cache und das korrigierbare `exercise_matches.json`. `caddy_data` und `caddy_config` speichern Zertifikate und Caddy-State. Die Caddy-Konfiguration ist direkt als Compose-Config eingebettet, damit Portainer keine separate `Caddyfile` auf dem Host mounten muss. Die Volume-Namen werden von Docker Compose pro Projekt/Stack namespaced, sodass mehrere Instanzen auf demselben Host laufen können.
 
 Für Let’s Encrypt per Cloudflare muss `HEVY_SYNC_DOMAIN` auf den Host zeigen und `CLOUDFLARE_API_TOKEN` mindestens `Zone.Zone:Read` und `Zone.DNS:Edit` für die Zone besitzen.
 

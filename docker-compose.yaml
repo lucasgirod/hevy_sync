@@ -40,17 +40,35 @@ services:
     pull_policy: always
     depends_on:
       - hevy-sync
+    command: ["caddy", "run", "--config", "/etc/caddy/Caddyfile"]
     environment:
       - HEVY_SYNC_DOMAIN=${HEVY_SYNC_DOMAIN:?err}
       - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL:?err}
       - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN:?err}
     ports:
       - "443:443"
+    configs:
+      - source: caddyfile
+        target: /etc/caddy/Caddyfile
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy_data:/data
       - caddy_config:/config
     restart: unless-stopped
+
+configs:
+  caddyfile:
+    content: |
+      {
+        email {$$LETSENCRYPT_EMAIL}
+      }
+
+      {$$HEVY_SYNC_DOMAIN} {
+        tls {
+          dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+        }
+
+        reverse_proxy hevy-sync:8000
+      }
 
 volumes:
   config:
