@@ -158,6 +158,66 @@ Healthcheck:
 curl https://<HEVY_SYNC_DOMAIN>/health
 ```
 
+## Hevy Webhook Einrichten
+
+1. Stelle sicher, dass der Stack läuft und Caddy ein Zertifikat erhalten hat:
+
+```bash
+docker compose -f docker-compose.yaml up -d
+curl https://<HEVY_SYNC_DOMAIN>/health
+```
+
+Der Healthcheck sollte ungefähr so antworten:
+
+```json
+{"status":"ok","running":false,"webhook_path":"/webhook/hevy"}
+```
+
+2. Öffne in Hevy die Developer-/API-Einstellungen und erstelle einen neuen Webhook.
+
+3. Trage als Webhook-URL ein:
+
+```text
+https://<HEVY_SYNC_DOMAIN>/webhook/hevy
+```
+
+Wenn du `WEBHOOK_PATH` geändert hast, nutze stattdessen diesen Pfad.
+
+4. Hinterlege das Secret aus deiner `.env` (`WEBHOOK_SECRET`). Falls Hevy eine Header-Konfiguration erlaubt, verwende eine dieser Varianten:
+
+```text
+Authorization: Bearer <WEBHOOK_SECRET>
+```
+
+oder:
+
+```text
+X-Webhook-Secret: <WEBHOOK_SECRET>
+```
+
+Wenn Hevy stattdessen eine HMAC-Signatur über den Body sendet, werden `X-Hevy-Signature`, `X-Hub-Signature-256` und `X-Signature` akzeptiert. Das Format darf `sha256=<hex>` oder nur `<hex>` sein.
+
+5. Aktiviere Events für erstellte oder aktualisierte Workouts. Der konkrete Event-Name ist für diese App nicht kritisch: jeder gültig signierte POST auf den Webhook queued einen Sync. Gelöschte Workouts werden aktuell nicht aktiv aus Garmin entfernt.
+
+6. Teste den Webhook in Hevy. In den Container-Logs solltest du eine `202`-Antwort und danach einen Sync-Run sehen:
+
+```bash
+docker compose -f docker-compose.yaml logs -f hevy-sync
+```
+
+Erwartete Log-Zeilen:
+
+```text
+"POST /webhook/hevy HTTP/1.1" 202
+Starting hevy-sync container run...
+```
+
+Wenn Hevy `401` erhält, passt das Secret nicht oder wird nicht in einem unterstützten Header/Signaturformat gesendet. Wenn Hevy keine Verbindung herstellen kann, prüfe DNS, Port `443`, `HEVY_SYNC_DOMAIN` und die Caddy-Logs:
+
+```bash
+docker compose -f docker-compose.yaml logs -f caddy
+```
+
 Für lokale Tests direkt aus dem Arbeitsverzeichnis:
 
 ```bash
