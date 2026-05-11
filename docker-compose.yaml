@@ -19,6 +19,9 @@ services:
       - SERVER_PORT=8000
       - WEBHOOK_PATH=${WEBHOOK_PATH:-/webhook/hevy}
       - WEBHOOK_SECRET=${WEBHOOK_SECRET:?err}
+      - MAX_WEBHOOK_BODY_BYTES=${MAX_WEBHOOK_BODY_BYTES:-65536}
+      - WEBHOOK_RATE_LIMIT_MAX_REQUESTS=${WEBHOOK_RATE_LIMIT_MAX_REQUESTS:-30}
+      - WEBHOOK_RATE_LIMIT_WINDOW_SECONDS=${WEBHOOK_RATE_LIMIT_WINDOW_SECONDS:-60}
       - DRY_RUN=${DRY_RUN:-false}
       - MERGE_MODE=${MERGE_MODE:-true}
       - MERGE_OVERLAP_PCT=${MERGE_OVERLAP_PCT:-70}
@@ -31,8 +34,23 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - config:/config
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=128m
     expose:
       - "8000"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 128
+    mem_limit: 512m
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5).read()"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
     restart: unless-stopped
 
   caddy:
@@ -45,6 +63,7 @@ services:
       - HEVY_SYNC_DOMAIN=${HEVY_SYNC_DOMAIN:?err}
       - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL:?err}
       - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN:?err}
+      - WEBHOOK_PATH=${WEBHOOK_PATH:-/webhook/hevy}
     ports:
       - "443:443"
     configs:
@@ -53,6 +72,14 @@ services:
     volumes:
       - caddy_data:/data
       - caddy_config:/config
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 128
+    mem_limit: 256m
     restart: unless-stopped
 
 configs:
@@ -67,7 +94,31 @@ configs:
           dns cloudflare {env.CLOUDFLARE_API_TOKEN}
         }
 
-        reverse_proxy hevy-sync:8000
+        header {
+          X-Content-Type-Options nosniff
+          Referrer-Policy no-referrer
+        }
+
+        @webhook {
+          method POST
+          path {$$WEBHOOK_PATH}
+        }
+        handle @webhook {
+          request_body {
+            max_size 64KB
+          }
+          reverse_proxy hevy-sync:8000
+        }
+
+        @health {
+          method GET
+          path /health
+        }
+        handle @health {
+          reverse_proxy hevy-sync:8000
+        }
+
+        respond 404
       }
 
 volumes:

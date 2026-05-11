@@ -58,6 +58,9 @@ SERVER_HOST = _env("SERVER_HOST", "0.0.0.0") or "0.0.0.0"
 SERVER_PORT = _env_int("SERVER_PORT", "8000")
 WEBHOOK_PATH = _env("WEBHOOK_PATH", "/webhook/hevy") or "/webhook/hevy"
 WEBHOOK_SECRET = _env("WEBHOOK_SECRET")
+MAX_WEBHOOK_BODY_BYTES = _env_int("MAX_WEBHOOK_BODY_BYTES", "65536")
+WEBHOOK_RATE_LIMIT_MAX_REQUESTS = _env_int("WEBHOOK_RATE_LIMIT_MAX_REQUESTS", "30")
+WEBHOOK_RATE_LIMIT_WINDOW_SECONDS = _env_int("WEBHOOK_RATE_LIMIT_WINDOW_SECONDS", "60")
 
 MERGE_MODE = _env_bool("MERGE_MODE", "true")
 MERGE_OVERLAP_PCT = _env_float("MERGE_OVERLAP_PCT", "70")
@@ -96,6 +99,25 @@ def validate_config() -> None:
 
     if missing:
         logger.error("Missing required configuration: %s", ", ".join(missing))
+        raise SystemExit(1)
+
+
+def validate_service_config() -> None:
+    validate_config()
+    if not WEBHOOK_SECRET:
+        logger.error("Missing required configuration: WEBHOOK_SECRET")
+        raise SystemExit(1)
+    if not WEBHOOK_PATH.startswith("/"):
+        logger.error("WEBHOOK_PATH must start with '/': %s", WEBHOOK_PATH)
+        raise SystemExit(1)
+    if MAX_WEBHOOK_BODY_BYTES <= 0:
+        logger.error("MAX_WEBHOOK_BODY_BYTES must be greater than 0.")
+        raise SystemExit(1)
+    if WEBHOOK_RATE_LIMIT_MAX_REQUESTS <= 0:
+        logger.error("WEBHOOK_RATE_LIMIT_MAX_REQUESTS must be greater than 0.")
+        raise SystemExit(1)
+    if WEBHOOK_RATE_LIMIT_WINDOW_SECONDS <= 0:
+        logger.error("WEBHOOK_RATE_LIMIT_WINDOW_SECONDS must be greater than 0.")
         raise SystemExit(1)
 
 

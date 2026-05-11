@@ -9,18 +9,24 @@ import logging
 import signal
 import threading
 import time
+from collections import deque
 from datetime import datetime, timedelta
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from typing import Any
+from urllib.parse import urlsplit
 from zoneinfo import ZoneInfo
 
 from .config import (
+    MAX_WEBHOOK_BODY_BYTES,
     RUN_ON_START,
     SERVER_HOST,
     SERVER_PORT,
     SYNC_CRON,
+    WEBHOOK_RATE_LIMIT_MAX_REQUESTS,
+    WEBHOOK_RATE_LIMIT_WINDOW_SECONDS,
     WEBHOOK_PATH,
     WEBHOOK_SECRET,
+    validate_service_config,
 )
 from .sync_app import run_sync
 
@@ -119,31 +125,79 @@ def _parse_cron_field(raw: str, minimum: int, maximum: int) -> set[int]:
     return values
 
 
+class WindowRateLimiter:
+    """Small process-local sliding-window limiter for public webhook traffic."""
+
+    def __init__(self, max_requests: int, window_seconds: int) -> None:
+        self.max_requests = max_requests
+        self.window_seconds = window_seconds
+        self._lock = threading.Lock()
+        self._requests: deque[float] = deque()
+
+    def allow(self) -> bool:
+        now = time.monotonic()
+        cutoff = now - self.window_seconds
+        with self._lock:
+            while self._requests and self._requests[0] <= cutoff:
+                self._requests.popleft()
+            if len(self._requests) >= self.max_requests:
+                return False
+            self._requests.append(now)
+            return True
+
+    def retry_after(self) -> int:
+        now = time.monotonic()
+        with self._lock:
+            if not self._requests:
+                return self.window_seconds
+            return max(1, round(self.window_seconds - (now - self._requests[0])))
+
+
 def make_handler(runner: SyncRunner):
     webhook_path = WEBHOOK_PATH.rstrip("/") or "/webhook/hevy"
+    rate_limiter = WindowRateLimiter(
+        max_requests=WEBHOOK_RATE_LIMIT_MAX_REQUESTS,
+        window_seconds=WEBHOOK_RATE_LIMIT_WINDOW_SECONDS,
+    )
 
     class HevySyncHandler(BaseHTTPRequestHandler):
         server_version = "hevy-sync/1.0"
 
         def do_GET(self) -> None:
-            if self.path.rstrip("/") in {"", "/health"}:
+            if _request_path(self.path).rstrip("/") in {"", "/health"}:
                 self._send_json(
                     200,
                     {
                         "status": "ok",
                         "running": runner.running,
-                        "webhook_path": webhook_path,
                     },
                 )
                 return
             self._send_json(404, {"error": "not_found"})
 
         def do_POST(self) -> None:
-            if self.path.rstrip("/") != webhook_path:
+            if _request_path(self.path).rstrip("/") != webhook_path:
                 self._send_json(404, {"error": "not_found"})
                 return
 
-            raw_body = self.rfile.read(_content_length(self.headers))
+            content_length = _content_length(self.headers)
+            if content_length > MAX_WEBHOOK_BODY_BYTES:
+                self._send_json(
+                    413,
+                    {"error": "payload_too_large", "max_bytes": MAX_WEBHOOK_BODY_BYTES},
+                    close=True,
+                )
+                return
+
+            if not rate_limiter.allow():
+                self._send_json(
+                    429,
+                    {"error": "rate_limited"},
+                    headers={"Retry-After": str(rate_limiter.retry_after())},
+                )
+                return
+
+            raw_body = self.rfile.read(content_length)
             if not _valid_webhook_secret(self.headers, raw_body):
                 self._send_json(401, {"error": "unauthorized"})
                 return
@@ -162,15 +216,30 @@ def make_handler(runner: SyncRunner):
         def log_message(self, fmt: str, *args: Any) -> None:
             logger.info("web %s - %s", self.address_string(), fmt % args)
 
-        def _send_json(self, status: int, payload: dict[str, Any]) -> None:
+        def _send_json(
+            self,
+            status: int,
+            payload: dict[str, Any],
+            headers: dict[str, str] | None = None,
+            close: bool = False,
+        ) -> None:
             data = json.dumps(payload).encode("utf-8")
             self.send_response(status)
             self.send_header("Content-Type", "application/json")
             self.send_header("Content-Length", str(len(data)))
+            if close:
+                self.send_header("Connection", "close")
+                self.close_connection = True
+            for name, value in (headers or {}).items():
+                self.send_header(name, value)
             self.end_headers()
             self.wfile.write(data)
 
     return HevySyncHandler
+
+
+def _request_path(raw_path: str) -> str:
+    return urlsplit(raw_path).path
 
 
 def _content_length(headers) -> int:
@@ -248,6 +317,7 @@ def start_scheduler(runner: SyncRunner, stop_event: threading.Event, tz_name: st
 def main() -> int:
     from .config import _env
 
+    validate_service_config()
     tz_name = _env("TZ", "Europe/Zurich") or "Europe/Zurich"
     runner = SyncRunner()
     stop_event = threading.Event()

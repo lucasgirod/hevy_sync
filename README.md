@@ -52,10 +52,14 @@ Webhook:
 
 ```bash
 WEBHOOK_PATH="/webhook/hevy"
-WEBHOOK_SECRET="change-me"
+WEBHOOK_SECRET="replace-with-at-least-32-random-chars"
+MAX_WEBHOOK_BODY_BYTES="65536"
+WEBHOOK_RATE_LIMIT_MAX_REQUESTS="30"
+WEBHOOK_RATE_LIMIT_WINDOW_SECONDS="60"
 ```
 
 Wenn `WEBHOOK_SECRET` gesetzt ist, akzeptiert der Webhook entweder `Authorization: Bearer <secret>`, einen direkten Secret-Header (`X-Webhook-Secret`, `X-Hevy-Webhook-Secret`, `X-Hevy-Secret`) oder eine HMAC-SHA256-Signatur (`X-Hevy-Signature`, `X-Hub-Signature-256`, `X-Signature`) über den Request-Body.
+Im Service-Modus ist `WEBHOOK_SECRET` Pflicht. Der Webhook nimmt standardmäßig maximal 64 KiB pro Request an und limitiert Trigger auf 30 Requests pro Minute.
 
 Profil-Fallbacks für die Keytel-Kalorien-Schätzung:
 
@@ -137,6 +141,7 @@ Der Stack besteht aus:
 - `caddy`: HTTPS-Reverse-Proxy auf Port 443 mit Let’s Encrypt und Cloudflare-DNS-Challenge über `caddybuilds/caddy-cloudflare:latest`.
 
 Das Compose-Volume `config` speichert Garmin-Tokens, SQLite-State, HR-Cache und das korrigierbare `exercise_matches.json`. `caddy_data` und `caddy_config` speichern Zertifikate und Caddy-State. Die Caddy-Konfiguration ist direkt als Compose-Config eingebettet, damit Portainer keine separate `Caddyfile` auf dem Host mounten muss. Die Volume-Namen werden von Docker Compose pro Projekt/Stack namespaced, sodass mehrere Instanzen auf demselben Host laufen können.
+Der öffentliche Reverse-Proxy leitet nur den Webhook-Pfad und `/health` weiter. Der App-Container läuft ohne root-Rechte, mit read-only Root-Dateisystem, ohne Linux-Capabilities und mit einem kleinen tmpfs für temporäre FIT-Dateien.
 
 Für Let’s Encrypt per Cloudflare muss `HEVY_SYNC_DOMAIN` auf den Host zeigen und `CLOUDFLARE_API_TOKEN` mindestens `Zone.Zone:Read` und `Zone.DNS:Edit` für die Zone besitzen.
 
