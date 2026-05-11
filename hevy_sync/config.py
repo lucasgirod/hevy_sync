@@ -51,6 +51,13 @@ SYNC_FETCH_ALL = _env_bool("SYNC_FETCH_ALL")
 SYNC_SINCE = _env("SYNC_SINCE")
 SKIP_EXISTING = _env_bool("SKIP_EXISTING", "true")
 DRY_RUN = _env_bool("DRY_RUN")
+SYNC_CRON = _env("SYNC_CRON", "0 9,20 * * *")
+RUN_ON_START = _env_bool("RUN_ON_START")
+
+SERVER_HOST = _env("SERVER_HOST", "0.0.0.0") or "0.0.0.0"
+SERVER_PORT = _env_int("SERVER_PORT", "8000")
+WEBHOOK_PATH = _env("WEBHOOK_PATH", "/webhook/hevy") or "/webhook/hevy"
+WEBHOOK_SECRET = _env("WEBHOOK_SECRET")
 
 MERGE_MODE = _env_bool("MERGE_MODE", "true")
 MERGE_OVERLAP_PCT = _env_float("MERGE_OVERLAP_PCT", "70")

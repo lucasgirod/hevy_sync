@@ -45,7 +45,7 @@ from .state import SQLiteState
 logger = logging.getLogger(__name__)
 
 
-def main() -> int:
+def run_sync(trigger: str = "container") -> int:
     logger.info("Starting hevy-sync container run...")
     validate_config()
     ensure_exercise_matches_file()
@@ -223,7 +223,7 @@ def main() -> int:
         synced=stats["synced"],
         skipped=stats["skipped"],
         failed=stats["failed"],
-        trigger="github-actions" if os.environ.get("GITHUB_ACTIONS") else "container",
+        trigger="github-actions" if os.environ.get("GITHUB_ACTIONS") else trigger,
     )
     logger.info(
         "Sync fertig: %s synced, %s merged, %s uploaded, %s skipped, %s failed.",
@@ -234,6 +234,10 @@ def main() -> int:
         stats["failed"],
     )
     return 1 if stats["failed"] else 0
+
+
+def main() -> int:
+    return run_sync()
 
 
 if __name__ == "__main__":

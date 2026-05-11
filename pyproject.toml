@@ -34,6 +34,7 @@ Repository = "https://github.com/lucasgirod/hevy-sync"
 
 [project.scripts]
 hevy-sync = "hevy_sync.sync_app:main"
+hevy-sync-service = "hevy_sync.service:main"
 
 [tool.setuptools.packages.find]
 include = ["hevy_sync*"]

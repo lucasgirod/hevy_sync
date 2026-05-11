@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir --upgrade pip setuptools wheel \
 
 RUN mkdir -p /config /tmp/hevy-sync
 
-ENTRYPOINT ["hevy-sync"]
+CMD ["hevy-sync"]

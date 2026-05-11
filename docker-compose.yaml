@@ -2,8 +2,7 @@ services:
   hevy-sync:
     image: ghcr.io/lucasgirod/hevy_sync:latest
     pull_policy: always
-    stdin_open: true
-    tty: true
+    command: ["hevy-sync-service"]
     environment:
       - TZ=${TZ:-Europe/Zurich}
       - HEVY_API_KEY=${HEVY_API_KEY:?err}
@@ -14,6 +13,12 @@ services:
       - SYNC_FETCH_ALL=${SYNC_FETCH_ALL:-false}
       - SYNC_SINCE=${SYNC_SINCE:-}
       - SKIP_EXISTING=${SKIP_EXISTING:-true}
+      - "SYNC_CRON=${SYNC_CRON:-0 9,20 * * *}"
+      - RUN_ON_START=${RUN_ON_START:-false}
+      - SERVER_HOST=0.0.0.0
+      - SERVER_PORT=8000
+      - WEBHOOK_PATH=${WEBHOOK_PATH:-/webhook/hevy}
+      - WEBHOOK_SECRET=${WEBHOOK_SECRET:?err}
       - DRY_RUN=${DRY_RUN:-false}
       - MERGE_MODE=${MERGE_MODE:-true}
       - MERGE_OVERLAP_PCT=${MERGE_OVERLAP_PCT:-70}
@@ -26,7 +31,27 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - config:/config
-    restart: no
+    expose:
+      - "8000"
+    restart: unless-stopped
+
+  caddy:
+    image: ghcr.io/lucasgirod/hevy_sync-caddy:latest
+    pull_policy: always
+    depends_on:
+      - hevy-sync
+    environment:
+      - HEVY_SYNC_DOMAIN=${HEVY_SYNC_DOMAIN:?err}
+      - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL:?err}
+      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN:?err}
+    ports:
+      - "443:443"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: unless-stopped
 
 volumes:
   config:
+  caddy_data:
+  caddy_config:
