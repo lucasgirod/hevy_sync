@@ -67,7 +67,7 @@ USER_VO2MAX="45"
 
 Diese Werte werden normalerweise aus Garmin Connect gelesen. Die Env-Werte werden nur verwendet, wenn Garmin einzelne Profilwerte nicht liefert oder der Garmin-Login im Dry-Run nicht verfügbar ist.
 
-Das Compose-File zieht `ghcr.io/lucasgirod/hevy_sync:latest` und `ghcr.io/lucasgirod/hevy_sync-caddy:latest` bei jedem Deploy neu, damit keine alte lokale Image-Version weiterläuft.
+Das Compose-File zieht `ghcr.io/lucasgirod/hevy_sync:latest` und `caddybuilds/caddy-cloudflare:latest` bei jedem Deploy neu, damit keine alte lokale Image-Version weiterläuft.
 
 ## Wie Der Sync Läuft
 
@@ -112,12 +112,6 @@ App-Image bauen:
 docker build -t hevy-sync .
 ```
 
-Caddy-Image mit Cloudflare-DNS-Modul bauen:
-
-```bash
-docker build -f Dockerfile.caddy -t hevy-sync-caddy .
-```
-
 Einmalig interaktiv ausführen:
 
 ```bash
@@ -140,9 +134,9 @@ docker compose -f docker-compose.yaml up -d
 Der Stack besteht aus:
 
 - `hevy-sync`: dauerhafter App-Service mit Cron und Webhook auf Port 8000 im Docker-Netz.
-- `caddy`: HTTPS-Reverse-Proxy auf Port 443 mit Let’s Encrypt und Cloudflare-DNS-Challenge.
+- `caddy`: HTTPS-Reverse-Proxy auf Port 443 mit Let’s Encrypt und Cloudflare-DNS-Challenge über `caddybuilds/caddy-cloudflare:latest`.
 
-Das Compose-Volume `config` speichert Garmin-Tokens, SQLite-State, HR-Cache und das korrigierbare `exercise_matches.json`. `caddy_data` und `caddy_config` speichern Zertifikate und Caddy-State. Die Volume-Namen werden von Docker Compose pro Projekt/Stack namespaced, sodass mehrere Instanzen auf demselben Host laufen können.
+Das Compose-Volume `config` speichert Garmin-Tokens, SQLite-State, HR-Cache und das korrigierbare `exercise_matches.json`. `caddy_data` und `caddy_config` speichern Zertifikate und Caddy-State. Die `Caddyfile` aus dem Repository wird in den Caddy-Container gemountet. Die Volume-Namen werden von Docker Compose pro Projekt/Stack namespaced, sodass mehrere Instanzen auf demselben Host laufen können.
 
 Für Let’s Encrypt per Cloudflare muss `HEVY_SYNC_DOMAIN` auf den Host zeigen und `CLOUDFLARE_API_TOKEN` mindestens `Zone.Zone:Read` und `Zone.DNS:Edit` für die Zone besitzen.
 

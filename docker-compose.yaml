@@ -36,7 +36,7 @@ services:
     restart: unless-stopped
 
   caddy:
-    image: ghcr.io/lucasgirod/hevy_sync-caddy:latest
+    image: caddybuilds/caddy-cloudflare:latest
     pull_policy: always
     depends_on:
       - hevy-sync
@@ -47,6 +47,7 @@ services:
     ports:
       - "443:443"
     volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy_data:/data
       - caddy_config:/config
     restart: unless-stopped
